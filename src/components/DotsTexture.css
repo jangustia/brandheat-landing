@@ -1,0 +1,16 @@
+/* DotsTexture Component Styles */
+.dots-texture-overlay {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 50vh;
+  pointer-events: none;
+  opacity: 0.10;
+  mix-blend-mode: screen;
+  user-select: none;
+  z-index: 10;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  background-size: 10px 10px;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 0) 100%);
+}

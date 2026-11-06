@@ -1,0 +1,114 @@
+/* BottomAmbientGlow Component Styles */
+.ambient-glow-wrapper {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 100vh;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Confined to the bottom area with ultra-smooth optical gradient diffusion (ZERO cuts) */
+.ambient-chromatic-stage {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 38vh;
+  min-height: 300px;
+  max-height: 390px;
+  pointer-events: none;
+  overflow: visible;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.4) 55%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.95) 20%, rgba(0, 0, 0, 0.4) 55%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Harmonic Undulating Wave Foundation (Inspired by gradient-bars-background) */
+.ambient-harmonic-wave {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 32vh;
+  min-height: 240px;
+  max-height: 320px;
+  display: flex;
+  pointer-events: none;
+  filter: blur(55px);
+  opacity: 0.5;
+  mix-blend-mode: screen;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.ambient-harmonic-bar {
+  transform-origin: bottom;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+@keyframes ambientBarPulse {
+  0% {
+    transform: scaleY(var(--initial-scale));
+    opacity: 0.7;
+  }
+  100% {
+    transform: scaleY(calc(var(--initial-scale) * 0.62));
+    opacity: 1;
+  }
+}
+
+/* Deep foundation base - Crimson on left, pure #FF6637 on the right */
+.ambient-crimson-base {
+  position: absolute;
+  bottom: -180px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  max-width: 1400px;
+  height: 320px;
+  border-radius: 861px;
+  background: linear-gradient(to right, #D70417 0%, #D70417 38%, rgba(62, 49, 131, 0.7) 52%, #FF6637 72%, #FF6637 100%);
+  filter: blur(280px);
+  will-change: transform, opacity;
+}
+
+
+/* Mouse Scroll Button */
+.ambient-mouse-indicator {
+  position: relative;
+  z-index: 30;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  user-select: none;
+  pointer-events: auto;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0.25rem;
+}
+
+.ambient-mouse-capsule {
+  width: 22px;
+  height: 34px;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0.375rem;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.ambient-mouse-indicator:hover .ambient-mouse-capsule {
+  border-color: #ffffff;
+  box-shadow: 0 0 18px rgba(255, 102, 55, 0.55);
+}

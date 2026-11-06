@@ -1,0 +1,20 @@
+/* ScrollyHero Component Styles */
+.scrolly-hero-container {
+  position: relative;
+  width: 100%;
+  height: 540vh;
+  background-color: #060709;
+}
+
+.scrolly-hero-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,46 @@
+/* InvertedOrangeCursor.css */
+
+.inverted-orange-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 999999;
+  will-change: transform, width, height, background-color, border-color, box-shadow;
+}
+
+.inverted-orange-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background-color: #FF6637;
+  pointer-events: none;
+  z-index: 1000000;
+  transition: opacity 0.2s ease;
+  will-change: transform, left, top;
+}
+
+/* Hide native cursor completely on devices with fine pointer (mouse / trackpad) */
+@media (hover: hover) and (pointer: fine) {
+
+  html,
+  body,
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
+/* Hide custom cursor on touchscreens / mobile devices */
+@media (hover: none) or (pointer: coarse) {
+
+  .inverted-orange-cursor,
+  .inverted-orange-cursor-dot {
+    display: none !important;
+  }
+}

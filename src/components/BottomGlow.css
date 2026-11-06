@@ -1,0 +1,24 @@
+/* BottomGlow Component Styles */
+.bottom-glow-container {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 480px;
+  pointer-events: none;
+  overflow: hidden;
+  user-select: none;
+  z-index: 10;
+}
+
+.bottom-glow-orb-primary {
+  position: absolute;
+  bottom: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 380px;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at 50% 90%, rgba(255, 102, 55, 0.45) 0%, rgba(215, 4, 23, 0.25) 45%, rgba(0, 0, 0, 0) 75%);
+  filter: blur(70px);
+}
+

@@ -1,0 +1,9 @@
+/* FeatureSection Component Styles */
+.feature-section-container {
+  position: relative;
+  width: 100%;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #060709;
+}
+
