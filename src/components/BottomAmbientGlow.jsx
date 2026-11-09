@@ -607,7 +607,7 @@ export default function BottomAmbientGlow({ onScrollClick, currentLang = 'es', i
           </motion.div>
 
           {/* Indicator text: 'Scroll to learn more' in Spanish and English */}
-          <span className="mt-2 text-[10px] sm:text-[11px] font-['Poppins',sans-serif] font-[500] tracking-[0.16em] uppercase text-[#8D8F93] group-hover:text-[#ffffff] transition-colors duration-200 select-none">
+          <span className="mt-2 text-[10px] sm:text-[11px] font-['Inter',sans-serif] font-[500] tracking-[0.16em] uppercase text-[#8D8F93] group-hover:text-[#ffffff] transition-colors duration-200 select-none">
             {currentLang === 'es' ? 'Desliza para conocer más' : 'Scroll to learn more'}
           </span>
         </button>

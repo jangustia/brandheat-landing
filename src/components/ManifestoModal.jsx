@@ -84,11 +84,11 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
             {/* Modal Header */}
             <div className="flex-shrink-0 flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[rgba(255,255,255,0.06)] bg-[#161618]/95 backdrop-blur-md z-10">
               <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] text-[11px] font-['Poppins',sans-serif] font-[700] uppercase tracking-wider">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] text-[11px] font-['Manrope',sans-serif] font-[700] uppercase tracking-wider">
                   <Flame className="w-3 h-3 text-[#ea4325]" />
                   <span>{isEs ? 'MANIFIESTO' : 'MANIFESTO'}</span>
                 </span>
-                <span className="text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] hidden sm:inline">
+                <span className="text-xs font-['Inter',sans-serif] font-[500] text-[#8D8F93] hidden sm:inline">
                   Brand HEAT
                 </span>
               </div>
@@ -105,7 +105,7 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
             </div>
 
             {/* Modal Scrollable Content: flex-1 min-h-0 allows flexbox child to scroll within max-height */}
-            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 sm:px-8 md:px-10 py-6 sm:py-8 custom-dialog-scrollbar space-y-6 text-left font-['Poppins',sans-serif]">
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 sm:px-8 md:px-10 py-6 sm:py-8 custom-dialog-scrollbar space-y-6 text-left font-['Inter',sans-serif]">
               {isEs ? (
                 /* ========================================================
                    SPANISH MANIFESTO

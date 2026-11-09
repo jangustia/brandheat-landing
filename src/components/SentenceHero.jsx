@@ -276,7 +276,7 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h1 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
+                    <h1 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
                         <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? '¿Cuánto tarda' : 'How long does it take'}
@@ -307,7 +307,7 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
+                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
                         <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'Una conversación que' : 'A conversation that'}
@@ -341,7 +341,7 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
+                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
                         <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
