@@ -21,7 +21,7 @@ export default function MouseScrollIndicator({ onClick }) {
       type="button"
       onClick={handleClick}
       aria-label="Scroll to explore"
-      className="relative z-10 mb-8 flex flex-col items-center select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF6637]/40 rounded-full p-1"
+      className="relative z-10 mb-8 flex flex-col items-center select-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 rounded-full p-1"
     >
       <div className="w-[22px] h-[34px] rounded-full border-2 border-white/75 flex flex-col items-center justify-start pt-1.5 shadow-[0_0_12px_rgba(255,255,255,0.15)]">
         {/* Scroll Wheel Motion */}

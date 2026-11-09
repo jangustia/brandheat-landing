@@ -28,13 +28,13 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-[#060709]/40">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-[#08090c]/60">
       <div className="w-full px-[40px] m-0 h-20 sm:h-24 flex items-center justify-between">
         {/* Brandheat Logo */}
         <a
           href="#"
           onClick={handleLogoClick}
-          className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#FF6637]/40 rounded-lg p-1"
+          className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 rounded-lg p-1"
           aria-label="Brand HEAT Home"
         >
           <img
@@ -52,7 +52,7 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
               key={link.href}
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.href)}
-              className="text-sm font-medium text-white/75 hover:text-white transition-colors duration-200 tracking-wide relative group py-1"
+              className="text-sm font-['Poppins',sans-serif] font-[500] text-[#E1E1E1] hover:text-[#ffffff] transition-colors duration-200 tracking-wide relative group py-1"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -66,7 +66,7 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
                   {link.label}
                 </motion.span>
               </AnimatePresence>
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-[#FF6637] to-[#D70417] transition-all duration-300 group-hover:w-full rounded-full" />
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#ea4325] transition-all duration-300 group-hover:w-full rounded-full" />
             </a>
           ))}
         </nav>
@@ -75,7 +75,7 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
         <div className="flex items-center gap-4 sm:gap-6">
           {/* Language selector ES | EN */}
           <div
-            className="inline-flex items-center text-xs tracking-wider font-medium text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
+            className="inline-flex items-center text-xs tracking-wider font-['Poppins',sans-serif] font-[500] text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
             role="group"
             aria-label="Language selection"
           >
@@ -84,8 +84,8 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
               onClick={() => onToggleLang('es')}
               className={`transition-colors duration-200 px-1.5 py-0.5 rounded ${
                 currentLang === 'es'
-                  ? 'text-white font-semibold drop-shadow-[0_0_8px_rgba(255,102,55,0.6)]'
-                  : 'text-white/40 hover:text-white/80'
+                  ? 'text-white font-[600] drop-shadow-[0_0_8px_rgba(234,67,37,0.6)]'
+                  : 'text-[#8D8F93] hover:text-[#ffffff]'
               }`}
               aria-pressed={currentLang === 'es'}
             >
@@ -97,8 +97,8 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
               onClick={() => onToggleLang('en')}
               className={`transition-colors duration-200 px-1.5 py-0.5 rounded ${
                 currentLang === 'en'
-                  ? 'text-white font-semibold drop-shadow-[0_0_8px_rgba(255,102,55,0.6)]'
-                  : 'text-white/40 hover:text-white/80'
+                  ? 'text-white font-[600] drop-shadow-[0_0_8px_rgba(234,67,37,0.6)]'
+                  : 'text-[#8D8F93] hover:text-[#ffffff]'
               }`}
               aria-pressed={currentLang === 'en'}
             >
@@ -110,7 +110,7 @@ export default function Navbar({ currentLang, onToggleLang, onNavClick, onLogoCl
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white/80 hover:text-white p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] focus:outline-none focus:ring-2 focus:ring-[#FF6637]/50"
+            className="md:hidden text-white/80 hover:text-white p-2 rounded-lg bg-white/[0.04] border border-white/[0.08] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/50"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >

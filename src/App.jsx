@@ -43,7 +43,7 @@ export default function App() {
   };
 
   return (
-    <div className="app-container relative w-screen h-screen overflow-hidden bg-[#070709] text-white selection:bg-[#FF5722]/30 selection:text-white m-0 p-0">
+    <div className="app-container relative w-screen h-screen overflow-hidden bg-[#08090c] text-[#ffffff] selection:bg-[#ea4325]/30 selection:text-white m-0 p-0">
       {/* Precision Inverted Orange Custom Cursor */}
       <InvertedOrangeCursor />
 
@@ -51,7 +51,7 @@ export default function App() {
       <div
         className="pointer-events-none fixed inset-0 z-10 transition-opacity duration-700 opacity-25"
         style={{
-          background: `radial-gradient(650px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 87, 34, 0.08), transparent 80%)`,
+          background: `radial-gradient(650px circle at ${mousePos.x}px ${mousePos.y}px, rgba(234, 67, 37, 0.08), transparent 80%)`,
         }}
         aria-hidden="true"
       />

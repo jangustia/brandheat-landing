@@ -4,7 +4,11 @@ import { motion } from 'framer-motion';
 /**
  * SectionFourClients Component
  * Renders Section 4: "OUR CLIENTS (so far)"
- * Displays a 4-card placeholder logo grid matching the provided design.
+ * Built strictly according to design.md tokens:
+ * - Level 2 Parent Cards (#151515, border: 1px solid rgba(255,255,255,0.07), rounded-[24px])
+ * - Level 3 Hover State (#212121, border: rgba(234,67,37,0.3))
+ * - Typography: Poppins font family, Primary #ffffff, Content #E1E1E1, Muted #8D8F93
+ * - Small Text Rule: font-weight 500 for text < 14px
  */
 export default function SectionFourClients({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
@@ -70,12 +74,12 @@ export default function SectionFourClients({ currentLang = 'es' }) {
       {/* 1. Header Title: OUR CLIENTS (so far) */}
       <motion.h2
         variants={cascadeHeader}
-        className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[600] tracking-[-0.02em] text-white text-center"
+        className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[600] tracking-[-0.02em] text-[#ffffff] text-center"
       >
         {isEs ? 'OUR CLIENTS (so far)' : 'OUR CLIENTS (so far)'}
       </motion.h2>
 
-      {/* 2. Grid with 4 Logo Placeholders */}
+      {/* 2. Grid with 4 Logo Placeholders (Level 2 Parent Cards #151515, rounded-[24px]) */}
       <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full max-w-4xl mx-auto">
         {placeholders.map((num) => (
           <motion.div
@@ -83,9 +87,9 @@ export default function SectionFourClients({ currentLang = 'es' }) {
             variants={cascadeCard}
             whileHover={{ y: -4, scale: 1.02 }}
             transition={{ duration: 0.25 }}
-            className="group relative h-24 sm:h-28 md:h-32 bg-[#111115]/90 hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/20 rounded-[20px] sm:rounded-[24px] flex items-center justify-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.3)] cursor-default select-none"
+            className="group relative h-24 sm:h-28 md:h-32 bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] rounded-[24px] flex items-center justify-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-default select-none"
           >
-            <span className="font-['Manrope',sans-serif] text-base sm:text-lg md:text-xl font-[400] text-white/35 group-hover:text-white/60 tracking-wider transition-colors duration-200">
+            <span className="font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl font-[500] text-[#8D8F93] group-hover:text-[#E1E1E1] tracking-wider transition-colors duration-200">
               Logo
             </span>
           </motion.div>
@@ -94,4 +98,3 @@ export default function SectionFourClients({ currentLang = 'es' }) {
     </motion.div>
   );
 }
-

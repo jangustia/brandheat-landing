@@ -580,10 +580,10 @@ export default function BottomAmbientGlow({ onScrollClick, currentLang = 'es', i
         <button
           type="button"
           onClick={onScrollClick}
-          className="ambient-mouse-indicator focus:outline-none focus:ring-2 focus:ring-[#FF5722]/40 rounded-full group cursor-pointer"
+          className="ambient-mouse-indicator focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 rounded-full group cursor-pointer"
           aria-label={currentLang === 'es' ? 'Desliza para conocer más' : 'Scroll to learn more'}
         >
-          <div className="ambient-mouse-capsule group-hover:border-white group-hover:shadow-[0_0_16px_rgba(255,102,55,0.45)] transition-all duration-300">
+          <div className="ambient-mouse-capsule group-hover:border-white group-hover:shadow-[0_0_16px_rgba(234,67,37,0.45)] transition-all duration-300">
             <motion.div
               animate={{
                 y: [0, 8, 0],
@@ -601,13 +601,13 @@ export default function BottomAmbientGlow({ onScrollClick, currentLang = 'es', i
           <motion.div
             animate={{ opacity: [0.3, 0.8, 0.3] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="mt-1 text-[8px] text-white/50 leading-none group-hover:text-white/80 transition-colors"
+            className="mt-1 text-[8px] text-[#8D8F93] leading-none group-hover:text-white/80 transition-colors"
           >
             ⌄
           </motion.div>
 
           {/* Indicator text: 'Scroll to learn more' in Spanish and English */}
-          <span className="mt-2 text-[10px] sm:text-[11px] font-['Manrope',sans-serif] font-medium tracking-[0.16em] uppercase text-white/50 group-hover:text-white transition-colors duration-200 select-none">
+          <span className="mt-2 text-[10px] sm:text-[11px] font-['Poppins',sans-serif] font-[500] tracking-[0.16em] uppercase text-[#8D8F93] group-hover:text-[#ffffff] transition-colors duration-200 select-none">
             {currentLang === 'es' ? 'Desliza para conocer más' : 'Scroll to learn more'}
           </span>
         </button>

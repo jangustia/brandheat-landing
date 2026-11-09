@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, X, RotateCcw } from 'lucide-react';
+import { X, RotateCcw } from 'lucide-react';
 
 /**
  * SectionSixFounders Component
  * Renders Section 6: "Founder member"
- * - Displays 5 founder tiles in a horizontal grid.
- * - Clicking any tile opens an interactive detail modal with founder image,
- *   name, role, tag, and bio.
- * - Uses high-end placeholder imagery and text.
+ * Built strictly according to design.md tokens:
+ * - Level 2 Parent Cards (#151515, border: 1px solid rgba(255,255,255,0.07), rounded-[24px])
+ * - Level 3 Sub-containers (#212121) for avatar placeholder boxes and hover state
+ * - Level 4 Modal (#161618, backdrop-filter: blur(20px), border: 1px solid rgba(255,255,255,0.08))
+ * - Level 4 Active Option surface (#44251c) for warm orange accents and badges
+ * - The ONE Brand Orange: #ea4325
+ * - Typography: Poppins font family, Primary #ffffff, Content #E1E1E1, Muted #8D8F93
+ * - Small Text Rule: font-weight: 500 on all text < 14px
  */
 export default function SectionSixFounders({ currentLang = 'es', onBackToStart }) {
   const isEs = currentLang === 'es';
@@ -126,36 +130,36 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       {/* 1. Header Title: Founder member */}
       <motion.h2
         variants={cascadeHeader}
-        className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[500] tracking-[-0.02em] text-white text-center"
+        className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[600] tracking-[-0.02em] text-[#ffffff] text-center"
       >
         {isEs ? 'Founder member' : 'Founder member'}
       </motion.h2>
 
-      {/* 2. Horizontal Row of 5 Founder Tiles */}
+      {/* 2. Horizontal Row of 5 Founder Tiles (Level 2 Parent Cards #151515, rounded-[24px]) */}
       <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4 md:gap-5 w-full max-w-4xl lg:max-w-5xl mx-auto">
         {founders.map((founder) => (
           <motion.button
             key={founder.id}
             type="button"
             variants={cascadeTile}
-            whileHover={{ y: -5, scale: 1.03 }}
+            whileHover={{ y: -5, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setSelectedFounder(founder)}
-            className="group relative aspect-square w-full rounded-[22px] sm:rounded-[26px] bg-[#111115]/90 hover:bg-[#16161c] border border-white/[0.08] hover:border-[#FF6637]/40 p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.35)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#FF6637]/40"
+            className="group relative aspect-square w-full rounded-[24px] bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40"
             aria-label={`View bio for ${founder.name}`}
           >
-            {/* Founder Avatar Placeholder */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-b from-white/[0.12] to-white/[0.03] border border-white/[0.1] flex items-center justify-center mb-3 group-hover:scale-105 group-hover:border-[#FF6637]/40 transition-all duration-300 shadow-inner">
-              <span className="font-['Manrope',sans-serif] font-[700] text-sm sm:text-base text-white/70 group-hover:text-white transition-colors">
+            {/* Founder Avatar Placeholder: Level 3 Inner Container #212121, rounded-[16px] */}
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[16px] bg-[#212121] group-hover:bg-[#272727] border border-[rgba(255,255,255,0.06)] group-hover:border-[rgba(234,67,37,0.30)] flex items-center justify-center mb-3 group-hover:scale-105 transition-all duration-300 shadow-inner">
+              <span className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base text-[#ffffff] transition-colors">
                 {founder.initials}
               </span>
             </div>
 
             {/* Founder Name & Micro Role */}
-            <h3 className="font-['Manrope',sans-serif] font-[700] text-xs sm:text-sm text-white tracking-[-0.01em] line-clamp-1 group-hover:text-[#FF6637] transition-colors">
+            <h3 className="font-['Poppins',sans-serif] font-[700] text-xs sm:text-sm text-[#ffffff] tracking-[-0.01em] line-clamp-1 group-hover:text-[#ea4325] transition-colors">
               {founder.name}
             </h3>
-            <p className="mt-1 font-['Manrope',sans-serif] font-[300] text-[10px] sm:text-[11px] text-white/50 tracking-[-0.01em] line-clamp-1">
+            <p className="mt-1 font-['Poppins',sans-serif] font-[500] text-[11px] sm:text-[12px] text-[#8D8F93] tracking-[-0.01em] line-clamp-1">
               {founder.tag}
             </p>
           </motion.button>
@@ -165,7 +169,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       {/* 3. Subtle Hint beneath */}
       <motion.p
         variants={cascadeHeader}
-        className="mt-6 text-[11px] sm:text-xs font-['Manrope',sans-serif] text-white/40 tracking-wide select-none"
+        className="mt-6 text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] tracking-wide select-none"
       >
         {isEs ? 'Haz clic en un fundador para conocer su bio' : 'Click on a founder to view their bio'}
       </motion.p>
@@ -175,7 +179,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         <button
           type="button"
           onClick={onBackToStart}
-          className="inline-flex items-center gap-2 text-xs sm:text-sm font-['Manrope',sans-serif] text-white/40 hover:text-white/80 transition-colors duration-200 cursor-pointer"
+          className="inline-flex items-center gap-2 text-xs sm:text-sm font-['Poppins',sans-serif] font-[500] text-[#8D8F93] hover:text-[#ffffff] transition-colors duration-200 cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
@@ -183,7 +187,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       </motion.div>
 
       {/* ========================================================
-          INTERACTIVE BIO MODAL OVERLAY
+          INTERACTIVE BIO MODAL OVERLAY: Level 4 (#161618)
          ======================================================== */}
       <AnimatePresence>
         {selectedFounder && (
@@ -192,7 +196,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedFounder(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-[20px] cursor-pointer"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.92, y: 16 }}
@@ -200,13 +204,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
               exit={{ opacity: 0, scale: 0.92, y: 16 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg bg-[#121217] border border-white/[0.14] rounded-[28px] p-6 sm:p-8 text-left shadow-[0_24px_80px_rgba(0,0,0,0.85)] cursor-default overflow-hidden"
+              className="relative w-full max-w-lg bg-[#161618] border border-[rgba(255,255,255,0.08)] rounded-[24px] p-6 sm:p-8 text-left shadow-[0_24px_80px_rgba(0,0,0,0.85)] cursor-default overflow-hidden"
             >
               {/* Close Button */}
               <button
                 type="button"
                 onClick={() => setSelectedFounder(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.14] border border-white/[0.1] flex items-center justify-center text-white/70 hover:text-white transition-all cursor-pointer focus:outline-none"
+                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#212121] hover:bg-[#272727] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8D8F93] hover:text-[#ffffff] transition-all cursor-pointer focus:outline-none"
                 aria-label="Close bio"
               >
                 <X className="w-4 h-4" />
@@ -214,30 +218,30 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
                 {/* Founder Image Placeholder */}
-                <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-[#FF6637]/20 via-[#D70417]/10 to-transparent border border-white/[0.12] flex items-center justify-center shadow-lg">
-                  <span className="font-['Manrope',sans-serif] font-[800] text-2xl sm:text-3xl text-white">
+                <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-[20px] bg-gradient-to-br from-[#44251c] to-[#212121] border border-[rgba(234,67,37,0.30)] flex items-center justify-center shadow-lg">
+                  <span className="font-['Poppins',sans-serif] font-[700] text-2xl sm:text-3xl text-[#ffffff]">
                     {selectedFounder.initials}
                   </span>
                 </div>
 
                 <div className="flex flex-col">
-                  {/* Tag Badge */}
-                  <span className="inline-block self-start text-[10px] font-['Manrope'] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#FF6637]/15 text-[#FF6637] border border-[#FF6637]/25 mb-1.5">
+                  {/* Tag Badge: Warm Dark Surface #44251c + #ea4325 text */}
+                  <span className="inline-block self-start text-[11px] font-['Poppins',sans-serif] font-[600] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] mb-1.5">
                     {selectedFounder.tag}
                   </span>
 
-                  <h3 className="font-['Manrope',sans-serif] font-[800] text-xl sm:text-2xl text-white tracking-[-0.02em]">
+                  <h3 className="font-['Poppins',sans-serif] font-[700] text-xl sm:text-2xl text-[#ffffff] tracking-[-0.02em]">
                     {selectedFounder.name}
                   </h3>
 
-                  <p className="font-['Manrope',sans-serif] font-[500] text-xs sm:text-sm text-[#FF6637] mt-0.5">
+                  <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-sm text-[#ea4325] mt-0.5">
                     {selectedFounder.role}
                   </p>
                 </div>
               </div>
 
-              {/* Founder Bio Text */}
-              <p className="mt-5 pt-5 border-t border-white/[0.08] font-['Manrope',sans-serif] font-[300] text-xs sm:text-sm text-white/75 leading-relaxed tracking-[-0.01em]">
+              {/* Founder Bio Text: Content #E1E1E1 */}
+              <p className="mt-5 pt-5 border-t border-[rgba(255,255,255,0.08)] font-['Poppins',sans-serif] font-[400] text-xs sm:text-sm text-[#E1E1E1] leading-relaxed tracking-[-0.01em]">
                 {selectedFounder.bio}
               </p>
             </motion.div>

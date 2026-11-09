@@ -79,7 +79,7 @@ export default function InvertedOrangeCursor() {
           cls.includes('font-[800]') ||
           cls.includes('font-black') ||
           cls.includes('text-orange-400') ||
-          cls.includes('text-[#FF6637]')
+          cls.includes('text-[#ea4325]')
         ) {
           isBold = true;
           break;
@@ -140,7 +140,7 @@ export default function InvertedOrangeCursor() {
         return {
           width: 76,
           height: 76,
-          backgroundColor: '#FF6637',
+          backgroundColor: '#ea4325',
           boxShadow: 'none',
           border: '0px solid transparent',
           mixBlendMode: 'difference',
@@ -150,9 +150,9 @@ export default function InvertedOrangeCursor() {
         return {
           width: 54,
           height: 54,
-          backgroundColor: 'rgba(255, 102, 55, 0.22)',
-          boxShadow: '0 0 20px rgba(255, 102, 55, 0.55)',
-          border: '2px solid #FF6637',
+          backgroundColor: 'rgba(234, 67, 37, 0.22)',
+          boxShadow: '0 0 20px rgba(234, 67, 37, 0.55)',
+          border: '2px solid #ea4325',
           mixBlendMode: 'normal',
           scale: isClicking ? 0.82 : 1,
         };

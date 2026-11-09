@@ -210,7 +210,7 @@ export default function SentenceHero({
   };
 
   return (
-    <div className="sentence-hero-viewport relative w-full h-screen overflow-hidden bg-[#070709] flex flex-col justify-between items-center px-6 sm:px-10 pt-10 pb-0 m-0 select-none">
+    <div className="sentence-hero-viewport relative w-full h-screen overflow-hidden bg-[#08090c] flex flex-col justify-between items-center px-6 sm:px-10 pt-10 pb-0 m-0 select-none">
       {/* 1. Integrated Bottom Ambient Glow + Dots + Mouse Scroll with Language Support */}
       <BottomAmbientGlow
         onScrollClick={goToNext}
@@ -250,20 +250,20 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h1 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full">
+                    <h1 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? '¿Cuánto tarda' : 'How long does it take'}
                         </span>{' '}
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'tu marca' : 'your brand'}
                         </span>
                       </div>
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'en subirse a una' : 'to jump on a'}
                         </span>{' '}
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'tendencia?' : 'trend?'}
                         </span>
                       </div>
@@ -281,23 +281,23 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full">
+                    <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'Una conversación que' : 'A conversation that'}
                         </span>{' '}
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'prendió,' : 'caught fire,'}
                         </span>{' '}
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'escala en horas.' : 'escalates in hours.'}
                         </span>
                       </div>
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'Una campaña,' : 'A campaign,'}
                         </span>{' '}
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'tarda semanas...' : 'takes weeks...'}
                         </span>
                       </div>
@@ -315,17 +315,17 @@ export default function SentenceHero({
                     exit="exit"
                     className="w-full text-center"
                   >
-                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full">
+                    <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-white">
+                        <span className="font-[200] text-[#E1E1E1]">
                           {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
                         </span>{' '}
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'cada vez más grande.' : 'getting bigger and bigger.'}
                         </span>
                       </div>
                       <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[700] text-white">
+                        <span className="font-[700] text-[#ffffff]">
                           {isEs ? 'Y más caro.' : 'And more expensive.'}
                         </span>
                       </div>
@@ -343,7 +343,7 @@ export default function SentenceHero({
                     onClick={() => setHookSentenceIndex(idx)}
                     className={`transition-all duration-300 rounded-full h-1.5 ${
                       hookSentenceIndex === idx
-                        ? 'w-6 bg-[#FF6637] shadow-[0_0_10px_rgba(255,102,55,0.7)]'
+                        ? 'w-6 bg-[#ea4325] shadow-[0_0_10px_rgba(234,67,37,0.7)]'
                         : 'w-2 bg-white/20 hover:bg-white/40'
                     }`}
                     aria-label={`Jump to hook statement ${idx + 1}`}
@@ -456,7 +456,7 @@ export default function SentenceHero({
             onClick={() => setCurrentIndex(index)}
             className={`transition-all duration-300 rounded-full ${
               currentIndex === index
-                ? 'w-1.5 h-6 bg-[#FF6637] shadow-[0_0_12px_rgba(255,102,55,0.85)]'
+                ? 'w-1.5 h-6 bg-[#ea4325] shadow-[0_0_12px_rgba(234,67,37,0.85)]'
                 : 'w-1.5 h-3.5 bg-white/[0.10] hover:bg-white/40'
             }`}
             aria-label={`Go to stage ${index + 1}`}
