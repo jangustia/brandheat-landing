@@ -55,21 +55,19 @@ export default function SentenceHero({
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }, [setCurrentIndex]);
 
-  // Stage 0: Automatically reveal the 3 hook sentences in cascade without initial scroll
+  // Stage 0: Automatically loop the 3 hook sentences continuously while on Section 1
   useEffect(() => {
     if (currentIndex !== 0) return;
 
-    if (hookSentenceIndex === 0) {
-      const t1 = setTimeout(() => {
-        setHookSentenceIndex(1);
-      }, 3800);
-      return () => clearTimeout(t1);
-    } else if (hookSentenceIndex === 1) {
-      const t2 = setTimeout(() => {
-        setHookSentenceIndex(2);
-      }, 4400);
-      return () => clearTimeout(t2);
-    }
+    let delay = 3800;
+    if (hookSentenceIndex === 1) delay = 4400;
+    if (hookSentenceIndex === 2) delay = 4400;
+
+    const timer = setTimeout(() => {
+      setHookSentenceIndex((prev) => (prev + 1) % 3);
+    }, delay);
+
+    return () => clearTimeout(timer);
   }, [currentIndex, hookSentenceIndex]);
 
   // Wheel listener: Scrolling down enters subsequent sections
