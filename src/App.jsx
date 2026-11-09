@@ -27,12 +27,14 @@ export default function App() {
   // Handle header navigation links
   const handleNavClick = (href) => {
     if (href === '#feel-the-heat') {
-      // Jump directly to the final closing scroll section (index 10 of 11)
-      setSentenceIndex(10);
-    } else if (href === '#manifesto') {
-      setSentenceIndex(3); // Meet brandheat
+      // Jump directly to the final closing scroll section (stage 3)
+      setSentenceIndex(3);
     } else if (href === '#how-it-works') {
-      setSentenceIndex(7); // One platform to detect, create...
+      // Section Two: Meet brandheat & 3 Pillars (Anticipa, Crea, Escala)
+      setSentenceIndex(1);
+    } else if (href === '#manifesto') {
+      // Section Three: From spark to screen
+      setSentenceIndex(2);
     }
   };
 
