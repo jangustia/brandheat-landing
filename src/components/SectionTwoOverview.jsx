@@ -97,16 +97,16 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
     >
       {/* 1. Top Flame Comet with Flare + "Meet brandheat." Title */}
       <motion.div variants={cascadeItem} className="flex flex-col items-center">
-        <div className="relative w-32 sm:w-40 md:w-44 h-7 sm:h-8 md:h-9 mx-auto flex items-center justify-center mb-1">
+        <div className="relative w-28 sm:w-36 md:w-40 h-6 sm:h-7 md:h-8 mx-auto flex items-center justify-center mb-1">
           <img
             src="/heat.png"
             alt="Brand HEAT Comet"
             className="w-full h-full object-contain filter-none pointer-events-none select-none"
           />
-          <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white blur-[0.8px] shadow-[0_0_12px_6px_rgba(255,255,255,0.9)] pointer-events-none" />
+          <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white blur-[0.8px] shadow-[0_0_10px_5px_rgba(255,255,255,0.9)] pointer-events-none" />
         </div>
 
-        <h2 className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-[1.12] tracking-[-0.03em] text-[#ffffff] text-center">
+        <h2 className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-[1.12] tracking-[-0.03em] text-[#ffffff] text-center">
           <span className="font-[200] text-[#ffffff]">Meet brand</span>
           <span className="font-[800] text-[#ffffff]">heat.</span>
         </h2>
@@ -115,7 +115,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       {/* 2. Primary Tagline (High-Readability Content #E1E1E1) */}
       <motion.p
         variants={cascadeItem}
-        className="mt-2.5 sm:mt-3 font-['Poppins',sans-serif] text-base sm:text-xl md:text-2xl lg:text-[25px] font-[500] text-[#E1E1E1] tracking-[-0.02em] text-center max-w-3xl"
+        className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[22px] font-[500] text-[#E1E1E1] tracking-[-0.02em] text-center max-w-3xl"
       >
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
@@ -125,7 +125,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       {/* 3. Secondary Explanatory Copy (#C5C5C5 with font-weight: 500 for small text) */}
       <motion.div
         variants={cascadeItem}
-        className="mt-2.5 sm:mt-3 font-['Poppins',sans-serif] text-xs sm:text-sm md:text-[15px] font-[500] text-[#C5C5C5] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5"
+        className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-xs sm:text-sm md:text-[14px] font-[500] text-[#C5C5C5] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5"
       >
         <p>
           {isEs
@@ -140,21 +140,21 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       </motion.div>
 
       {/* 4. Three Level 2 Modular Feature Cards (#151515, border: 1px solid rgba(255,255,255,0.07), rounded-[24px]) */}
-      <div className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 md:gap-6 w-full max-w-4xl lg:max-w-5xl mx-auto">
+      <div className="mt-5 sm:mt-6 md:mt-7 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 w-full max-w-4xl lg:max-w-5xl mx-auto">
         {/* Card 1: ANTICIPA (Tier 1 Hot Variant) */}
         <motion.div
           variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
           transition={{ duration: 0.25 }}
-          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,69,58,0.3)] rounded-[24px] p-5 sm:p-6 md:p-7 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,69,58,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Hot Red Surface */}
-          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#260c10] border border-[rgba(255,69,58,0.25)] flex items-center justify-center mr-4 md:mr-0 md:mb-5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(255,69,58,0.25)]">
-            <Megaphone className="w-6 h-6 sm:w-7 sm:h-7 text-[#ff453a]" strokeWidth={2} />
+          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#260c10] border border-[rgba(255,69,58,0.25)] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(255,69,58,0.25)]">
+            <Megaphone className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff453a]" strokeWidth={2} />
           </div>
 
           <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-2">
+            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
               {isEs ? 'ANTICIPA' : 'ANTICIPATE'}
             </h3>
             <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">
@@ -170,15 +170,15 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
           transition={{ duration: 0.25 }}
-          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[24px] p-5 sm:p-6 md:p-7 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Warm Orange Surface */}
-          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#260f08] border border-[rgba(234,67,37,0.25)] flex items-center justify-center mr-4 md:mr-0 md:mb-5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(234,67,37,0.25)]">
-            <LayoutGrid className="w-6 h-6 sm:w-7 sm:h-7 text-[#ea4325]" strokeWidth={2} />
+          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#260f08] border border-[rgba(234,67,37,0.25)] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(234,67,37,0.25)]">
+            <LayoutGrid className="w-5 h-5 sm:w-6 sm:h-6 text-[#ea4325]" strokeWidth={2} />
           </div>
 
           <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-2">
+            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
               {isEs ? 'CREA' : 'CREATE'}
             </h3>
             <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">
@@ -194,15 +194,15 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
           transition={{ duration: 0.25 }}
-          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,191,0,0.3)] rounded-[24px] p-5 sm:p-6 md:p-7 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+          className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,191,0,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Rising Yellow Surface */}
-          <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#261c00] border border-[rgba(255,191,0,0.25)] flex items-center justify-center mr-4 md:mr-0 md:mb-5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(255,191,0,0.25)]">
-            <EscalaIcon className="w-6 h-6 sm:w-7 sm:h-7 text-[#ffbf00]" />
+          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#261c00] border border-[rgba(255,191,0,0.25)] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 group-hover:scale-105 transition-transform duration-300 shadow-[0_0_16px_rgba(255,191,0,0.25)]">
+            <EscalaIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffbf00]" />
           </div>
 
           <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-2">
+            <h3 className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
               {isEs ? 'ESCALA' : 'SCALE'}
             </h3>
             <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">

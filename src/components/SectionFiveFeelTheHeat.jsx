@@ -84,7 +84,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       {/* 1. Header Title: FEEL THE HEAT */}
       <motion.h2
         variants={cascadeItem}
-        className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-[700] tracking-[0.04em] text-[#ffffff] text-center uppercase leading-tight"
+        className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-[700] tracking-[0.04em] text-[#ffffff] text-center uppercase leading-tight"
       >
         FEEL THE HEAT
       </motion.h2>
@@ -92,7 +92,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       {/* 2. Subtitle: Content #E1E1E1 */}
       <motion.p
         variants={cascadeItem}
-        className="mt-3 sm:mt-4 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[22px] font-[400] text-[#E1E1E1] tracking-[-0.01em] text-center max-w-2xl"
+        className="mt-2.5 sm:mt-3 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[20px] font-[400] text-[#E1E1E1] tracking-[-0.01em] text-center max-w-2xl"
       >
         {isEs
           ? 'La gente ya está hablando. ¿Vas a entrar a la conversación?'
@@ -100,7 +100,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       </motion.p>
 
       {/* 3. Interactive Early Access Form calibrated to design.md tokens */}
-      <motion.div variants={cascadeForm} className="mt-8 sm:mt-10 md:mt-12 w-full max-w-lg sm:max-w-xl mx-auto">
+      <motion.div variants={cascadeForm} className="mt-6 sm:mt-7 md:mt-8 w-full max-w-lg sm:max-w-xl mx-auto">
         {isSubmitted ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}

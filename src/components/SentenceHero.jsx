@@ -221,9 +221,9 @@ export default function SentenceHero({
       {/* 2. Main Center Stage */}
       <main
         className={`relative z-20 my-auto w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center transition-transform duration-500 ${
-          currentIndex === 1 || currentIndex === 2 || currentIndex === 3
-            ? '-translate-y-2 sm:-translate-y-4 lg:-translate-y-6'
-            : '-translate-y-6 sm:-translate-y-10 lg:-translate-y-12'
+          currentIndex === 0
+            ? '-translate-y-4 sm:-translate-y-6 lg:-translate-y-8'
+            : '-translate-y-12 sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24'
         }`}
       >
         <AnimatePresence mode="wait">

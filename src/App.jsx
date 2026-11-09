@@ -7,7 +7,17 @@ import './App.css';
 export default function App() {
   const [currentLang, setCurrentLang] = useState('es');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [sentenceIndex, setSentenceIndex] = useState(0);
+  const [sentenceIndex, setSentenceIndex] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const stageParam = params.get('stage');
+      if (stageParam !== null) {
+        const parsed = parseInt(stageParam, 10);
+        if (!isNaN(parsed) && parsed >= 0 && parsed <= 5) return parsed;
+      }
+    }
+    return 0;
+  });
 
   // Optional subtle spotlight tracking cursor over the dots
   useEffect(() => {

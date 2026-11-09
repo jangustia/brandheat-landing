@@ -80,14 +80,14 @@ export default function SectionFourClients({ currentLang = 'es' }) {
       </motion.h2>
 
       {/* 2. Grid with 4 Logo Placeholders (Level 2 Parent Cards #151515, rounded-[24px]) */}
-      <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 w-full max-w-4xl mx-auto">
+      <div className="mt-6 sm:mt-7 md:mt-8 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 md:gap-5 w-full max-w-4xl mx-auto">
         {placeholders.map((num) => (
           <motion.div
             key={num}
             variants={cascadeCard}
             whileHover={{ y: -4, scale: 1.02 }}
             transition={{ duration: 0.25 }}
-            className="group relative h-24 sm:h-28 md:h-32 bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] rounded-[24px] flex items-center justify-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-default select-none"
+            className="group relative h-20 sm:h-24 md:h-28 bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] rounded-[24px] flex items-center justify-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-default select-none"
           >
             <span className="font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl font-[500] text-[#8D8F93] group-hover:text-[#E1E1E1] tracking-wider transition-colors duration-200">
               Logo

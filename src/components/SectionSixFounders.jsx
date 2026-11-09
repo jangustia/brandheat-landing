@@ -136,20 +136,20 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       </motion.h2>
 
       {/* 2. Horizontal Row of 5 Founder Tiles (Level 2 Parent Cards #151515, rounded-[24px]) */}
-      <div className="mt-8 sm:mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3.5 sm:gap-4 md:gap-5 w-full max-w-4xl lg:max-w-5xl mx-auto">
+      <div className="mt-6 sm:mt-7 md:mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-3.5 md:gap-4 w-full max-w-4xl lg:max-w-5xl mx-auto">
         {founders.map((founder) => (
           <motion.button
             key={founder.id}
             type="button"
             variants={cascadeTile}
-            whileHover={{ y: -5, scale: 1.02 }}
+            whileHover={{ y: -4, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setSelectedFounder(founder)}
-            className="group relative aspect-square w-full rounded-[24px] bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40"
+            className="group relative aspect-square w-full rounded-[24px] bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] p-3 sm:p-4 md:p-4 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40"
             aria-label={`View bio for ${founder.name}`}
           >
             {/* Founder Avatar Placeholder: Level 3 Inner Container #212121, rounded-[16px] */}
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-[16px] bg-[#212121] group-hover:bg-[#272727] border border-[rgba(255,255,255,0.06)] group-hover:border-[rgba(234,67,37,0.30)] flex items-center justify-center mb-3 group-hover:scale-105 transition-all duration-300 shadow-inner">
+            <div className="w-12 h-12 sm:w-13 sm:h-13 md:w-14 md:h-14 rounded-[16px] bg-[#212121] group-hover:bg-[#272727] border border-[rgba(255,255,255,0.06)] group-hover:border-[rgba(234,67,37,0.30)] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-all duration-300 shadow-inner">
               <span className="font-['Poppins',sans-serif] font-[700] text-sm sm:text-base text-[#ffffff] transition-colors">
                 {founder.initials}
               </span>
@@ -159,7 +159,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             <h3 className="font-['Poppins',sans-serif] font-[700] text-xs sm:text-sm text-[#ffffff] tracking-[-0.01em] line-clamp-1 group-hover:text-[#ea4325] transition-colors">
               {founder.name}
             </h3>
-            <p className="mt-1 font-['Poppins',sans-serif] font-[500] text-[11px] sm:text-[12px] text-[#8D8F93] tracking-[-0.01em] line-clamp-1">
+            <p className="mt-0.5 sm:mt-1 font-['Poppins',sans-serif] font-[500] text-[10px] sm:text-[11px] text-[#8D8F93] tracking-[-0.01em] line-clamp-1">
               {founder.tag}
             </p>
           </motion.button>
@@ -169,13 +169,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       {/* 3. Subtle Hint beneath */}
       <motion.p
         variants={cascadeHeader}
-        className="mt-6 text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] tracking-wide select-none"
+        className="mt-4 sm:mt-5 text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] tracking-wide select-none"
       >
         {isEs ? 'Haz clic en un fundador para conocer su bio' : 'Click on a founder to view their bio'}
       </motion.p>
 
       {/* 4. Subtle Back to start button */}
-      <motion.div variants={cascadeHeader} className="mt-4 sm:mt-6">
+      <motion.div variants={cascadeHeader} className="mt-3 sm:mt-4">
         <button
           type="button"
           onClick={onBackToStart}
