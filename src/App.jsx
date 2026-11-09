@@ -36,15 +36,21 @@ export default function App() {
 
   // Handle header navigation links
   const handleNavClick = (href) => {
-    if (href === '#feel-the-heat') {
-      // Stage 4: Feel the Heat / Closing CTAs
-      setSentenceIndex(4);
+    if (href === '#meet-brandheat') {
+      // Stage 1: Meet brandheat & 3 Pillars (Anticipa, Crea, Escala)
+      setSentenceIndex(1);
     } else if (href === '#how-it-works') {
       // Stage 2: How it Works: From spark to screen (5 steps)
       setSentenceIndex(2);
-    } else if (href === '#manifesto') {
-      // Stage 1: Meet brandheat & 3 Pillars (Anticipa, Crea, Escala)
-      setSentenceIndex(1);
+    } else if (href === '#clients') {
+      // Stage 3: Our Clients (Logo grid)
+      setSentenceIndex(3);
+    } else if (href === '#feel-the-heat') {
+      // Stage 4: Feel the Heat / Early Access
+      setSentenceIndex(4);
+    } else if (href === '#founders') {
+      // Stage 5: Founder member (5 founder tiles)
+      setSentenceIndex(5);
     }
   };
 
@@ -66,9 +72,10 @@ export default function App() {
         aria-hidden="true"
       />
 
-      {/* 2. Top Navigation Bar */}
+      {/* 2. Top Navigation Bar with All 5 Sections in ALL CAPS & Bold */}
       <Navbar
         currentLang={currentLang}
+        currentIndex={sentenceIndex}
         onToggleLang={handleToggleLang}
         onNavClick={handleNavClick}
         onLogoClick={handleLogoClick}
