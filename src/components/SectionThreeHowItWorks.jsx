@@ -13,63 +13,10 @@ import { Flame, Lightbulb, SwatchBook, Rocket, BarChart3 } from 'lucide-react';
 export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
 
-  const cascadeContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.05,
-      },
-    },
-    exit: {
-      opacity: 0,
-      filter: 'blur(14px)',
-      y: -24,
-      transition: {
-        duration: 0.35,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeHeader = {
-    hidden: { opacity: 0, y: 16, filter: 'blur(8px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeCard = {
-    hidden: { opacity: 0, y: 20, scale: 0.96, filter: 'blur(6px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={cascadeContainer}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4"
-    >
+    <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4">
       {/* 1. Header: Headline & Subheadline */}
-      <motion.div variants={cascadeHeader} className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[38px] font-[500] leading-[1.15] tracking-[-0.03em] text-[#ffffff] text-center">
           <span className="font-[300] text-[#E1E1E1]">
             {isEs ? 'Cómo funciona: ' : 'How it Works: '}
@@ -84,7 +31,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
             ? 'Tu marca, siempre a tiempo. Siempre al punto. Always on.'
             : 'Your Brand, always on time. Always on point. Always on.'}
         </p>
-      </motion.div>
+      </div>
 
       {/* 2. Grid of 5 Level 2 Feature Cards (#151515, border: 1px solid rgba(255,255,255,0.07), rounded-[24px]) */}
       <div className="mt-4 sm:mt-5 md:mt-6 w-full max-w-4xl lg:max-w-5xl mx-auto flex flex-col gap-2 sm:gap-2.5">
@@ -92,7 +39,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-2.5">
           {/* Card 1: HEAT Map */}
           <motion.div
-            variants={cascadeCard}
             whileHover={{ y: -3, scale: 1.015 }}
             transition={{ duration: 0.2 }}
             className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[20px] sm:rounded-[24px] py-3 sm:py-3.5 px-4 sm:px-5 flex items-start text-left transition-all duration-300 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
@@ -115,7 +61,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
 
           {/* Card 2: Ideas */}
           <motion.div
-            variants={cascadeCard}
             whileHover={{ y: -3, scale: 1.015 }}
             transition={{ duration: 0.2 }}
             className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[20px] sm:rounded-[24px] py-3 sm:py-3.5 px-4 sm:px-5 flex items-start text-left transition-all duration-300 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
@@ -141,7 +86,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-2.5">
           {/* Card 3: Creative Studio */}
           <motion.div
-            variants={cascadeCard}
             whileHover={{ y: -3, scale: 1.015 }}
             transition={{ duration: 0.2 }}
             className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[20px] sm:rounded-[24px] py-3 sm:py-3.5 px-4 sm:px-5 flex items-start text-left transition-all duration-300 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
@@ -164,7 +108,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
 
           {/* Card 4: Campaigns */}
           <motion.div
-            variants={cascadeCard}
             whileHover={{ y: -3, scale: 1.015 }}
             transition={{ duration: 0.2 }}
             className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[20px] sm:rounded-[24px] py-3 sm:py-3.5 px-4 sm:px-5 flex items-start text-left transition-all duration-300 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
@@ -188,7 +131,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
 
         {/* Row 3: Card 5 (Full Width Level 2 Card) */}
         <motion.div
-          variants={cascadeCard}
           whileHover={{ y: -3, scale: 1.01 }}
           transition={{ duration: 0.2 }}
           className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[20px] sm:rounded-[24px] py-3 sm:py-3.5 px-4 sm:px-5 flex items-start text-left transition-all duration-300 shadow-[0_6px_24px_rgba(0,0,0,0.35)] w-full"
@@ -209,6 +151,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           </div>
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }

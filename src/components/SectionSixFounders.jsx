@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, RotateCcw } from 'lucide-react';
 
@@ -16,7 +17,6 @@ import { X, RotateCcw } from 'lucide-react';
  */
 export default function SectionSixFounders({ currentLang = 'es', onBackToStart }) {
   const isEs = currentLang === 'es';
-  const [selectedFounder, setSelectedFounder] = useState(null);
 
   const founders = [
     {
@@ -71,69 +71,23 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
   ];
 
-  // Cascading animation variants
-  const cascadeContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.05,
-      },
-    },
-    exit: {
-      opacity: 0,
-      filter: 'blur(14px)',
-      y: -24,
-      transition: {
-        duration: 0.35,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeHeader = {
-    hidden: { opacity: 0, y: 16, filter: 'blur(8px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeTile = {
-    hidden: { opacity: 0, y: 22, scale: 0.94, filter: 'blur(6px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
+  const [selectedFounder, setSelectedFounder] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const fId = params.get('founder');
+      if (fId) {
+        return founders.find((f) => f.id === parseInt(fId, 10)) || null;
+      }
+    }
+    return null;
+  });
 
   return (
-    <motion.div
-      variants={cascadeContainer}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4"
-    >
+    <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4">
       {/* 1. Header Title: Founder member */}
-      <motion.h2
-        variants={cascadeHeader}
-        className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[600] tracking-[-0.02em] text-[#ffffff] text-center"
-      >
+      <h2 className="font-['Poppins',sans-serif] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-[600] tracking-[-0.02em] text-[#ffffff] text-center">
         {isEs ? 'Founder member' : 'Founder member'}
-      </motion.h2>
+      </h2>
 
       {/* 2. Horizontal Row of 5 Founder Tiles (Level 2 Parent Cards #151515, rounded-[24px]) */}
       <div className="mt-6 sm:mt-7 md:mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-3.5 md:gap-4 w-full max-w-4xl lg:max-w-5xl mx-auto">
@@ -141,9 +95,9 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           <motion.button
             key={founder.id}
             type="button"
-            variants={cascadeTile}
             whileHover={{ y: -4, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2 }}
             onClick={() => setSelectedFounder(founder)}
             className="group relative aspect-square w-full rounded-[24px] bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.30)] p-3 sm:p-4 md:p-4 flex flex-col items-center justify-center text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40"
             aria-label={`View bio for ${founder.name}`}
@@ -167,15 +121,12 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       </div>
 
       {/* 3. Subtle Hint beneath */}
-      <motion.p
-        variants={cascadeHeader}
-        className="mt-4 sm:mt-5 text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] tracking-wide select-none"
-      >
+      <p className="mt-4 sm:mt-5 text-xs font-['Poppins',sans-serif] font-[500] text-[#8D8F93] tracking-wide select-none">
         {isEs ? 'Haz clic en un fundador para conocer su bio' : 'Click on a founder to view their bio'}
-      </motion.p>
+      </p>
 
       {/* 4. Subtle Back to start button */}
-      <motion.div variants={cascadeHeader} className="mt-3 sm:mt-4">
+      <div className="mt-3 sm:mt-4">
         <button
           type="button"
           onClick={onBackToStart}
@@ -184,70 +135,76 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           <RotateCcw className="w-3.5 h-3.5" />
           <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
         </button>
-      </motion.div>
+      </div>
 
       {/* ========================================================
           INTERACTIVE BIO MODAL OVERLAY: Level 4 (#161618)
+          Rendered via Portal to escape main's transform context
          ======================================================== */}
-      <AnimatePresence>
-        {selectedFounder && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedFounder(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-[20px] cursor-pointer"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 16 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 16 }}
-              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg bg-[#161618] border border-[rgba(255,255,255,0.08)] rounded-[24px] p-6 sm:p-8 text-left shadow-[0_24px_80px_rgba(0,0,0,0.85)] cursor-default overflow-hidden"
-            >
-              {/* Close Button */}
-              <button
-                type="button"
+      {typeof document !== 'undefined' &&
+        createPortal(
+          <AnimatePresence>
+            {selectedFounder && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
                 onClick={() => setSelectedFounder(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#212121] hover:bg-[#272727] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8D8F93] hover:text-[#ffffff] transition-all cursor-pointer focus:outline-none"
-                aria-label="Close bio"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-[20px] cursor-pointer"
               >
-                <X className="w-4 h-4" />
-              </button>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.94, y: 12 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.94, y: 12 }}
+                  transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="relative w-full max-w-lg bg-[#161618] border border-[rgba(255,255,255,0.08)] rounded-[24px] p-6 sm:p-8 text-left shadow-[0_24px_80px_rgba(0,0,0,0.85)] cursor-default overflow-hidden"
+                >
+                  {/* Close Button */}
+                  <button
+                    type="button"
+                    onClick={() => setSelectedFounder(null)}
+                    className="absolute top-5 right-5 w-8 h-8 rounded-full bg-[#212121] hover:bg-[#272727] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8D8F93] hover:text-[#ffffff] transition-all cursor-pointer focus:outline-none"
+                    aria-label="Close bio"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
-                {/* Founder Image Placeholder */}
-                <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-[20px] bg-gradient-to-br from-[#44251c] to-[#212121] border border-[rgba(234,67,37,0.30)] flex items-center justify-center shadow-lg">
-                  <span className="font-['Poppins',sans-serif] font-[700] text-2xl sm:text-3xl text-[#ffffff]">
-                    {selectedFounder.initials}
-                  </span>
-                </div>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
+                    {/* Founder Image Placeholder */}
+                    <div className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-[20px] bg-gradient-to-br from-[#44251c] to-[#212121] border border-[rgba(234,67,37,0.30)] flex items-center justify-center shadow-lg">
+                      <span className="font-['Poppins',sans-serif] font-[700] text-2xl sm:text-3xl text-[#ffffff]">
+                        {selectedFounder.initials}
+                      </span>
+                    </div>
 
-                <div className="flex flex-col">
-                  {/* Tag Badge: Warm Dark Surface #44251c + #ea4325 text */}
-                  <span className="inline-block self-start text-[11px] font-['Poppins',sans-serif] font-[600] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] mb-1.5">
-                    {selectedFounder.tag}
-                  </span>
+                    <div className="flex flex-col">
+                      {/* Tag Badge: Warm Dark Surface #44251c + #ea4325 text */}
+                      <span className="inline-block self-start text-[11px] font-['Poppins',sans-serif] font-[600] tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] mb-1.5">
+                        {selectedFounder.tag}
+                      </span>
 
-                  <h3 className="font-['Poppins',sans-serif] font-[700] text-xl sm:text-2xl text-[#ffffff] tracking-[-0.02em]">
-                    {selectedFounder.name}
-                  </h3>
+                      <h3 className="font-['Poppins',sans-serif] font-[700] text-xl sm:text-2xl text-[#ffffff] tracking-[-0.02em]">
+                        {selectedFounder.name}
+                      </h3>
 
-                  <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-sm text-[#ea4325] mt-0.5">
-                    {selectedFounder.role}
+                      <p className="font-['Poppins',sans-serif] font-[500] text-xs sm:text-sm text-[#ea4325] mt-0.5">
+                        {selectedFounder.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Founder Bio Text: Content #E1E1E1 */}
+                  <p className="mt-5 pt-5 border-t border-[rgba(255,255,255,0.08)] font-['Poppins',sans-serif] font-[400] text-xs sm:text-sm text-[#E1E1E1] leading-relaxed tracking-[-0.01em]">
+                    {selectedFounder.bio}
                   </p>
-                </div>
-              </div>
-
-              {/* Founder Bio Text: Content #E1E1E1 */}
-              <p className="mt-5 pt-5 border-t border-[rgba(255,255,255,0.08)] font-['Poppins',sans-serif] font-[400] text-xs sm:text-sm text-[#E1E1E1] leading-relaxed tracking-[-0.01em]">
-                {selectedFounder.bio}
-              </p>
-            </motion.div>
-          </motion.div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }

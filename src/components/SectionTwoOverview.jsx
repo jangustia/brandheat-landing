@@ -40,63 +40,10 @@ function EscalaIcon({ className = 'w-6 h-6 sm:w-7 sm:h-7 text-[#ffbf00]' }) {
 export default function SectionTwoOverview({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
 
-  const cascadeContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.05,
-      },
-    },
-    exit: {
-      opacity: 0,
-      filter: 'blur(14px)',
-      y: -24,
-      transition: {
-        duration: 0.38,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeItem = {
-    hidden: { opacity: 0, y: 16, filter: 'blur(10px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeCard = {
-    hidden: { opacity: 0, y: 24, scale: 0.94, filter: 'blur(8px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.58,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={cascadeContainer}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4"
-    >
+    <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4">
       {/* 1. Top Flame Comet with Flare + "Meet brandheat." Title */}
-      <motion.div variants={cascadeItem} className="flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <div className="relative w-28 sm:w-36 md:w-40 h-6 sm:h-7 md:h-8 mx-auto flex items-center justify-center mb-1">
           <img
             src="/heat.png"
@@ -110,23 +57,17 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           <span className="font-[200] text-[#ffffff]">Meet brand</span>
           <span className="font-[800] text-[#ffffff]">heat.</span>
         </h2>
-      </motion.div>
+      </div>
 
       {/* 2. Primary Tagline (High-Readability Content #E1E1E1) */}
-      <motion.p
-        variants={cascadeItem}
-        className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[22px] font-[500] text-[#E1E1E1] tracking-[-0.02em] text-center max-w-3xl"
-      >
+      <p className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[22px] font-[500] text-[#E1E1E1] tracking-[-0.02em] text-center max-w-3xl">
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
           : 'The always-on that keeps pace with the conversation.'}
-      </motion.p>
+      </p>
 
       {/* 3. Secondary Explanatory Copy (#C5C5C5 with font-weight: 500 for small text) */}
-      <motion.div
-        variants={cascadeItem}
-        className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-xs sm:text-sm md:text-[14px] font-[500] text-[#C5C5C5] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5"
-      >
+      <div className="mt-2 sm:mt-2.5 font-['Poppins',sans-serif] text-xs sm:text-sm md:text-[14px] font-[500] text-[#C5C5C5] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5">
         <p>
           {isEs
             ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real.'
@@ -137,15 +78,14 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
             ? 'Sin brief. Sin esperas. Sin llegar tarde.'
             : 'No brief. No waiting. No showing up late.'}
         </p>
-      </motion.div>
+      </div>
 
       {/* 4. Three Level 2 Modular Feature Cards (#151515, border: 1px solid rgba(255,255,255,0.07), rounded-[24px]) */}
       <div className="mt-5 sm:mt-6 md:mt-7 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 w-full max-w-4xl lg:max-w-5xl mx-auto">
         {/* Card 1: ANTICIPA (Tier 1 Hot Variant) */}
         <motion.div
-          variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.2 }}
           className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,69,58,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Hot Red Surface */}
@@ -167,9 +107,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
 
         {/* Card 2: CREA (Tier 2 Warm / Brand Orange Variant) */}
         <motion.div
-          variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.2 }}
           className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(234,67,37,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Warm Orange Surface */}
@@ -191,9 +130,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
 
         {/* Card 3: ESCALA (Tier 3 Rising Yellow Variant) */}
         <motion.div
-          variants={cascadeCard}
           whileHover={{ y: -4, scale: 1.02 }}
-          transition={{ duration: 0.25 }}
+          transition={{ duration: 0.2 }}
           className="group relative bg-[#151515] hover:bg-[#212121] border border-[rgba(255,255,255,0.07)] hover:border-[rgba(255,191,0,0.3)] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-all duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
         >
           {/* Badge Icon: Rising Yellow Surface */}
@@ -213,6 +151,6 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           </div>
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }

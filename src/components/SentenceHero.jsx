@@ -83,13 +83,13 @@ export default function SentenceHero({
         goToNext();
         setTimeout(() => {
           isScrollingRef.current = false;
-        }, 650);
+        }, 420);
       } else if (e.deltaY < -25) {
         isScrollingRef.current = true;
         goToPrev();
         setTimeout(() => {
           isScrollingRef.current = false;
-        }, 650);
+        }, 420);
       }
     };
 
@@ -155,56 +155,50 @@ export default function SentenceHero({
     }
   }, [currentLang]);
 
-  // Transition variants: smooth in-place blur & dissolve for language switch, vertical slide for scroll
+  // Fast, smooth single-stage transition with clean opacity and subtle lift (eliminating double-animations)
   const stageVariants = {
     initial: {
       opacity: 0,
-      filter: isLangSwitch ? 'blur(12px)' : 'blur(16px)',
-      y: isLangSwitch ? 0 : 28,
+      y: isLangSwitch ? 0 : 10,
     },
     animate: {
       opacity: 1,
-      filter: 'blur(0px)',
       y: 0,
       transition: {
-        duration: isLangSwitch ? 0.42 : 0.65,
-        ease: [0.22, 1, 0.36, 1],
+        duration: isLangSwitch ? 0.24 : 0.3,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
     exit: {
       opacity: 0,
-      filter: isLangSwitch ? 'blur(12px)' : 'blur(16px)',
-      y: isLangSwitch ? 0 : -28,
+      y: isLangSwitch ? 0 : -8,
       transition: {
-        duration: isLangSwitch ? 0.28 : 0.45,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.18,
+        ease: 'easeOut',
       },
     },
   };
 
-  // Text crossfade within Stage 0 (The Hook)
+  // Text crossfade within Stage 0 (The Hook) - fast, snappy & smooth
   const hookTextVariants = {
     initial: {
       opacity: 0,
-      filter: 'blur(14px)',
-      y: 20,
+      y: 12,
     },
     animate: {
       opacity: 1,
-      filter: 'blur(0px)',
       y: 0,
       transition: {
-        duration: 0.65,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.32,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
     exit: {
       opacity: 0,
-      filter: 'blur(14px)',
-      y: -20,
+      y: -10,
       transition: {
-        duration: 0.42,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.18,
+        ease: 'easeOut',
       },
     },
   };

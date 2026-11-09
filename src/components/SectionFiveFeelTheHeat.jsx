@@ -25,86 +25,27 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
     setIsSubmitted(true);
   };
 
-  // Cascading animation variants
-  const cascadeContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.05,
-      },
-    },
-    exit: {
-      opacity: 0,
-      filter: 'blur(14px)',
-      y: -24,
-      transition: {
-        duration: 0.35,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeItem = {
-    hidden: { opacity: 0, y: 18, filter: 'blur(8px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.55,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
-  const cascadeForm = {
-    hidden: { opacity: 0, y: 22, scale: 0.95, filter: 'blur(6px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
-
   return (
-    <motion.div
-      variants={cascadeContainer}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center px-4"
-    >
+    <div className="w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center px-4">
       {/* 1. Header Title: FEEL THE HEAT */}
-      <motion.h2
-        variants={cascadeItem}
-        className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-[700] tracking-[0.04em] text-[#ffffff] text-center uppercase leading-tight"
-      >
+      <h2 className="font-['Poppins',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-[700] tracking-[0.04em] text-[#ffffff] text-center uppercase leading-tight">
         FEEL THE HEAT
-      </motion.h2>
+      </h2>
 
       {/* 2. Subtitle: Content #E1E1E1 */}
-      <motion.p
-        variants={cascadeItem}
-        className="mt-2.5 sm:mt-3 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[20px] font-[400] text-[#E1E1E1] tracking-[-0.01em] text-center max-w-2xl"
-      >
+      <p className="mt-2.5 sm:mt-3 font-['Poppins',sans-serif] text-base sm:text-lg md:text-xl lg:text-[20px] font-[400] text-[#E1E1E1] tracking-[-0.01em] text-center max-w-2xl">
         {isEs
           ? 'La gente ya está hablando. ¿Vas a entrar a la conversación?'
           : 'People are already talking. Are you joining the conversation?'}
-      </motion.p>
+      </p>
 
       {/* 3. Interactive Early Access Form calibrated to design.md tokens */}
-      <motion.div variants={cascadeForm} className="mt-6 sm:mt-7 md:mt-8 w-full max-w-lg sm:max-w-xl mx-auto">
+      <div className="mt-6 sm:mt-7 md:mt-8 w-full max-w-lg sm:max-w-xl mx-auto">
         {isSubmitted ? (
           <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.25 }}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#151515] border border-[rgba(234,67,37,0.35)] text-[#ffffff] shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
           >
             <div className="w-6 h-6 rounded-full bg-[#ea4325] flex items-center justify-center text-[#ffffff]">
@@ -138,10 +79,10 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
             </button>
           </form>
         )}
-      </motion.div>
+      </div>
 
       {/* 4. Subtle Back to start button */}
-      <motion.div variants={cascadeItem} className="mt-8 sm:mt-10">
+      <div className="mt-8 sm:mt-10">
         <button
           type="button"
           onClick={onBackToStart}
@@ -150,7 +91,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
           <RotateCcw className="w-3.5 h-3.5" />
           <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
         </button>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
