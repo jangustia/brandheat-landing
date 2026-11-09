@@ -27,8 +27,8 @@ export default function App() {
   // Handle header navigation links
   const handleNavClick = (href) => {
     if (href === '#feel-the-heat') {
-      // Stage 3: Feel the Heat / Closing CTAs
-      setSentenceIndex(3);
+      // Stage 4: Feel the Heat / Closing CTAs
+      setSentenceIndex(4);
     } else if (href === '#how-it-works') {
       // Stage 2: How it Works: From spark to screen (5 steps)
       setSentenceIndex(2);

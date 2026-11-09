@@ -4,6 +4,7 @@ import { ArrowRight, RotateCcw } from 'lucide-react';
 import BottomAmbientGlow from './BottomAmbientGlow';
 import SectionTwoOverview from './SectionTwoOverview';
 import SectionThreeHowItWorks from './SectionThreeHowItWorks';
+import SectionFourClients from './SectionFourClients';
 import './SentenceHero.css';
 
 /**
@@ -11,8 +12,9 @@ import './SentenceHero.css';
  * Single 100vh viewport revealing sequential narrative stages on scrolling:
  * - Stage 0: The Hook (auto-reveals 3 problem statements in sequence without initial scroll)
  * - Stage 1: Section Two Overview (Meet brandheat + Anticipa, Crea, Escala in cascading waterfall)
- * - Stage 2: The Vision ("From spark to screen.")
- * - Stage 3: The Closing / Conversion ("Tu marca, siempre a tiempo..." + Action CTAs)
+ * - Stage 2: Section Three (How it Works: From spark to screen - 5 feature cards)
+ * - Stage 3: Section Four (Our Clients (so far) - 4-logo placeholder grid)
+ * - Stage 4: The Closing / Conversion ("Tu marca, siempre a tiempo..." + Action CTAs)
  */
 export default function SentenceHero({
   currentLang = 'es',
@@ -26,7 +28,7 @@ export default function SentenceHero({
   const isScrollingRef = useRef(false);
   const touchStartY = useRef(0);
 
-  const totalSentences = 4;
+  const totalSentences = 5;
   const isEs = currentLang === 'es';
 
   // Navigate between main viewport stages with cooldown
@@ -216,7 +218,7 @@ export default function SentenceHero({
       {/* 2. Main Center Stage */}
       <main
         className={`relative z-20 my-auto w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center transition-transform duration-500 ${
-          currentIndex === 1 || currentIndex === 2
+          currentIndex === 1 || currentIndex === 2 || currentIndex === 3
             ? '-translate-y-2 sm:-translate-y-4 lg:-translate-y-6'
             : '-translate-y-6 sm:-translate-y-10 lg:-translate-y-12'
         }`}
@@ -381,9 +383,25 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 3: Closing Stage with Action CTAs
+              STAGE 3: Section Four (Our Clients - Logo Grid)
              ======================================================== */}
           {currentIndex === 3 && (
+            <motion.div
+              key={`stage-clients-${currentLang}`}
+              variants={stageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="w-full"
+            >
+              <SectionFourClients currentLang={currentLang} />
+            </motion.div>
+          )}
+
+          {/* ========================================================
+              STAGE 4: Closing Stage with Action CTAs
+             ======================================================== */}
+          {currentIndex === 4 && (
             <motion.div
               key={`stage-closing-${currentLang}`}
               variants={stageVariants}

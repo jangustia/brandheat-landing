@@ -215,3 +215,4 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
     </motion.div>
   );
 }
+
