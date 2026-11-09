@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Flame } from 'lucide-react';
+import ManifestoModal from './ManifestoModal';
 import './Navbar.css';
 
 /**
@@ -11,6 +12,8 @@ import './Navbar.css';
  * - OUR CLIENTS
  * - FEEL THE HEAT
  * - FOUNDER
+ * Next to the language selector on the left:
+ * - MANIFIESTO (MANIFESTO) button opening the full manifesto dialog.
  * All items in ALL CAPS, bold (font-[700]), and calibrated to design.md tokens.
  */
 export default function Navbar({
@@ -21,6 +24,7 @@ export default function Navbar({
   onLogoClick,
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [manifestoOpen, setManifestoOpen] = useState(false);
 
   const navLinks = [
     {
@@ -125,8 +129,19 @@ export default function Navbar({
           })}
         </nav>
 
-        {/* Right side: Language switcher & mobile menu trigger */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        {/* Right side: Manifesto Button, Language switcher & mobile menu trigger */}
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-4.5">
+          {/* Manifiesto Button: Next to the language component on the left */}
+          <button
+            type="button"
+            onClick={() => setManifestoOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Poppins',sans-serif] font-[700] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
+          >
+            <Flame className="w-3.5 h-3.5 text-[#ea4325]" />
+            <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
+          </button>
+
           {/* Language selector ES | EN */}
           <div
             className="inline-flex items-center text-xs tracking-wider font-['Poppins',sans-serif] font-[500] text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
@@ -173,7 +188,7 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Mobile Drawer with all 5 sections in ALL CAPS & Bold */}
+      {/* Mobile Drawer with all 5 sections & Manifesto in ALL CAPS & Bold */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -202,10 +217,30 @@ export default function Navbar({
                   </a>
                 );
               })}
+
+              {/* Mobile Manifesto Action */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setManifestoOpen(true);
+                }}
+                className="mt-2 text-sm font-['Poppins',sans-serif] font-[700] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center gap-2 cursor-pointer"
+              >
+                <Flame className="w-4 h-4 text-[#ea4325]" />
+                <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
+              </button>
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Level 4 Interactive Manifesto Modal Dialog */}
+      <ManifestoModal
+        isOpen={manifestoOpen}
+        onClose={() => setManifestoOpen(false)}
+        currentLang={currentLang}
+      />
     </header>
   );
 }
