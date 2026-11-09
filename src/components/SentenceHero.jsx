@@ -247,7 +247,7 @@ export default function SentenceHero({
         className={`relative z-20 my-auto w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center transition-transform duration-500 ${
           currentIndex === 0
             ? '-translate-y-4 sm:-translate-y-6 lg:-translate-y-8'
-            : '-translate-y-12 sm:-translate-y-16 md:-translate-y-20 lg:-translate-y-24'
+            : 'translate-y-0 sm:translate-y-1'
         }`}
       >
         <AnimatePresence mode="wait">
