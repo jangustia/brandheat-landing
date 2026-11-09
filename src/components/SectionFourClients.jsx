@@ -94,3 +94,4 @@ export default function SectionFourClients({ currentLang = 'es' }) {
     </motion.div>
   );
 }
+

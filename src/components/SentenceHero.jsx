@@ -5,6 +5,7 @@ import BottomAmbientGlow from './BottomAmbientGlow';
 import SectionTwoOverview from './SectionTwoOverview';
 import SectionThreeHowItWorks from './SectionThreeHowItWorks';
 import SectionFourClients from './SectionFourClients';
+import SectionFiveFeelTheHeat from './SectionFiveFeelTheHeat';
 import './SentenceHero.css';
 
 /**
@@ -14,7 +15,7 @@ import './SentenceHero.css';
  * - Stage 1: Section Two Overview (Meet brandheat + Anticipa, Crea, Escala in cascading waterfall)
  * - Stage 2: Section Three (How it Works: From spark to screen - 5 feature cards)
  * - Stage 3: Section Four (Our Clients (so far) - 4-logo placeholder grid)
- * - Stage 4: The Closing / Conversion ("Tu marca, siempre a tiempo..." + Action CTAs)
+ * - Stage 4: Section Five (FEEL THE HEAT - Interactive Early Access Form)
  */
 export default function SentenceHero({
   currentLang = 'es',
@@ -399,62 +400,24 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 4: Closing Stage with Action CTAs
+              STAGE 4: Section Five (FEEL THE HEAT - Early Access Form)
              ======================================================== */}
           {currentIndex === 4 && (
             <motion.div
-              key={`stage-closing-${currentLang}`}
+              key={`stage-feel-the-heat-${currentLang}`}
               variants={stageVariants}
               initial="initial"
               animate="animate"
               exit="exit"
-              className="w-full text-center flex flex-col items-center justify-center px-4"
+              className="w-full"
             >
-              <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.2] tracking-[-0.03em] text-white text-center w-full mb-8">
-                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                  <span className="font-[700] text-white">
-                    {isEs ? 'Tu marca,' : 'Your brand,'}
-                  </span>{' '}
-                  <span className="font-[200] text-white">
-                    {isEs ? 'siempre a tiempo.' : 'always on time.'}
-                  </span>
-                </div>
-                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                  <span className="font-[200] text-white">
-                    {isEs ? 'Siempre al punto.' : 'Always on point.'}
-                  </span>{' '}
-                  <span className="font-[700] text-white">
-                    Always on.
-                  </span>
-                </div>
-              </h2>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.25, duration: 0.5 }}
-                className="flex flex-wrap items-center justify-center gap-4"
-              >
-                <a
-                  href="mailto:contact@brandheat.ai"
-                  className="inline-flex items-center gap-2.5 px-8 sm:px-9 py-4 sm:py-4.5 rounded-full font-semibold text-sm sm:text-base text-white bg-gradient-to-r from-[#FF6637] to-[#D70417] hover:brightness-110 shadow-[0_0_30px_rgba(255,102,55,0.5)] transition-all duration-300 hover:scale-105"
-                >
-                  <span>{isEs ? 'Solicitar Acceso Temprano' : 'Request Early Access'}</span>
-                  <ArrowRight className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    setHookSentenceIndex(0);
-                    setCurrentIndex(0);
-                  }}
-                  className="inline-flex items-center gap-2.5 px-7 sm:px-8 py-4 sm:py-4.5 rounded-full font-semibold text-sm sm:text-base text-white/80 hover:text-white bg-white/[0.06] border border-white/[0.14] hover:bg-white/[0.12] transition-all duration-300"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
-                </button>
-              </motion.div>
+              <SectionFiveFeelTheHeat
+                currentLang={currentLang}
+                onBackToStart={() => {
+                  setHookSentenceIndex(0);
+                  setCurrentIndex(0);
+                }}
+              />
             </motion.div>
           )}
         </AnimatePresence>
