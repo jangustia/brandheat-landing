@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, RotateCcw } from 'lucide-react';
 import BottomAmbientGlow from './BottomAmbientGlow';
 import SectionTwoOverview from './SectionTwoOverview';
+import SectionThreeHowItWorks from './SectionThreeHowItWorks';
 import './SentenceHero.css';
 
 /**
@@ -215,7 +216,7 @@ export default function SentenceHero({
       {/* 2. Main Center Stage */}
       <main
         className={`relative z-20 my-auto w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center transition-transform duration-500 ${
-          currentIndex === 1
+          currentIndex === 1 || currentIndex === 2
             ? '-translate-y-2 sm:-translate-y-4 lg:-translate-y-6'
             : '-translate-y-6 sm:-translate-y-10 lg:-translate-y-12'
         }`}
@@ -364,25 +365,18 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 2: From spark to screen.
+              STAGE 2: Section Three (How it Works: From spark to screen)
              ======================================================== */}
           {currentIndex === 2 && (
             <motion.div
-              key={`stage-vision-${currentLang}`}
+              key={`stage-how-it-works-${currentLang}`}
               variants={stageVariants}
               initial="initial"
               animate="animate"
               exit="exit"
-              className="w-full text-center flex flex-col items-center justify-center px-4"
+              className="w-full"
             >
-              <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[46px] lg:text-[62px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full whitespace-nowrap">
-                <span className="font-[200] text-white">
-                  From spark to
-                </span>{' '}
-                <span className="font-[700] text-white">
-                  screen.
-                </span>
-              </h2>
+              <SectionThreeHowItWorks currentLang={currentLang} />
             </motion.div>
           )}
 
