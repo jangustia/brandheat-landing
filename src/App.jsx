@@ -27,12 +27,12 @@ export default function App() {
   // Handle header navigation links
   const handleNavClick = (href) => {
     if (href === '#feel-the-heat') {
-      // Jump directly to the final closing scroll section (index 11 of 12)
-      setSentenceIndex(11);
+      // Jump directly to the final closing scroll section (index 10 of 11)
+      setSentenceIndex(10);
     } else if (href === '#manifesto') {
-      setSentenceIndex(4); // Meet brandheat
+      setSentenceIndex(3); // Meet brandheat
     } else if (href === '#how-it-works') {
-      setSentenceIndex(8); // One platform to detect, create...
+      setSentenceIndex(7); // One platform to detect, create...
     }
   };
 

@@ -28,8 +28,9 @@ export default function SentenceHero({
   const isScrollingRef = useRef(false);
   const touchStartY = useRef(0);
 
-  const totalSentences = 12;
+  const totalSentences = 11;
   const isEs = currentLang === 'es';
+  const hasUserInteracted = useRef(false);
 
   // Navigate between sentences with cooldown
   const setCurrentIndex = useCallback(
@@ -52,6 +53,44 @@ export default function SentenceHero({
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }, [setCurrentIndex]);
 
+  // User-initiated navigation wraps that mark manual interaction
+  const handleUserNext = useCallback(() => {
+    hasUserInteracted.current = true;
+    goToNext();
+  }, [goToNext]);
+
+  const handleUserPrev = useCallback(() => {
+    hasUserInteracted.current = true;
+    goToPrev();
+  }, [goToPrev]);
+
+  const handleDotClick = useCallback(
+    (index) => {
+      hasUserInteracted.current = true;
+      setCurrentIndex(index);
+    },
+    [setCurrentIndex]
+  );
+
+  // Auto-advance through the first 3 sentences on initial load without scroll
+  useEffect(() => {
+    // If the user has manually scrolled/navigated, or we have already reached stage 2, stop auto-advancing
+    if (hasUserInteracted.current || currentIndex >= 2) {
+      return;
+    }
+
+    // Sentence 0 displays for 4000ms, Sentence 1 displays for 4800ms
+    const delay = currentIndex === 0 ? 4000 : 4800;
+
+    const timer = setTimeout(() => {
+      if (!hasUserInteracted.current) {
+        goToNext();
+      }
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, goToNext, currentLang]);
+
   // Wheel listener
   useEffect(() => {
     const handleWheel = (e) => {
@@ -60,13 +99,13 @@ export default function SentenceHero({
 
       if (e.deltaY > 25) {
         isScrollingRef.current = true;
-        goToNext();
+        handleUserNext();
         setTimeout(() => {
           isScrollingRef.current = false;
         }, 650);
       } else if (e.deltaY < -25) {
         isScrollingRef.current = true;
-        goToPrev();
+        handleUserPrev();
         setTimeout(() => {
           isScrollingRef.current = false;
         }, 650);
@@ -75,7 +114,7 @@ export default function SentenceHero({
 
     window.addEventListener('wheel', handleWheel, { passive: false });
     return () => window.removeEventListener('wheel', handleWheel);
-  }, [goToNext, goToPrev]);
+  }, [handleUserNext, handleUserPrev]);
 
   // Touch swipe for mobile
   useEffect(() => {
@@ -89,9 +128,9 @@ export default function SentenceHero({
 
       if (Math.abs(diffY) > 40) {
         if (diffY > 0) {
-          goToNext();
+          handleUserNext();
         } else {
-          goToPrev();
+          handleUserPrev();
         }
       }
     };
@@ -102,27 +141,27 @@ export default function SentenceHero({
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [goToNext, goToPrev]);
+  }, [handleUserNext, handleUserPrev]);
 
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
         e.preventDefault();
-        goToNext();
+        handleUserNext();
       } else if (['ArrowUp', 'PageUp'].includes(e.key)) {
         e.preventDefault();
-        goToPrev();
+        handleUserPrev();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [goToNext, goToPrev]);
+  }, [handleUserNext, handleUserPrev]);
 
-  // Stage 5 flame reveal animation trigger
+  // Stage 4 (Meet brandheat) flame reveal animation trigger
   useEffect(() => {
-    if (currentIndex === 4) {
+    if (currentIndex === 3) {
       setFlameProgress(0);
       const timer = setTimeout(() => {
         setFlameProgress(1);
@@ -177,14 +216,18 @@ export default function SentenceHero({
 
   return (
     <div className="sentence-hero-viewport relative w-full h-screen overflow-hidden bg-[#070709] flex flex-col justify-between items-center px-[40px] pt-[40px] pb-0 m-0 select-none">
-      {/* 1. Integrated Bottom Ambient Glow + Dots + Mouse Scroll from User */}
-      <BottomAmbientGlow onScrollClick={goToNext} />
+      {/* 1. Integrated Bottom Ambient Glow + Dots + Mouse Scroll with Language Support */}
+      <BottomAmbientGlow
+        onScrollClick={handleUserNext}
+        currentLang={currentLang}
+        isLastStage={currentIndex === totalSentences - 1}
+      />
 
-      {/* 2. Main Center Stage: 12 Sentences strictly styled, Manrope Extra Thin (200) + Bold (700), 58px */}
+      {/* 2. Main Center Stage: 11 Sentences strictly styled, Manrope Extra Thin (200) + Bold (700), 58px */}
       <main className="relative z-20 my-auto -translate-y-8 sm:-translate-y-12 lg:-translate-y-14 w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
         <AnimatePresence mode="wait">
           {/* ========================================================
-              01: ¿Cuánto tarda tu marca en subirse a una conversación que ya es tendencia?
+              01: ¿Cuánto tarda tu marca en subirse a una tendencia?
              ======================================================== */}
           {currentIndex === 0 && (
             <motion.div
@@ -202,17 +245,14 @@ export default function SentenceHero({
                   </span>{' '}
                   <span className="font-[700] text-white">
                     {isEs ? 'tu marca' : 'your brand'}
-                  </span>{' '}
-                  <span className="font-[200] text-white">
-                    {isEs ? 'en subirse a una' : 'to join a'}
                   </span>
                 </div>
                 <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
                   <span className="font-[200] text-white">
-                    {isEs ? 'conversación que ya es' : "conversation that's already"}
+                    {isEs ? 'en subirse a una' : 'to jump on a'}
                   </span>{' '}
                   <span className="font-[700] text-white">
-                    {isEs ? 'tendencia?' : 'trending?'}
+                    {isEs ? 'tendencia?' : 'trend?'}
                   </span>
                 </div>
               </h1>
@@ -220,7 +260,7 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              02: Una conversación que prendió escala en horas.
+              02: Una conversación que prendió, escala en horas. Una campaña, tarda semanas...
              ======================================================== */}
           {currentIndex === 1 && (
             <motion.div
@@ -234,24 +274,29 @@ export default function SentenceHero({
               <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full">
                 <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
                   <span className="font-[200] text-white">
-                    {isEs ? 'Una' : 'A'}
+                    {isEs ? 'Una conversación que' : 'A conversation that'}
                   </span>{' '}
                   <span className="font-[700] text-white">
-                    {isEs ? 'conversación' : 'conversation'}
+                    {isEs ? 'prendió,' : 'caught fire,'}
                   </span>{' '}
                   <span className="font-[200] text-white">
-                    {isEs ? 'que prendió' : 'that caught fire'}
+                    {isEs ? 'escala en horas.' : 'escalates in hours.'}
                   </span>
                 </div>
-                <div className="block my-1 sm:my-1.5 font-[200] text-white lg:whitespace-nowrap text-center">
-                  {isEs ? 'escala en horas.' : 'escalates in hours.'}
+                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
+                  <span className="font-[200] text-white">
+                    {isEs ? 'Una campaña,' : 'A campaign,'}
+                  </span>{' '}
+                  <span className="font-[700] text-white">
+                    {isEs ? 'tarda semanas...' : 'takes weeks...'}
+                  </span>
                 </div>
               </h2>
             </motion.div>
           )}
 
           {/* ========================================================
-              03: Una campaña tarda semanas. "single lines"
+              03: Ese gap es un problema cada vez más grande. Y más caro.
              ======================================================== */}
           {currentIndex === 2 && (
             <motion.div
@@ -262,42 +307,31 @@ export default function SentenceHero({
               exit="exit"
               className="w-full text-center flex flex-col items-center justify-center px-4"
             >
-              <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] font-[200] text-white/95 text-center w-full whitespace-nowrap">
-                {isEs ? 'Una campaña tarda semanas.' : 'A campaign takes weeks.'}
+              <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-white text-center w-full">
+                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
+                  <span className="font-[200] text-white">
+                    {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
+                  </span>{' '}
+                  <span className="font-[700] text-white">
+                    {isEs ? 'cada vez más grande.' : 'getting bigger and bigger.'}
+                  </span>
+                </div>
+                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
+                  <span className="font-[700] text-white">
+                    {isEs ? 'Y más caro.' : 'And more expensive.'}
+                  </span>
+                </div>
               </h2>
             </motion.div>
           )}
 
           {/* ========================================================
-              04: Ese gap es cada vez más grande. Y más caro.
+              04: Meet brandheat.
+              heat.png fully passes the text and fades out on the right side
              ======================================================== */}
           {currentIndex === 3 && (
             <motion.div
               key={`sentence-04-${currentLang}`}
-              variants={sentenceVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full text-center flex flex-col items-center justify-center px-4"
-            >
-              <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] font-[200] text-white/95 text-center w-full">
-                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                  {isEs ? 'Ese gap es cada vez más grande.' : 'That gap keeps getting bigger.'}
-                </div>
-                <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                  {isEs ? 'Y más caro.' : 'And more expensive.'}
-                </div>
-              </h2>
-            </motion.div>
-          )}
-
-          {/* ========================================================
-              05: Meet brandheat.
-              heat.png fully passes the text and fades out on the right side
-             ======================================================== */}
-          {currentIndex === 4 && (
-            <motion.div
-              key={`sentence-05-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -365,11 +399,11 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              06: Anticipá. Llegá antes a la conversación. (EN UNA SOLA LINEA)
+              05: Anticipá. Llegá antes a la conversación. (EN UNA SOLA LINEA)
              ======================================================== */}
-          {currentIndex === 5 && (
+          {currentIndex === 4 && (
             <motion.div
-              key={`sentence-06-${currentLang}`}
+              key={`sentence-05-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -388,11 +422,11 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              07: Creá. Lo de hoy ya no sirve mañana. / Create.
+              06: Creá. Lo de hoy ya no sirve mañana. / Create.
              ======================================================== */}
-          {currentIndex === 6 && (
+          {currentIndex === 5 && (
             <motion.div
-              key={`sentence-07-${currentLang}`}
+              key={`sentence-06-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -419,11 +453,11 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              08: Escalá. Invertí en lo que ya funciona. / Scale.
+              07: Escalá. Invertí en lo que ya funciona. / Scale.
              ======================================================== */}
-          {currentIndex === 7 && (
+          {currentIndex === 6 && (
             <motion.div
-              key={`sentence-08-${currentLang}`}
+              key={`sentence-07-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -450,13 +484,13 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              09: EXACT FORMAT FROM ATTACHED IMAGE:
+              08: EXACT FORMAT FROM ATTACHED IMAGE:
               Line 1: "Una sola plataforma para " (200) "detectar, crear," (700)
               Line 2: "publicar y medir." (700) " En tiempo real." (200)
              ======================================================== */}
-          {currentIndex === 8 && (
+          {currentIndex === 7 && (
             <motion.div
-              key={`sentence-09-${currentLang}`}
+              key={`sentence-08-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -485,11 +519,11 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              10: Sin brief. Sin esperas. Sin llegar tarde. (EN UNA SOLA LINEA)
+              09: Sin brief. Sin esperas. Sin llegar tarde. (EN UNA SOLA LINEA)
              ======================================================== */}
-          {currentIndex === 9 && (
+          {currentIndex === 8 && (
             <motion.div
-              key={`sentence-10-${currentLang}`}
+              key={`sentence-09-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -508,11 +542,11 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              11: From spark to screen. screen is bold.
+              10: From spark to screen. screen is bold.
              ======================================================== */}
-          {currentIndex === 10 && (
+          {currentIndex === 9 && (
             <motion.div
-              key={`sentence-11-${currentLang}`}
+              key={`sentence-10-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -531,12 +565,12 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              12: Your brand, always on time. Always on point. Always on.
+              11: Your brand, always on time. Always on point. Always on.
               (CIERRE CON LOS DOS BOTONES)
              ======================================================== */}
-          {currentIndex === 11 && (
+          {currentIndex === 10 && (
             <motion.div
-              key={`sentence-12-${currentLang}`}
+              key={`sentence-11-${currentLang}`}
               variants={sentenceVariants}
               initial="initial"
               animate="animate"
@@ -578,7 +612,10 @@ export default function SentenceHero({
 
                 <button
                   type="button"
-                  onClick={() => setCurrentIndex(0)}
+                  onClick={() => {
+                    hasUserInteracted.current = false;
+                    setCurrentIndex(0);
+                  }}
                   className="inline-flex items-center gap-2.5 px-7 sm:px-8 py-4 sm:py-4.5 rounded-full font-semibold text-sm sm:text-base text-white/80 hover:text-white bg-white/[0.06] border border-white/[0.14] hover:bg-white/[0.12] transition-all duration-300"
                 >
                   <RotateCcw className="w-4 h-4" />
@@ -590,13 +627,13 @@ export default function SentenceHero({
         </AnimatePresence>
       </main>
 
-      {/* 3. Floating Minimal Navigation Dots (12 Stages) */}
+      {/* 3. Floating Minimal Navigation Dots (11 Stages) */}
       <div className="absolute right-6 top-1/2 -translate-y-1/2 z-30 hidden sm:flex flex-col items-center gap-2">
         {Array.from({ length: totalSentences }).map((_, index) => (
           <button
             key={index}
             type="button"
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => handleDotClick(index)}
             className={`transition-all duration-300 rounded-full ${
               currentIndex === index
                 ? 'w-1.5 h-6 bg-[#FF6637] shadow-[0_0_12px_rgba(255,102,55,0.85)]'

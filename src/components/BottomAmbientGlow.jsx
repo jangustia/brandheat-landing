@@ -114,7 +114,7 @@ function HarmonicBar({ index, total, smoothMouseX, smoothGlowIntensity }) {
  *   creating an organic empty space around the cursor (clearing force-field).
  * - Bars and shapes dip down and part laterally away like fluid parting.
  */
-export default function BottomAmbientGlow({ onScrollClick }) {
+export default function BottomAmbientGlow({ onScrollClick, currentLang = 'es', isLastStage = false }) {
   const numHarmonicBars = 17;
 
   // Track normalized mouse coordinates (0 to 1 across X and Y)
@@ -576,35 +576,42 @@ export default function BottomAmbientGlow({ onScrollClick }) {
       <InteractiveDotField />
 
       {/* 3. ANIMATED MOUSE SCROLL INDICATOR */}
-      <button
-        type="button"
-        onClick={onScrollClick}
-        className="ambient-mouse-indicator focus:outline-none focus:ring-2 focus:ring-[#FF5722]/40 rounded-full"
-        aria-label="Scroll to next sentence"
-      >
-        <div className="ambient-mouse-capsule hover:border-white">
-          <motion.div
-            animate={{
-              y: [0, 8, 0],
-              opacity: [1, 0.3, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            className="w-1 h-1.5 bg-white/90 rounded-full"
-          />
-        </div>
-
-        <motion.div
-          animate={{ opacity: [0.3, 0.8, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="mt-1 text-[8px] text-white/50 leading-none"
+      {!isLastStage && (
+        <button
+          type="button"
+          onClick={onScrollClick}
+          className="ambient-mouse-indicator focus:outline-none focus:ring-2 focus:ring-[#FF5722]/40 rounded-full group cursor-pointer"
+          aria-label={currentLang === 'es' ? 'Desliza para conocer más' : 'Scroll to learn more'}
         >
-          ⌄
-        </motion.div>
-      </button>
+          <div className="ambient-mouse-capsule group-hover:border-white group-hover:shadow-[0_0_16px_rgba(255,102,55,0.45)] transition-all duration-300">
+            <motion.div
+              animate={{
+                y: [0, 8, 0],
+                opacity: [1, 0.3, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+              className="w-1 h-1.5 bg-white/90 rounded-full"
+            />
+          </div>
+
+          <motion.div
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            className="mt-1 text-[8px] text-white/50 leading-none group-hover:text-white/80 transition-colors"
+          >
+            ⌄
+          </motion.div>
+
+          {/* Indicator text: 'Scroll to learn more' in Spanish and English */}
+          <span className="mt-2 text-[10px] sm:text-[11px] font-['Manrope',sans-serif] font-medium tracking-[0.16em] uppercase text-white/50 group-hover:text-white transition-colors duration-200 select-none">
+            {currentLang === 'es' ? 'Desliza para conocer más' : 'Scroll to learn more'}
+          </span>
+        </button>
+      )}
 
     </div>
   );
