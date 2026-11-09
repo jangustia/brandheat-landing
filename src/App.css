@@ -18,25 +18,31 @@
 }
 
 /* Custom dark scrollbar for modals & dialogs */
+.custom-dialog-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.03);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
 .custom-dialog-scrollbar::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 .custom-dialog-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 9999px;
+  margin: 6px 0;
 }
 
 .custom-dialog-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.22);
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s;
 }
 
 .custom-dialog-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(234, 67, 37, 0.5);
-}
-
-.custom-dialog-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.14) transparent;
+  background: #ea4325;
 }
 

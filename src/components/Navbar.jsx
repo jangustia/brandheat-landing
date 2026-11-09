@@ -24,7 +24,13 @@ export default function Navbar({
   onLogoClick,
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [manifestoOpen, setManifestoOpen] = useState(false);
+  const [manifestoOpen, setManifestoOpen] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('manifesto') === 'true';
+    }
+    return false;
+  });
 
   const navLinks = [
     {

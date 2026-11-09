@@ -72,9 +72,19 @@ export default function SentenceHero({
     }
   }, [currentIndex, hookSentenceIndex]);
 
-  // Wheel listener: Scrolling down on Stage 0 smoothly enters Section Two (Stage 1)
+  // Wheel listener: Scrolling down enters subsequent sections
   useEffect(() => {
     const handleWheel = (e) => {
+      // Do not intercept if a modal dialog is open or if event target is scrollable
+      if (
+        document.querySelector('[role="dialog"]') ||
+        e.target.closest('[role="dialog"]') ||
+        e.target.closest('.custom-dialog-scrollbar') ||
+        e.target.closest('.overflow-y-auto')
+      ) {
+        return;
+      }
+
       e.preventDefault();
       if (isScrollingRef.current) return;
 
@@ -100,10 +110,24 @@ export default function SentenceHero({
   // Touch swipe for mobile
   useEffect(() => {
     const handleTouchStart = (e) => {
+      if (
+        document.querySelector('[role="dialog"]') ||
+        e.target.closest('[role="dialog"]') ||
+        e.target.closest('.overflow-y-auto')
+      ) {
+        return;
+      }
       touchStartY.current = e.touches[0].clientY;
     };
 
     const handleTouchEnd = (e) => {
+      if (
+        document.querySelector('[role="dialog"]') ||
+        e.target.closest('[role="dialog"]') ||
+        e.target.closest('.overflow-y-auto')
+      ) {
+        return;
+      }
       const touchEndY = e.changedTouches[0].clientY;
       const diffY = touchStartY.current - touchEndY;
 
@@ -127,6 +151,14 @@ export default function SentenceHero({
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (
+        document.querySelector('[role="dialog"]') ||
+        e.target.closest('[role="dialog"]')
+      ) {
+        // Allow arrow keys and PageUp/PageDown to scroll the modal dialog
+        return;
+      }
+
       if (['ArrowDown', 'PageDown', ' '].includes(e.key)) {
         e.preventDefault();
         goToNext();

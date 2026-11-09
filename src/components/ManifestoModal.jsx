@@ -34,6 +34,24 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
+  // Optional query param scroll support for automated testing
+  useEffect(() => {
+    if (isOpen && typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const scrollParam = params.get('scroll');
+      if (scrollParam) {
+        const t = setTimeout(() => {
+          const el = document.querySelector('.custom-dialog-scrollbar');
+          if (el) {
+            if (scrollParam === 'bottom') el.scrollTop = el.scrollHeight;
+            else el.scrollTop = parseInt(scrollParam, 10);
+          }
+        }, 200);
+        return () => clearTimeout(t);
+      }
+    }
+  }, [isOpen]);
+
   if (!mounted || typeof document === 'undefined') return null;
 
   return createPortal(
@@ -57,10 +75,14 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+            onTouchEnd={(e) => e.stopPropagation()}
             className="relative w-full max-w-2xl max-h-[82vh] flex flex-col bg-[#161618] border border-[rgba(255,255,255,0.08)] rounded-[24px] sm:rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.9)] cursor-default overflow-hidden my-auto"
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[rgba(255,255,255,0.06)] bg-[#161618]/90 backdrop-blur-md sticky top-0 z-10">
+            <div className="flex-shrink-0 flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[rgba(255,255,255,0.06)] bg-[#161618]/95 backdrop-blur-md z-10">
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] text-[11px] font-['Poppins',sans-serif] font-[700] uppercase tracking-wider">
                   <Flame className="w-3 h-3 text-[#ea4325]" />
@@ -82,8 +104,8 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
               </button>
             </div>
 
-            {/* Modal Scrollable Content */}
-            <div className="px-6 sm:px-8 md:px-10 py-6 sm:py-8 overflow-y-auto custom-dialog-scrollbar space-y-6 text-left font-['Poppins',sans-serif]">
+            {/* Modal Scrollable Content: flex-1 min-h-0 allows flexbox child to scroll within max-height */}
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 sm:px-8 md:px-10 py-6 sm:py-8 custom-dialog-scrollbar space-y-6 text-left font-['Poppins',sans-serif]">
               {isEs ? (
                 /* ========================================================
                    SPANISH MANIFESTO
