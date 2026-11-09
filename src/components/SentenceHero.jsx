@@ -6,6 +6,7 @@ import SectionTwoOverview from './SectionTwoOverview';
 import SectionThreeHowItWorks from './SectionThreeHowItWorks';
 import SectionFourClients from './SectionFourClients';
 import SectionFiveFeelTheHeat from './SectionFiveFeelTheHeat';
+import SectionSixFounders from './SectionSixFounders';
 import './SentenceHero.css';
 
 /**
@@ -16,6 +17,7 @@ import './SentenceHero.css';
  * - Stage 2: Section Three (How it Works: From spark to screen - 5 feature cards)
  * - Stage 3: Section Four (Our Clients (so far) - 4-logo placeholder grid)
  * - Stage 4: Section Five (FEEL THE HEAT - Interactive Early Access Form)
+ * - Stage 5: Section Six (Founder member - 5 interactive founder tiles with bio modal)
  */
 export default function SentenceHero({
   currentLang = 'es',
@@ -29,7 +31,7 @@ export default function SentenceHero({
   const isScrollingRef = useRef(false);
   const touchStartY = useRef(0);
 
-  const totalSentences = 5;
+  const totalSentences = 6;
   const isEs = currentLang === 'es';
 
   // Navigate between main viewport stages with cooldown
@@ -412,6 +414,28 @@ export default function SentenceHero({
               className="w-full"
             >
               <SectionFiveFeelTheHeat
+                currentLang={currentLang}
+                onBackToStart={() => {
+                  setHookSentenceIndex(0);
+                  setCurrentIndex(0);
+                }}
+              />
+            </motion.div>
+          )}
+
+          {/* ========================================================
+              STAGE 5: Section Six (Founder member - 5 Interactive Founder Tiles)
+             ======================================================== */}
+          {currentIndex === 5 && (
+            <motion.div
+              key={`stage-founders-${currentLang}`}
+              variants={stageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="w-full"
+            >
+              <SectionSixFounders
                 currentLang={currentLang}
                 onBackToStart={() => {
                   setHookSentenceIndex(0);
