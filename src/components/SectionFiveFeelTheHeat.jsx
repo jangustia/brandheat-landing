@@ -59,14 +59,14 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
             onSubmit={handleSubmit}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 w-full"
           >
-            {/* Pill Email Input adhering to standard input tokens */}
+            {/* Pill Email Input using the same color as the card containers (#151515) for clear contrast */}
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder={isEs ? 'Ingresar correo electronico' : 'Enter your email'}
               required
-              className="w-full sm:w-[320px] md:w-[340px] h-[52px] sm:h-[56px] px-6 rounded-full bg-[#000000] focus:bg-[#08090c] border-[1.5px] border-transparent focus:border-[#212121] text-[#ffffff] placeholder-[#8D8F93] placeholder:font-[500] text-sm sm:text-base font-['Inter',sans-serif] font-[500] focus:outline-none transition-all duration-200 caret-[#ea4325] shadow-inner"
+              className="w-full sm:w-[320px] md:w-[340px] h-[52px] sm:h-[56px] px-6 rounded-full bg-[#151515] hover:bg-[#1a1a1a] focus:bg-[#1e1e1e] border-none text-[#ffffff] placeholder-[#8D8F93] placeholder:font-[500] text-sm sm:text-base font-['Inter',sans-serif] font-[500] focus:outline-none transition-all duration-200 caret-[#ea4325] shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
             />
 
             {/* Pill Action Button: The ONE Brand Orange #ea4325 (Subtle Hover) */}
