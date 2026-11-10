@@ -42,17 +42,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
 
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4">
-      {/* 1. Top Flame Comet with Flare + "Meet brandheat." Title */}
+      {/* 1. "Meet brandheat." Title */}
       <div className="flex flex-col items-center">
-        <div className="relative w-28 sm:w-36 md:w-40 h-6 sm:h-7 md:h-8 mx-auto flex items-center justify-center mb-1">
-          <img
-            src="/heat.png"
-            alt="Brand HEAT Comet"
-            className="w-full h-full object-contain filter-none pointer-events-none select-none"
-          />
-          <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white blur-[0.8px] shadow-[0_0_10px_5px_rgba(255,255,255,0.9)] pointer-events-none" />
-        </div>
-
         <h2 className="font-['Manrope',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-[1.12] tracking-[-0.03em] text-[#ffffff] text-center">
           <span className="font-[200] text-[#ffffff]">Meet brand</span>
           <span className="font-[800] text-[#ffffff]">heat.</span>
