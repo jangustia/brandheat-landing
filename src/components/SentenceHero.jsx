@@ -31,7 +31,17 @@ export default function SentenceHero({
   const [internalIndex, setInternalIndex] = useState(0);
   const currentIndex = controlledIndex !== undefined ? controlledIndex : internalIndex;
 
-  const [hookSentenceIndex, setHookSentenceIndex] = useState(0);
+  const [hookSentenceIndex, setHookSentenceIndex] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const hookParam = params.get('hook');
+      if (hookParam !== null) {
+        const parsed = parseInt(hookParam, 10);
+        if (!isNaN(parsed) && parsed >= 0 && parsed <= 2) return parsed;
+      }
+    }
+    return 0;
+  });
   const isScrollingRef = useRef(false);
   const touchStartY = useRef(0);
 

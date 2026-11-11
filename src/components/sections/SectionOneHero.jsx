@@ -53,16 +53,19 @@ export default function SectionOneHero({
             <h1 className="section-one-headline text-2xl sm:text-3xl md:text-[44px] lg:text-[58px]">
               <div className="section-one-line">
                 <span className="section-one-light">
-                  {isEs ? '¿Cuánto tarda' : 'How long does it take'}
-                </span>{' '}
+                  {isEs ? '¿Cuánto tarda ' : 'How long does it take '}
+                </span>
                 <span className="section-one-bold">
                   {isEs ? 'tu marca' : 'your brand'}
+                </span>
+                <span className="section-one-light">
+                  {isEs ? ' en subirse' : ' to jump'}
                 </span>
               </div>
               <div className="section-one-line">
                 <span className="section-one-light">
-                  {isEs ? 'en subirse a una' : 'to jump on a'}
-                </span>{' '}
+                  {isEs ? 'a una ' : 'on a '}
+                </span>
                 <span className="section-one-bold">
                   {isEs ? 'tendencia?' : 'trend?'}
                 </span>
@@ -84,21 +87,26 @@ export default function SectionOneHero({
             <h2 className="section-one-headline text-2xl sm:text-3xl md:text-[44px] lg:text-[58px]">
               <div className="section-one-line">
                 <span className="section-one-light">
-                  {isEs ? 'Una conversación que' : 'A conversation that'}
-                </span>{' '}
+                  {isEs ? 'Una ' : 'A '}
+                </span>
                 <span className="section-one-bold">
-                  {isEs ? 'prendió,' : 'catches fire,'}
-                </span>{' '}
+                  {isEs ? 'conversación' : 'conversation'}
+                </span>
+                <span className="section-one-light">
+                  {isEs ? ' que prendió' : ' that catches fire'}
+                </span>
+              </div>
+              <div className="section-one-line">
                 <span className="section-one-light">
                   {isEs ? 'escala en horas.' : 'escalates in hours.'}
                 </span>
               </div>
               <div className="section-one-line">
                 <span className="section-one-light">
-                  {isEs ? 'Una campaña,' : 'A campaign,'}
-                </span>{' '}
+                  {isEs ? 'Una campaña tarda ' : 'A campaign takes '}
+                </span>
                 <span className="section-one-bold">
-                  {isEs ? 'tarda semanas...' : 'takes weeks...'}
+                  {isEs ? 'semanas...' : 'weeks...'}
                 </span>
               </div>
             </h2>
@@ -118,15 +126,21 @@ export default function SectionOneHero({
             <h2 className="section-one-headline text-2xl sm:text-3xl md:text-[44px] lg:text-[58px]">
               <div className="section-one-line">
                 <span className="section-one-light">
-                  {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
-                </span>{' '}
-                <span className="section-one-bold">
-                  {isEs ? 'cada vez más grande.' : 'that keeps getting bigger.'}
+                  {isEs ? 'Ese gap es un problema cada vez' : 'That gap is a problem that keeps'}
                 </span>
               </div>
               <div className="section-one-line">
+                <span className="section-one-light">
+                  {isEs ? 'más ' : 'getting '}
+                </span>
                 <span className="section-one-bold">
-                  {isEs ? 'Y más caro.' : 'And more expensive.'}
+                  {isEs ? 'grande.' : 'bigger.'}
+                </span>
+                <span className="section-one-light">
+                  {isEs ? ' Y más ' : ' And more '}
+                </span>
+                <span className="section-one-bold">
+                  {isEs ? 'caro.' : 'expensive.'}
                 </span>
               </div>
             </h2>
