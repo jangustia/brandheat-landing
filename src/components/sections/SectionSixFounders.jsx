@@ -164,9 +164,6 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                   <h3 className="section-six-card-name">
                     {founder.name}
                   </h3>
-                  <p className="section-six-card-tag">
-                    {founder.tag}
-                  </p>
                 </div>
                 <div className="section-six-card-action">
                   <ArrowUpRight className="section-six-card-arrow" />
