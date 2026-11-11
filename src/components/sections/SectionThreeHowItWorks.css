@@ -301,9 +301,9 @@
 .section-three-card-text {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: #8D8F93;
-  line-height: 1.52;
+  line-height: 1.55;
   letter-spacing: -0.01em;
   text-align: left;
   width: 100%;
@@ -312,14 +312,14 @@
 
 @media (min-width: 640px) {
   .section-three-card-text {
-    font-size: 1.0625rem;
+    font-size: 0.9375rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-card-text {
-    font-size: 1.1875rem;
-    line-height: 1.5;
+    font-size: 1.03125rem;
+    line-height: 1.55;
   }
 }
 
