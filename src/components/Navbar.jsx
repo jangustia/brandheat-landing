@@ -76,7 +76,7 @@ export default function Navbar({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-[#08090c]/70 border-b border-white/[0.04]">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-[#08090c]/70">
       <div className="w-full px-6 sm:px-10 m-0 h-20 sm:h-24 flex items-center justify-between">
         {/* Brandheat Logo */}
         <a
