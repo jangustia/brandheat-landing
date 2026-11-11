@@ -188,18 +188,26 @@
 .section-two-card-desc {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #8d8f93;
   line-height: 1.55;
-  max-width: 16rem;
+  max-width: 18rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 640px) {
   .section-two-card-desc {
-    font-size: 0.9375rem;
-    max-width: 17rem;
+    font-size: 1.0625rem;
+    max-width: 19.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-two-card-desc {
+    font-size: 1.1875rem;
+    line-height: 1.55;
+    max-width: 22rem;
   }
 }
 
