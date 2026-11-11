@@ -88,9 +88,9 @@ export default function Navbar({
           />
         </a>
 
-        {/* Desktop Navigation Links: ALL CAPS & BOLD with distinct interactive button pill */}
+        {/* Desktop Navigation Links: ALL CAPS & BOLD */}
         <nav
-          className="hidden md:flex items-center gap-1.5 lg:gap-2.5 xl:gap-3"
+          className="hidden md:flex items-center gap-4 lg:gap-7 xl:gap-8"
           aria-label="Main Navigation"
         >
           {navLinks.map((link) => {
@@ -100,29 +100,31 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold transition-all duration-200 relative group cursor-pointer select-none ${
-                  isActive
-                    ? 'text-[#ffffff] bg-white/[0.08] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.12)]'
-                    : 'text-[#D0D0D0] hover:text-[#ffffff] hover:bg-white/[0.05]'
+                className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold transition-colors duration-200 relative group py-1 select-none cursor-pointer ${
+                  isActive ? 'text-[#ffffff]' : 'text-[#D0D0D0] hover:text-[#ffffff]'
                 }`}
               >
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={`${link.href}-${currentLang}`}
-                    initial={{ opacity: 0, y: 2 }}
+                    initial={{ opacity: 0, y: 3 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -2 }}
-                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                    exit={{ opacity: 0, y: -3 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
                     className="inline-block"
                   >
                     {link.label}
                   </motion.span>
                 </AnimatePresence>
 
-                {/* Subtle orange accent pip for active state */}
-                {isActive && (
-                  <span className="ml-1.5 w-1.5 h-1.5 rounded-full bg-[#ea4325] shadow-[0_0_6px_rgba(234,67,37,0.85)]" />
-                )}
+                {/* Active & Hover Underline Indicator */}
+                <span
+                  className={`absolute bottom-0 left-0 h-[2px] bg-[#ea4325] transition-all duration-300 rounded-full ${
+                    isActive
+                      ? 'w-full shadow-[0_0_10px_rgba(234,67,37,0.75)]'
+                      : 'w-0 group-hover:w-full'
+                  }`}
+                />
               </a>
             );
           })}
