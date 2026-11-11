@@ -1,12 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Megaphone, LayoutGrid } from 'lucide-react';
+import { LayoutGrid } from 'lucide-react';
+
+/**
+ * AnticipaIcon Component
+ * Matches the diagonal megaphone with sound blast lines in Tier 1 Hot Red.
+ */
+function AnticipaIcon({ className = 'w-7 h-7 sm:w-8 sm:h-8 text-[#ff453a]' }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <g transform="rotate(-22 11 12)">
+        <path d="m3 11 14-5v12L3 13v-2z" />
+        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+        <path d="M19.5 7.5l2-1.2" />
+        <path d="M20.5 12l2.5 0" />
+        <path d="M19.5 16.5l2 1.2" />
+      </g>
+    </svg>
+  );
+}
 
 /**
  * EscalaIcon Component
  * Matches the ascending arrow & bar chart icon in official Tier 3 Rising Yellow.
  */
-function EscalaIcon({ className = 'w-6 h-6 sm:w-7 sm:h-7 text-[#ffbf00]' }) {
+function EscalaIcon({ className = 'w-7 h-7 sm:w-8 sm:h-8 text-[#eab308]' }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -30,116 +57,125 @@ function EscalaIcon({ className = 'w-6 h-6 sm:w-7 sm:h-7 text-[#ffbf00]' }) {
 
 /**
  * SectionTwoOverview Component
- * Calibrated strictly to design.md tokens:
- * - Level 2 Parent Cards (#151515, border: none, rounded-[24px])
- * - Depth created purely through surface contrast, never with outlines or strokes
- * - Level 3 Subtle Hover State (#1e1e1e / #212121, subtle lift)
+ * Calibrated strictly to the reference design mockup:
+ * - Centered comet flare logo (heat.png)
+ * - "Meet brandheat." (Thin "Meet brand", Bold "heat.")
+ * - Subtitle: "El always on que sigue el ritmo de la conversación."
+ * - Description 2-lines:
+ *   "Una sola plataforma para detectar, crear, publicar y medir en tiempo real."
+ *   "Sin brief. Sin esperas. Sin llegar tarde."
+ * - 3 Tall Rounded Modular Cards (#141414, rounded-[32px], border: none)
+ * - Rounded Square Badges (ANTICIPA: wine/red, CREA: warm brown/orange, ESCALA: olive/yellow)
  * - Brand Typography: Manrope (headings) & Inter (body / labels)
- * - Heat Scale Tiers: Red #ff453a, Orange #ea4325, Yellow #ffbf00
  */
 export default function SectionTwoOverview({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
 
   return (
     <div className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center px-4">
-      {/* 1. "Meet brandheat." Title */}
+      {/* 1. Top Flame Comet + "Meet brandheat." Title */}
       <div className="flex flex-col items-center">
+        <div className="w-32 sm:w-36 md:w-40 h-7 sm:h-8 md:h-9 mx-auto flex items-center justify-center mb-3 sm:mb-3.5">
+          <img
+            src="/heat.png"
+            alt="Brand HEAT Comet"
+            className="w-full h-full object-contain pointer-events-none select-none"
+          />
+        </div>
+
         <h2 className="font-['Manrope',sans-serif] text-3xl sm:text-4xl md:text-5xl lg:text-[48px] leading-[1.12] tracking-[-0.03em] text-[#ffffff] text-center">
           <span className="font-[200] text-[#ffffff]">Meet brand</span>
           <span className="font-[800] text-[#ffffff]">heat.</span>
         </h2>
       </div>
 
-      {/* 2. Primary Tagline (High-Readability Content #E1E1E1 in Manrope) */}
-      <p className="mt-2 sm:mt-2.5 font-['Manrope',sans-serif] text-base sm:text-lg md:text-xl lg:text-[22px] font-[500] text-[#E1E1E1] tracking-[-0.02em] text-center max-w-3xl">
+      {/* 2. Primary Tagline (#ffffff in Manrope) */}
+      <p className="mt-2.5 sm:mt-3 font-['Manrope',sans-serif] text-lg sm:text-xl md:text-[22px] lg:text-[23px] font-[500] text-[#ffffff] tracking-[-0.02em] text-center max-w-3xl">
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
           : 'The always-on that keeps pace with the conversation.'}
       </p>
 
-      {/* 3. Secondary Explanatory Copy (#C5C5C5 in Inter) */}
-      <div className="mt-2 sm:mt-2.5 font-['Inter',sans-serif] text-xs sm:text-sm md:text-[14px] font-[500] text-[#C5C5C5] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5">
+      {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter) */}
+      <div className="mt-3 sm:mt-3.5 font-['Inter',sans-serif] text-xs sm:text-sm md:text-[14px] font-[400] text-[#8D8F93] leading-relaxed tracking-[-0.01em] text-center max-w-2xl mx-auto space-y-0.5">
         <p>
           {isEs
             ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real.'
-            : 'One platform to detect, create, publish and measure in real time.'}
+            : 'A single platform to detect, create, publish, and measure in real time.'}
         </p>
         <p>
           {isEs
             ? 'Sin brief. Sin esperas. Sin llegar tarde.'
-            : 'No brief. No waiting. No showing up late.'}
+            : 'No briefs. No waiting. No showing up late.'}
         </p>
       </div>
 
-      {/* 4. Three Level 2 Modular Feature Cards (#151515, border: none, rounded-[24px]) */}
-      <div className="mt-5 sm:mt-6 md:mt-7 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 md:gap-5 w-full max-w-4xl lg:max-w-5xl mx-auto">
-        {/* Card 1: ANTICIPA (Tier 1 Hot Variant) */}
+      {/* 4. Three Level 2 Modular Feature Cards (#141414, rounded-[32px], border: none) */}
+      <div className="mt-8 sm:mt-9 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full max-w-4xl lg:max-w-5xl mx-auto">
+        {/* Card 1: ANTICIPA */}
         <motion.div
           whileHover={{ y: -3 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="group relative bg-[#151515] hover:bg-[#1e1e1e] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-colors duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] cursor-default"
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+          className="group relative bg-[#141414] hover:bg-[#1a1a1a] rounded-[28px] sm:rounded-[32px] py-8 sm:py-9 md:py-10 px-5 sm:px-6 md:px-7 flex flex-col items-center text-center justify-center transition-colors duration-250 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_44px_rgba(0,0,0,0.6)] cursor-default"
         >
-          {/* Badge Icon: Hot Red Surface (No stroke) */}
-          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#260c10] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 transition-transform duration-300 shadow-[0_0_16px_rgba(255,69,58,0.2)]">
-            <Megaphone className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff453a]" strokeWidth={2} />
+          {/* Badge Icon: Hot Red Surface */}
+          <div className="w-14 h-14 sm:w-15 sm:h-15 rounded-[18px] bg-[#2b1214] flex items-center justify-center mb-6 sm:mb-7 transition-colors">
+            <AnticipaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ff453a]" />
           </div>
 
-          <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Manrope',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
-              {isEs ? 'ANTICIPA' : 'ANTICIPATE'}
-            </h3>
-            <p className="font-['Inter',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">
-              {isEs
-                ? 'Llega antes a la conversación antes de que despegue.'
-                : 'Get to the conversation before it takes off.'}
-            </p>
-          </div>
+          <h3 className="font-['Manrope',sans-serif] font-[700] text-base sm:text-lg tracking-[0.05em] text-[#ffffff] uppercase mb-2 sm:mb-2.5">
+            {isEs ? 'ANTICIPA' : 'ANTICIPATE'}
+          </h3>
+
+          <p className="font-['Inter',sans-serif] font-[400] text-xs sm:text-[13px] md:text-[14px] text-[#8D8F93] leading-relaxed max-w-[210px] mx-auto">
+            {isEs
+              ? 'Llega antes a la conversación antes de que despegue.'
+              : 'Get to the conversation before it takes off.'}
+          </p>
         </motion.div>
 
-        {/* Card 2: CREA (Tier 2 Warm / Brand Orange Variant) */}
+        {/* Card 2: CREA */}
         <motion.div
           whileHover={{ y: -3 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="group relative bg-[#151515] hover:bg-[#1e1e1e] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-colors duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] cursor-default"
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+          className="group relative bg-[#141414] hover:bg-[#1a1a1a] rounded-[28px] sm:rounded-[32px] py-8 sm:py-9 md:py-10 px-5 sm:px-6 md:px-7 flex flex-col items-center text-center justify-center transition-colors duration-250 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_44px_rgba(0,0,0,0.6)] cursor-default"
         >
-          {/* Badge Icon: Warm Orange Surface (No stroke) */}
-          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#260f08] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 transition-transform duration-300 shadow-[0_0_16px_rgba(234,67,37,0.2)]">
-            <LayoutGrid className="w-5 h-5 sm:w-6 sm:h-6 text-[#ea4325]" strokeWidth={2} />
+          {/* Badge Icon: Warm Orange Surface */}
+          <div className="w-14 h-14 sm:w-15 sm:h-15 rounded-[18px] bg-[#2d1810] flex items-center justify-center mb-6 sm:mb-7 transition-colors">
+            <LayoutGrid className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ea4325]" strokeWidth={2} />
           </div>
 
-          <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Manrope',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
-              {isEs ? 'CREA' : 'CREATE'}
-            </h3>
-            <p className="font-['Inter',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">
-              {isEs
-                ? 'Piezas relevantes a conversaciones que ya son tendencia.'
-                : 'Relevant content for conversations that are already trending.'}
-            </p>
-          </div>
+          <h3 className="font-['Manrope',sans-serif] font-[700] text-base sm:text-lg tracking-[0.05em] text-[#ffffff] uppercase mb-2 sm:mb-2.5">
+            {isEs ? 'CREA' : 'CREATE'}
+          </h3>
+
+          <p className="font-['Inter',sans-serif] font-[400] text-xs sm:text-[13px] md:text-[14px] text-[#8D8F93] leading-relaxed max-w-[220px] mx-auto">
+            {isEs
+              ? 'Piezas relevantes a conversaciones que ya son tendencia.'
+              : 'Relevant content for conversations that are already trending.'}
+          </p>
         </motion.div>
 
-        {/* Card 3: ESCALA (Tier 3 Rising Yellow Variant) */}
+        {/* Card 3: ESCALA */}
         <motion.div
           whileHover={{ y: -3 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="group relative bg-[#151515] hover:bg-[#1e1e1e] rounded-[24px] p-4 sm:p-5 md:p-6 flex flex-row md:flex-col items-center text-left md:text-center transition-colors duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.35)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] cursor-default"
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+          className="group relative bg-[#141414] hover:bg-[#1a1a1a] rounded-[28px] sm:rounded-[32px] py-8 sm:py-9 md:py-10 px-5 sm:px-6 md:px-7 flex flex-col items-center text-center justify-center transition-colors duration-250 shadow-[0_8px_32px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_44px_rgba(0,0,0,0.6)] cursor-default"
         >
-          {/* Badge Icon: Rising Yellow Surface (No stroke) */}
-          <div className="flex-shrink-0 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-2xl bg-[#261c00] flex items-center justify-center mr-3.5 md:mr-0 md:mb-3.5 transition-transform duration-300 shadow-[0_0_16px_rgba(255,191,0,0.2)]">
-            <EscalaIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#ffbf00]" />
+          {/* Badge Icon: Rising Yellow Surface */}
+          <div className="w-14 h-14 sm:w-15 sm:h-15 rounded-[18px] bg-[#2b250d] flex items-center justify-center mb-6 sm:mb-7 transition-colors">
+            <EscalaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#eab308]" />
           </div>
 
-          <div className="flex flex-col items-start md:items-center">
-            <h3 className="font-['Manrope',sans-serif] font-[700] text-sm sm:text-base md:text-lg tracking-[0.04em] text-[#ffffff] uppercase mb-1 md:mb-1.5">
-              {isEs ? 'ESCALA' : 'SCALE'}
-            </h3>
-            <p className="font-['Inter',sans-serif] font-[500] text-xs sm:text-[13px] md:text-sm text-[#8D8F93] group-hover:text-[#C5C5C5] leading-relaxed max-w-[220px] transition-colors">
-              {isEs
-                ? 'Invierte solo en lo que mejor funciona.'
-                : 'Invest only in what works best.'}
-            </p>
-          </div>
+          <h3 className="font-['Manrope',sans-serif] font-[700] text-base sm:text-lg tracking-[0.05em] text-[#ffffff] uppercase mb-2 sm:mb-2.5">
+            {isEs ? 'ESCALA' : 'SCALE'}
+          </h3>
+
+          <p className="font-['Inter',sans-serif] font-[400] text-xs sm:text-[13px] md:text-[14px] text-[#8D8F93] leading-relaxed max-w-[210px] mx-auto">
+            {isEs
+              ? 'Invierte solo en lo que mejor funciona.'
+              : 'Invest only in what works best.'}
+          </p>
         </motion.div>
       </div>
     </div>
