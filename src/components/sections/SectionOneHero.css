@@ -70,7 +70,7 @@
 .section-one-pill {
   height: 0.375rem;
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.08);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   width: 0.5rem;
   border: none;
@@ -79,12 +79,12 @@
 }
 
 .section-one-pill:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .section-one-pill.active {
   width: 1.5rem;
-  background-color: #ea4325;
-  box-shadow: 0 0 10px rgba(234, 67, 37, 0.7);
+  background-color: rgba(234, 67, 37, 0.82);
+  box-shadow: 0 0 8px rgba(234, 67, 37, 0.45);
 }
 
