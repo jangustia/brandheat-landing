@@ -104,7 +104,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
 
         <h2 className="section-two-title text-3xl sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[62px]">
           <span className="section-two-title-wrapper">
-            <span className="section-two-title-light">Meet</span>
+            <span className="section-two-title-light">MEET</span>
             <img
               src="/brandheat-logotype.png"
               alt="brandheat"
