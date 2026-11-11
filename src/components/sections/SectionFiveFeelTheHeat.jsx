@@ -32,13 +32,13 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       animate="animate"
       exit="exit"
     >
-      {/* 1. Header Title: FEEL THE HEAT */}
+      {/* 1. Header Title: Feel the Heat */}
       <motion.h2
         variants={cascadeItemVariants}
         className="section-five-title text-3xl sm:text-4xl md:text-5xl lg:text-[50px]"
       >
-        <span className="section-five-title-light">FEEL THE </span>
-        <span className="section-five-title-bold">HEAT</span>
+        <span className="section-five-title-light">Feel the </span>
+        <span className="section-five-title-bold">Heat</span>
       </motion.h2>
 
       {/* 2. Subtitle: Content #E1E1E1 in Inter */}

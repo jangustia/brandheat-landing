@@ -25,13 +25,13 @@ export default function SectionFourClients({ currentLang = 'es' }) {
       animate="animate"
       exit="exit"
     >
-      {/* 1. Header Title: OUR (thin) CLIENTS (bold) (so far) (thin) */}
+      {/* 1. Header Title: Our (thin) Clients (bold) (so far) (thin) */}
       <motion.h2
         variants={cascadeItemVariants}
         className="section-four-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
       >
-        <span className="section-four-title-thin">OUR </span>
-        <span className="section-four-title-bold">CLIENTS </span>
+        <span className="section-four-title-thin">Our </span>
+        <span className="section-four-title-bold">Clients </span>
         <span className="section-four-title-thin">(so far)</span>
       </motion.h2>
 
