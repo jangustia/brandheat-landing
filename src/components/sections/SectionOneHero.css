@@ -12,11 +12,12 @@
 
 .section-one-headline {
   font-family: 'Manrope', sans-serif;
-  line-height: 1.18;
+  line-height: 1.15;
   letter-spacing: -0.035em;
   color: #ffffff;
   text-align: center;
   width: 100%;
+  text-wrap: balance;
 }
 
 .section-one-line {
@@ -24,6 +25,7 @@
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
   text-align: center;
+  text-wrap: balance;
 }
 
 @media (min-width: 1024px) {
