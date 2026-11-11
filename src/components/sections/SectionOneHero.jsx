@@ -87,7 +87,7 @@ export default function SectionOneHero({
                   {isEs ? 'Una conversación que' : 'A conversation that'}
                 </span>{' '}
                 <span className="section-one-bold">
-                  {isEs ? 'prendió,' : 'caught fire,'}
+                  {isEs ? 'prendió,' : 'catches fire,'}
                 </span>{' '}
                 <span className="section-one-light">
                   {isEs ? 'escala en horas.' : 'escalates in hours.'}
@@ -121,7 +121,7 @@ export default function SectionOneHero({
                   {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
                 </span>{' '}
                 <span className="section-one-bold">
-                  {isEs ? 'cada vez más grande.' : 'getting bigger and bigger.'}
+                  {isEs ? 'cada vez más grande.' : 'that keeps getting bigger.'}
                 </span>
               </div>
               <div className="section-one-line">

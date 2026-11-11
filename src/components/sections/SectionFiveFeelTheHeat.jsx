@@ -63,7 +63,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={isEs ? 'Ingresar correo electronico' : 'Enter your email'}
+                placeholder={isEs ? 'Ingresar correo electrónico' : 'Enter your email'}
                 required
                 className="section-five-input"
               />

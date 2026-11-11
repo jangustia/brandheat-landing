@@ -72,7 +72,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       <div className="flex flex-col items-center">
         <h2 className="section-three-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
           <span className="section-three-title-light">
-            {isEs ? 'Cómo funciona: ' : 'How it Works: '}
+            {isEs ? 'Cómo funciona: ' : 'How It Works: '}
           </span>
           <span className="section-three-title-bold">
             From spark to screen.
@@ -82,7 +82,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
         <p className="section-three-sub text-base sm:text-lg lg:text-[20px]">
           {isEs
             ? 'Tu marca, siempre a tiempo. Siempre al punto. Always on.'
-            : 'Your Brand, always on time. Always on point. Always on.'}
+            : 'Your brand, always on time. Always on point. Always on.'}
         </p>
       </div>
 

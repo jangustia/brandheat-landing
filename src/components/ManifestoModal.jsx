@@ -198,8 +198,11 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
                       <span className="font-[600] text-xs sm:text-sm text-[#E1E1E1] mt-1">
                         Always on time.
                       </span>
-                      <span className="font-[600] text-xs sm:text-sm text-[#ea4325]">
+                      <span className="font-[600] text-xs sm:text-sm text-[#E1E1E1]">
                         Always on point.
+                      </span>
+                      <span className="font-[600] text-xs sm:text-sm text-[#ea4325]">
+                        Always on.
                       </span>
                     </div>
 
@@ -233,8 +236,9 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
                   </div>
 
                   <div className="space-y-1.5 text-sm sm:text-base text-[#E1E1E1] leading-relaxed p-4 rounded-2xl bg-[#212121]/60 border border-[rgba(255,255,255,0.06)]">
-                    <p className="font-[700] text-[#ffffff]">It's not about putting new ideas into people's heads.</p>
-                    <p className="font-[600] text-[#ea4325]">It's about listening. Understanding. And earning the right to participate.</p>
+                    <p className="font-[700] text-[#ffffff]">We believe something different.</p>
+                    <p>It's not about putting new ideas into people's heads.</p>
+                    <p className="font-[600] text-[#ea4325]">It's about listening, understanding, and earning the right to participate.</p>
                   </div>
 
                   <div className="space-y-2 text-sm sm:text-base text-[#E1E1E1] leading-relaxed">
@@ -255,7 +259,7 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
                     <p>People are already talking.</p>
                     <p className="text-sm sm:text-base text-[#E1E1E1]">The only question is:</p>
                     <p className="font-[700] text-[#ffffff] text-base sm:text-lg">
-                      Will your brand be part of the conversation… Or will it keep interrupting it?
+                      Will your brand be part of the conversation... or will it keep interrupting it?
                     </p>
                   </div>
 

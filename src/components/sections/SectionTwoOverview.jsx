@@ -118,7 +118,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         <p>
           {isEs
             ? 'Sin brief. Sin esperas. Sin llegar tarde.'
-            : 'No briefs. No waiting. No showing up late.'}
+            : 'No brief. No waiting. No showing up late.'}
         </p>
       </div>
 

@@ -64,7 +64,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       image: '/founders/trini.png',
       bio: isEs
         ? 'Estratega de comunicación y productora independiente, con trayectoria en publicidad, medios y producción. Lideró proyectos de lanzamiento de marcas e innovación en Argentina y a nivel internacional, combinando visión estratégica, ejecución creativa y espíritu emprendedor.'
-        : 'Communication strategist and independent producer with extensive background across advertising, media, and production. Led brand launch and innovation projects across Argentina and globally, uniting strategic vision, creative execution, and entrepreneurial drive.',
+        : 'Communication strategist and independent producer with an extensive background across advertising, media, and production. Led brand launch and innovation projects across Argentina and globally, uniting strategic vision, creative execution, and entrepreneurial drive.',
     },
     {
       id: 5,

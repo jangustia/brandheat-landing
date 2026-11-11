@@ -5,7 +5,14 @@ import InvertedOrangeCursor from './components/InvertedOrangeCursor';
 import './App.css';
 
 export default function App() {
-  const [currentLang, setCurrentLang] = useState('es');
+  const [currentLang, setCurrentLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const langParam = params.get('lang');
+      if (langParam === 'en' || langParam === 'es') return langParam;
+    }
+    return 'es';
+  });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [sentenceIndex, setSentenceIndex] = useState(() => {
     if (typeof window !== 'undefined') {
