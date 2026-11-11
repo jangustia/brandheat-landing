@@ -21,7 +21,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       text: isEs
         ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real. Sin brief. Sin esperas. Sin llegar tarde.'
         : 'One platform to detect, create, publish, and measure in real time. No brief. No waiting. No showing up late.',
-      icon: <Flame className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 fill-current" />,
+      icon: <Flame className="section-three-icon fill-current" />,
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       text: isEs
         ? 'Lo que tu marca tiene para decir. Varias puntas creativas por tema.'
         : 'What your brand has to say. Multiple creative angles per topic.',
-      icon: <Lightbulb className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" strokeWidth={1.9} />,
+      icon: <Lightbulb className="section-three-icon" strokeWidth={1.85} />,
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       text: isEs
         ? 'De la idea a la pieza creativa en minutos. Video, imagen y texto listos para publicar.'
         : 'From idea to creative asset in minutes. Video, image, and copy ready to publish.',
-      icon: <SwatchBook className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" strokeWidth={1.9} />,
+      icon: <SwatchBook className="section-three-icon" strokeWidth={1.85} />,
     },
     {
       id: 4,
@@ -48,7 +48,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       text: isEs
         ? 'Siente el pulso de las redes, crea, publica, prueba, y pauta. Todo en la misma plataforma.'
         : 'Feel the pulse of social, create, publish, test, and run paid media. All on the same platform.',
-      icon: <Rocket className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" strokeWidth={1.9} />,
+      icon: <Rocket className="section-three-icon" strokeWidth={1.85} />,
     },
     {
       id: 5,
@@ -57,7 +57,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       text: isEs
         ? 'Entiende qué rindió y por qué. No es solo un reporte, sino recomendaciones para la mejora continua de tus campañas.'
         : 'Understand what performed and why. Not just a report, but recommendations for continuous campaign improvement.',
-      icon: <BarChart3 className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9" strokeWidth={1.9} />,
+      icon: <BarChart3 className="section-three-icon" strokeWidth={1.85} />,
     },
   ];
 
