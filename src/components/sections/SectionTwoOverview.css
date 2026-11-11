@@ -14,8 +14,8 @@
 }
 
 .section-two-comet-wrapper {
-  width: 9rem;
-  height: 2rem;
+  width: 10.5rem;
+  height: 2.75rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -26,15 +26,17 @@
 
 @media (min-width: 640px) {
   .section-two-comet-wrapper {
-    width: 10rem;
-    height: 2.25rem;
+    width: 12.5rem;
+    height: 3.25rem;
+    margin-bottom: 1rem;
   }
 }
 
 @media (min-width: 768px) {
   .section-two-comet-wrapper {
-    width: 11rem;
-    height: 2.5rem;
+    width: 14.5rem;
+    height: 3.75rem;
+    margin-bottom: 1rem;
   }
 }
 
