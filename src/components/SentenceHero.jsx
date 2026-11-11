@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, RotateCcw } from 'lucide-react';
 import BottomAmbientGlow from './BottomAmbientGlow';
+import AngustiaLogo from './AngustiaLogo';
 import {
   SectionOneHero,
   SectionTwoOverview,
@@ -384,7 +385,7 @@ export default function SentenceHero({
                 className="sentence-hero-footer-link"
               >
                 <span>Created by</span>
-                <span className="sentence-hero-footer-author">ANGUSTIA</span>
+                <AngustiaLogo className="sentence-hero-footer-angustia-logo" />
               </a>
             </div>
           </motion.footer>
