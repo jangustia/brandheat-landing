@@ -81,7 +81,7 @@
   }
 }
 
-/* 5 Feature Cards: Horizontal snap carousel on mobile, grid layout on desktop */
+/* 5 Feature Cards: Horizontal snap carousel on mobile, proportional 2-row layout on desktop */
 .section-three-cards-wrapper {
   margin-top: 1rem;
   width: 100vw;
@@ -103,65 +103,90 @@
   display: none;
 }
 
-.section-three-row {
+.section-three-row-top,
+.section-three-row-bottom {
   display: contents;
 }
 
 @media (min-width: 768px) {
   .section-three-cards-wrapper {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     width: 100%;
-    max-width: 67rem;
+    max-width: 58rem;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-direction: column;
     overflow-x: visible;
-    gap: 0.875rem;
+    gap: 1.125rem;
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
   }
 
-  .section-three-row {
+  .section-three-row-top {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.875rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.125rem;
+    width: 100%;
+  }
+
+  .section-three-row-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 1.125rem;
+    width: 100%;
+  }
+
+  .section-three-row-bottom .section-three-card {
+    width: calc((100% - 2.25rem) / 3);
+    flex: 0 0 calc((100% - 2.25rem) / 3);
+    max-width: calc((100% - 2.25rem) / 3);
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-cards-wrapper {
-    margin-top: 1.75rem;
-    max-width: 75.5rem;
-    gap: 1rem;
+    margin-top: 1.5rem;
+    max-width: 62rem;
+    gap: 1.25rem;
   }
 
-  .section-three-row {
-    gap: 1rem;
+  .section-three-row-top {
+    gap: 1.25rem;
+  }
+
+  .section-three-row-bottom {
+    gap: 1.25rem;
+  }
+
+  .section-three-row-bottom .section-three-card {
+    width: calc((100% - 2.5rem) / 3);
+    flex: 0 0 calc((100% - 2.5rem) / 3);
+    max-width: calc((100% - 2.5rem) / 3);
   }
 }
 
-/* Card Base - Left Icon + Content, Dark Translucent Container with higher opacity, NO OUTLINE */
+/* Card Base - Compact, Refined, Proportionate Surface Depth WITHOUT OUTLINE */
 .section-three-card {
   position: relative;
   background-color: rgba(21, 21, 21, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 1.25rem;
-  padding: 1.125rem 1.125rem;
+  border-radius: 1.125rem;
+  padding: 0.875rem 1rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   text-align: left;
   border: none !important;
   outline: none !important;
-  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.4);
   cursor: default;
   overflow: hidden;
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
-  flex: 0 0 78vw;
-  max-width: 295px;
+  flex: 0 0 72vw;
+  max-width: 250px;
   scroll-snap-align: center;
 }
 
@@ -169,15 +194,15 @@
   .section-three-card {
     flex: 1 1 0%;
     max-width: none;
-    border-radius: 1.375rem;
-    padding: 1.375rem 1.625rem;
+    border-radius: 1.25rem;
+    padding: 1.125rem 1.125rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-card {
-    border-radius: 1.5rem;
-    padding: 1.625rem 2rem;
+    border-radius: 1.25rem;
+    padding: 1.125rem 1.25rem;
   }
 }
 
@@ -185,64 +210,53 @@
   background-color: rgba(32, 32, 36, 0.9);
   border: none !important;
   outline: none !important;
-  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7);
 }
 
-/* Left Icon Box - Enlarged Prominence & Centered */
+/* Left Icon Box - Compact & Aligned */
 .section-three-icon-box {
   flex-shrink: 0;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.875rem;
-  margin-top: 0;
-  align-self: center;
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+  align-self: flex-start;
   color: #ffffff;
-  transition: color 0.25s ease, transform 0.25s ease;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 0.625rem;
+  transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
 }
 
 @media (min-width: 640px) {
   .section-three-icon-box {
-    width: 3.625rem;
-    height: 3.625rem;
-    margin-right: 1.375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-three-icon-box {
-    width: 4.125rem;
-    height: 4.125rem;
-    margin-right: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.875rem;
+    border-radius: 0.75rem;
   }
 }
 
 .section-three-card:hover .section-three-icon-box {
   color: #ea4325;
-  transform: scale(1.06);
+  background-color: rgba(234, 67, 37, 0.12);
+  transform: scale(1.05);
 }
 
-/* SVG Icon Inside Box - Scaled Up */
+/* SVG Icon Inside Box */
 .section-three-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
   display: block;
 }
 
 @media (min-width: 640px) {
   .section-three-icon {
-    width: 2.375rem;
-    height: 2.375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-three-icon {
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 1.375rem;
+    height: 1.375rem;
   }
 }
 
@@ -256,40 +270,31 @@
   min-width: 0;
 }
 
-
-
 /* Card Typography */
 .section-three-card-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 1.125rem;
+  font-size: 0.9375rem; /* 15px */
   line-height: 1.25;
   color: #ffffff;
   letter-spacing: -0.015em;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.25rem;
   text-align: left;
 }
 
 @media (min-width: 640px) {
   .section-three-card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.4375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-three-card-title {
-    font-size: 1.3125rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem; /* 16px */
+    margin-bottom: 0.3125rem;
   }
 }
 
 .section-three-card-text {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.875rem;
+  font-size: 0.8125rem; /* 13px */
   color: #8D8F93;
-  line-height: 1.55;
+  line-height: 1.45;
   letter-spacing: -0.01em;
   text-align: left;
   width: 100%;
@@ -298,22 +303,11 @@
 
 @media (min-width: 640px) {
   .section-three-card-text {
-    font-size: 0.9375rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-three-card-text {
-    font-size: 1.03125rem;
-    line-height: 1.55;
+    font-size: 0.84375rem; /* ~13.5px */
+    line-height: 1.48;
   }
 }
 
 .section-three-card:hover .section-three-card-text {
   color: #e2e3e7;
-}
-
-/* Card 5 wide text spans comfortably */
-.section-three-card-text-wide {
-  max-width: 58rem;
 }

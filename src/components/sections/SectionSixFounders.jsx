@@ -20,7 +20,6 @@ import './SectionSixFounders.css';
  */
 export default function SectionSixFounders({ currentLang = 'es', onBackToStart }) {
   const isEs = currentLang === 'es';
-  const [isPaused, setIsPaused] = useState(false);
 
   const founders = [
     {
@@ -91,9 +90,6 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
   ];
 
-  // 3 repetitions for seamless infinite looping in both directions
-  const carouselFounders = [...founders, ...founders, ...founders];
-
   const [selectedFounder, setSelectedFounder] = useState(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -128,23 +124,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </p>
       </motion.div>
 
-      {/* 3. Single Row Animated Carousel with Fade Gradient */}
-      <motion.div
-        variants={cascadeItemVariants}
-        className="section-six-carousel-wrap"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-        onTouchStart={() => setIsPaused(true)}
-        onTouchEnd={() => setIsPaused(false)}
-      >
-        <div
-          className={`section-six-carousel-track ${
-            isPaused || selectedFounder ? 'section-six-carousel-paused' : ''
-          }`}
-        >
-          {carouselFounders.map((founder, index) => (
+      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Nacho, Sole on Row 1; Trini, Matias, Eugenio on Row 2) */}
+      <motion.div variants={cascadeItemVariants} className="section-six-grid-wrap">
+        {/* Row 1: Fernando, Nacho, Sole */}
+        <div className="section-six-row">
+          {founders.slice(0, 3).map((founder) => (
             <div
-              key={`${founder.id}-${index}`}
+              key={founder.id}
               onClick={() => setSelectedFounder(founder)}
               className="group section-six-card"
               role="button"
@@ -156,7 +142,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                 }
               }}
             >
-              {/* Vertical Photo Box (3:4 ratio) with Zoom Effect */}
+              {/* Compact Photo Box */}
               <div className="section-six-card-image-wrap">
                 <img
                   src={founder.image}
@@ -172,6 +158,53 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                   <h3 className="section-six-card-name">
                     {founder.name}
                   </h3>
+                  <span className="section-six-card-tag">
+                    {founder.tag}
+                  </span>
+                </div>
+                <div className="section-six-card-action">
+                  <ArrowUpRight className="section-six-card-arrow" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2: Trini, Matias, Eugenio */}
+        <div className="section-six-row">
+          {founders.slice(3, 6).map((founder) => (
+            <div
+              key={founder.id}
+              onClick={() => setSelectedFounder(founder)}
+              className="group section-six-card"
+              role="button"
+              tabIndex={0}
+              aria-label={`View bio for ${founder.name}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setSelectedFounder(founder);
+                }
+              }}
+            >
+              {/* Compact Photo Box */}
+              <div className="section-six-card-image-wrap">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  className="section-six-card-img"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Bottom Details Bar: Name on left, Arrow button on right */}
+              <div className="section-six-card-footer">
+                <div className="section-six-card-info">
+                  <h3 className="section-six-card-name">
+                    {founder.name}
+                  </h3>
+                  <span className="section-six-card-tag">
+                    {founder.tag}
+                  </span>
                 </div>
                 <div className="section-six-card-action">
                   <ArrowUpRight className="section-six-card-arrow" />

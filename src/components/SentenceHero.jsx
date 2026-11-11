@@ -45,7 +45,7 @@ export default function SentenceHero({
   const isScrollingRef = useRef(false);
   const touchStartY = useRef(0);
 
-  const totalSentences = 6;
+  const totalSentences = 5;
   const isEs = currentLang === 'es';
 
   // Navigate between main viewport stages with cooldown
@@ -295,25 +295,10 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 3: Section Four (Our Clients - Logo Grid)
+              STAGE 3: Section Six (Founding Team - The Igniters)
+              (Note: Section Four / Our Clients is hidden per client request)
              ======================================================== */}
           {currentIndex === 3 && (
-            <motion.div
-              key={`stage-clients-${currentLang}`}
-              variants={stageVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="w-full"
-            >
-              <SectionFourClients currentLang={currentLang} />
-            </motion.div>
-          )}
-
-          {/* ========================================================
-              STAGE 4: Section Six (Founding Team - The Igniters)
-             ======================================================== */}
-          {currentIndex === 4 && (
             <motion.div
               key={`stage-founders-${currentLang}`}
               variants={stageVariants}
@@ -333,9 +318,9 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 5: Section Five (FEEL THE HEAT - Early Access Form - LAST SECTION)
+              STAGE 4: Section Five (FEEL THE HEAT - Early Access Form - LAST SECTION)
              ======================================================== */}
-          {currentIndex === 5 && (
+          {currentIndex === 4 && (
             <motion.div
               key={`stage-feel-the-heat-${currentLang}`}
               variants={stageVariants}

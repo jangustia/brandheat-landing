@@ -45,246 +45,157 @@
 }
 
 .section-six-subheadline {
-  margin-top: 0.5rem;
+  margin-top: 0.35rem;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #8D8F93;
   letter-spacing: -0.01em;
   text-align: center;
-  max-width: 48rem;
-  line-height: 1.45;
+  max-width: 44rem;
+  line-height: 1.4;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 @media (min-width: 640px) {
   .section-six-subheadline {
-    font-size: 1.125rem;
-    margin-top: 0.625rem;
+    font-size: 0.9375rem;
+    margin-top: 0.45rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-six-subheadline {
-    font-size: 1.25rem;
-    margin-top: 0.75rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
 /* ========================================================
-   SINGLE ROW ANIMATED CAROUSEL WITH FADE GRADIENT MASK
+   2-ROW STATIC GRID (6 VISIBLE FOUNDERS)
+   Row 1: Fernando Vega Olmos, Nacho Zuccarino, Sole D'Agostino
+   Row 2: Trini Vega Olmos, Matias Molinas, Eugenio Borzone
+   Compact, sleek, sized to fit the viewport section comfortably.
    ======================================================== */
-.section-six-carousel-wrap {
-  position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-  overflow: hidden;
-  padding: 1.25rem 0 1rem 0;
+.section-six-grid-wrap {
+  width: 100%;
+  max-width: 50rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
-  align-items: center;
-  user-select: none;
-  /* Smooth edge transparency fade on the carousel track */
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.15) 20px,
-    rgba(0, 0, 0, 0.65) 60px,
-    black 110px,
-    black calc(100% - 110px),
-    rgba(0, 0, 0, 0.65) calc(100% - 60px),
-    rgba(0, 0, 0, 0.15) calc(100% - 20px),
-    transparent 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.15) 20px,
-    rgba(0, 0, 0, 0.65) 60px,
-    black 110px,
-    black calc(100% - 110px),
-    rgba(0, 0, 0, 0.65) calc(100% - 60px),
-    rgba(0, 0, 0, 0.15) calc(100% - 20px),
-    transparent 100%
-  );
+  flex-direction: column;
+  gap: 0.625rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 @media (min-width: 640px) {
-  .section-six-carousel-wrap {
-    padding: 1.5rem 0 1.25rem 0;
-  }
-}
-
-/* Atmospheric edge side gradients - soft on the bottom to blend with the decorative background */
-.section-six-carousel-wrap::before,
-.section-six-carousel-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 6rem;
-  z-index: 5;
-  pointer-events: none;
-  /* Vertical fade mask: full opacity at top/middle, dissolving to transparent at the bottom */
-  mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 40%,
-    rgba(0, 0, 0, 0.45) 68%,
-    transparent 96%
-  );
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black 0%,
-    black 40%,
-    rgba(0, 0, 0, 0.45) 68%,
-    transparent 96%
-  );
-}
-
-@media (min-width: 640px) {
-  .section-six-carousel-wrap::before,
-  .section-six-carousel-wrap::after {
-    width: 8rem;
+  .section-six-grid-wrap {
+    max-width: 52rem;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 @media (min-width: 1024px) {
-  .section-six-carousel-wrap::before,
-  .section-six-carousel-wrap::after {
-    width: 10.5rem;
+  .section-six-grid-wrap {
+    max-width: 54rem;
+    gap: 1rem;
   }
 }
 
-.section-six-carousel-wrap::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-    #08090c 0%,
-    rgba(8, 9, 12, 0.8) 35%,
-    rgba(8, 9, 12, 0.25) 75%,
-    transparent 100%
-  );
-}
-
-.section-six-carousel-wrap::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    #08090c 0%,
-    rgba(8, 9, 12, 0.8) 35%,
-    rgba(8, 9, 12, 0.25) 75%,
-    transparent 100%
-  );
-}
-
-/* Carousel Track with Continuous Infinite Animation */
-@keyframes founderCarouselScroll {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(calc(-100% / 3));
-  }
-}
-
-.section-six-carousel-track {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1.125rem;
-  width: max-content;
-  animation: founderCarouselScroll 38s linear infinite;
-  will-change: transform;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+.section-six-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.625rem;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
-  .section-six-carousel-track {
-    gap: 1.375rem;
+  .section-six-row {
+    gap: 0.875rem;
   }
 }
 
-/* Pause animation on hover or when a modal is open */
-.section-six-carousel-wrap:hover .section-six-carousel-track,
-.section-six-carousel-track:hover,
-.section-six-carousel-paused {
-  animation-play-state: paused !important;
+@media (min-width: 1024px) {
+  .section-six-row {
+    gap: 1rem;
+  }
 }
 
 /* ========================================================
-   Vertical Founder Card (Based on Native Portrait Ratio 3:4)
+   Compact Founder Card - Sized for 2 Rows in 100vh Viewport
    ======================================================== */
 .section-six-card {
   position: relative;
-  width: 14rem;
-  flex-shrink: 0;
-  border-radius: 1.25rem;
+  width: 100%;
+  border-radius: 0.875rem;
   background-color: rgba(21, 21, 21, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 0.625rem;
+  padding: 0.4rem 0.4rem 0.5rem 0.4rem;
   display: flex;
   flex-direction: column;
   border: none !important;
   cursor: pointer;
   outline: none !important;
   text-align: left;
-  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.25),
-    0 12px 36px -4px rgba(0, 0, 0, 0.32);
-  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 640px) {
   .section-six-card {
-    width: 16.5rem;
-    padding: 0.75rem;
-    border-radius: 1.375rem;
+    border-radius: 1rem;
+    padding: 0.5rem 0.5rem 0.625rem 0.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-six-card {
-    width: 17.5rem;
-    padding: 0.75rem;
-    border-radius: 1.5rem;
+    border-radius: 1.125rem;
+    padding: 0.625rem 0.625rem 0.75rem 0.625rem;
   }
 }
 
 .section-six-card:hover {
   background-color: rgba(32, 32, 36, 0.9);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.25),
-    0 20px 48px -8px rgba(0, 0, 0, 0.42),
-    0 0 24px -4px rgba(234, 67, 37, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5),
+    0 0 20px -2px rgba(234, 67, 37, 0.15);
 }
 
 .section-six-card:focus-visible {
   box-shadow: 0 0 0 2px rgba(234, 67, 37, 0.4);
 }
 
-/* Vertical Image Container (3:4 ratio) */
+/* Image Wrapper: Proportionate compact height */
 .section-six-card-image-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 3 / 4;
-  border-radius: 0.875rem;
+  aspect-ratio: 16 / 13;
+  border-radius: 0.625rem;
   overflow: hidden;
   background-color: #212121;
 }
 
 @media (min-width: 640px) {
   .section-six-card-image-wrap {
-    border-radius: 1rem;
+    aspect-ratio: 16 / 12;
+    border-radius: 0.75rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-six-card-image-wrap {
-    border-radius: 1.125rem;
+    aspect-ratio: 16 / 11;
+    border-radius: 0.875rem;
   }
 }
 
@@ -294,49 +205,24 @@
   object-fit: cover;
   object-position: center 20%;
   display: block;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
 
-/* Zoom Hover Effect on Image Container */
 .section-six-card:hover .section-six-card-img {
-  transform: scale(1.08);
-}
-
-/* Floating Category Badge at top-left of image */
-.section-six-card-badge {
-  position: absolute;
-  top: 0.625rem;
-  left: 0.625rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 9999px;
-  background-color: rgba(18, 18, 20, 0.82);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.section-six-card:hover .section-six-card-badge {
   transform: scale(1.06);
-  background-color: #44251c;
-  border-color: rgba(234, 67, 37, 0.4);
 }
 
 /* ========================================================
    Card Footer (Name & Micro-Tag on Left, Arrow on Right)
    ======================================================== */
 .section-six-card-footer {
-  margin-top: 0.75rem;
-  padding: 0.125rem 0.25rem 0.25rem 0.25rem;
+  margin-top: 0.4rem;
+  padding: 0 0.125rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.375rem;
   width: 100%;
 }
 
@@ -350,25 +236,30 @@
 .section-six-card-name {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1.25;
+  font-size: 0.71875rem; /* ~11.5px mobile */
+  line-height: 1.18;
   color: #ffffff;
   letter-spacing: -0.01em;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
   transition: color 0.2s ease;
 }
 
 @media (min-width: 640px) {
   .section-six-card-name {
-    font-size: 0.9375rem;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25;
+    white-space: nowrap;
+    display: block;
+    text-overflow: ellipsis;
   }
 }
 
 @media (min-width: 1024px) {
   .section-six-card-name {
-    font-size: 1rem;
+    font-size: 0.9375rem; /* 15px */
   }
 }
 
@@ -379,41 +270,39 @@
 .section-six-card-tag {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 0.6875rem;
+  font-size: 0.625rem; /* 10px */
   line-height: 1.2;
   color: #8d8f93;
   letter-spacing: -0.01em;
-  margin-top: 0.1875rem;
+  margin-top: 0.125rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 640px) {
   .section-six-card-tag {
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
+    font-size: 0.6875rem; /* 11px */
   }
 }
 
-/* Bottom Right Circular Action Button */
+/* Action button - Hidden on small mobile screens to grant full card width for complete names */
 .section-six-card-action {
-  width: 1.875rem;
-  height: 1.875rem;
-  border-radius: 9999px;
-  background-color: #212121;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: #8d8f93;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: none;
 }
 
 @media (min-width: 640px) {
   .section-six-card-action {
-    width: 2rem;
-    height: 2rem;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.05);
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #8d8f93;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -421,13 +310,19 @@
   background-color: #ea4325;
   color: #ffffff;
   transform: translateY(-1px) translateX(1px);
-  box-shadow: 0 4px 12px rgba(234, 67, 37, 0.4);
 }
 
 .section-six-card-arrow {
-  width: 0.875rem;
-  height: 0.875rem;
-  transition: transform 0.3s ease;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  transition: transform 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .section-six-card-arrow {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
 }
 
 .section-six-card:hover .section-six-card-arrow {

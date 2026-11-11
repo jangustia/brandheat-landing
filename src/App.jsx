@@ -20,7 +20,7 @@ export default function App() {
       const stageParam = params.get('stage');
       if (stageParam !== null) {
         const parsed = parseInt(stageParam, 10);
-        if (!isNaN(parsed) && parsed >= 0 && parsed <= 5) return parsed;
+        if (!isNaN(parsed) && parsed >= 0 && parsed <= 4) return parsed;
       }
     }
     return 0;
@@ -59,15 +59,12 @@ export default function App() {
     } else if (href === '#how-it-works') {
       // Stage 2: How it Works: From spark to screen (5 steps)
       setSentenceIndex(2);
-    } else if (href === '#clients') {
-      // Stage 3: Our Clients (Logo grid)
-      setSentenceIndex(3);
     } else if (href === '#founders') {
-      // Stage 4: Founder member (interactive founder carousel)
-      setSentenceIndex(4);
+      // Stage 3: Founders (6 members in 2 rows)
+      setSentenceIndex(3);
     } else if (href === '#feel-the-heat') {
-      // Stage 5: Feel the Heat / Early Access (Last section)
-      setSentenceIndex(5);
+      // Stage 4: Feel the Heat / Early Access (Last section)
+      setSentenceIndex(4);
     }
   };
 

@@ -24,14 +24,14 @@
   will-change: transform, left, top;
 }
 
-/* Hide native cursor completely on devices with fine pointer (mouse / trackpad) as originally designed */
+/* Allow native OS cursor to remain visible alongside the inverted cursor */
 @media (hover: hover) and (pointer: fine) {
-  html:not(.use-native-cursor-backup),
-  html:not(.use-native-cursor-backup) body,
-  html:not(.use-native-cursor-backup) *,
-  html:not(.use-native-cursor-backup) *::before,
-  html:not(.use-native-cursor-backup) *::after {
-    cursor: none !important;
+  html, body {
+    cursor: default !important;
+  }
+  
+  a, button, [role="button"], input, select, textarea, .cursor-pointer, [data-cursor="clickable"] {
+    cursor: pointer !important;
   }
 }
 

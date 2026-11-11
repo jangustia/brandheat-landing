@@ -86,91 +86,51 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           </span>
         </h2>
 
+        {/* Subtitle: Always in English as requested */}
         <p className="section-three-sub text-base sm:text-lg lg:text-[20px]">
-          {isEs
-            ? 'Tu marca, siempre a tiempo. Siempre al punto. Always on.'
-            : 'Your brand, always on time. Always on point. Always on.'}
+          Tu marca always on time. Always on point. Always on.
         </p>
       </motion.div>
 
-      {/* 2. Grid of Feature Cards (Icons on left, border: none) */}
+      {/* 2. Proportional 5-Card Layout (Row 1: 3 cards, Row 2: 2 cards centered) */}
       <div className="section-three-cards-wrapper" onScroll={handleScroll}>
-        {/* Row 1: Cards 1 and 2 */}
-        <div className="section-three-row">
-          <motion.div variants={cascadeItemVariants} className="group section-three-card">
-            <div className="section-three-icon-box">
-              {cards[0].icon}
-            </div>
-            <div className="section-three-card-content">
-              <h3 className="section-three-card-title">
-                {cards[0].title}
-              </h3>
-              <p className="section-three-card-text">
-                {cards[0].text}
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div variants={cascadeItemVariants} className="group section-three-card">
-            <div className="section-three-icon-box">
-              {cards[1].icon}
-            </div>
-            <div className="section-three-card-content">
-              <h3 className="section-three-card-title">
-                {cards[1].title}
-              </h3>
-              <p className="section-three-card-text">
-                {cards[1].text}
-              </p>
-            </div>
-          </motion.div>
+        {/* Row 1: Cards 1, 2, and 3 */}
+        <div className="section-three-row-top">
+          {cards.slice(0, 3).map((card) => (
+            <motion.div key={card.id} variants={cascadeItemVariants} className="group section-three-card">
+              <div className="section-three-icon-box">
+                {card.icon}
+              </div>
+              <div className="section-three-card-content">
+                <h3 className="section-three-card-title">
+                  {card.title}
+                </h3>
+                <p className="section-three-card-text">
+                  {card.text}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        {/* Row 2: Cards 3 and 4 */}
-        <div className="section-three-row">
-          <motion.div variants={cascadeItemVariants} className="group section-three-card">
-            <div className="section-three-icon-box">
-              {cards[2].icon}
-            </div>
-            <div className="section-three-card-content">
-              <h3 className="section-three-card-title">
-                {cards[2].title}
-              </h3>
-              <p className="section-three-card-text">
-                {cards[2].text}
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div variants={cascadeItemVariants} className="group section-three-card">
-            <div className="section-three-icon-box">
-              {cards[3].icon}
-            </div>
-            <div className="section-three-card-content">
-              <h3 className="section-three-card-title">
-                {cards[3].title}
-              </h3>
-              <p className="section-three-card-text">
-                {cards[3].text}
-              </p>
-            </div>
-          </motion.div>
+        {/* Row 2: Cards 4 and 5 (Centered) */}
+        <div className="section-three-row-bottom">
+          {cards.slice(3, 5).map((card) => (
+            <motion.div key={card.id} variants={cascadeItemVariants} className="group section-three-card">
+              <div className="section-three-icon-box">
+                {card.icon}
+              </div>
+              <div className="section-three-card-content">
+                <h3 className="section-three-card-title">
+                  {card.title}
+                </h3>
+                <p className="section-three-card-text">
+                  {card.text}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-
-        {/* Row 3: Card 5 (Full Width Card) */}
-        <motion.div variants={cascadeItemVariants} className="group section-three-card w-full">
-          <div className="section-three-icon-box">
-            {cards[4].icon}
-          </div>
-          <div className="section-three-card-content">
-            <h3 className="section-three-card-title">
-              {cards[4].title}
-            </h3>
-            <p className="section-three-card-text section-three-card-text-wide">
-              {cards[4].text}
-            </p>
-          </div>
-        </motion.div>
       </div>
 
       {/* Mobile Swipe Pagination Dots (5 cards) */}

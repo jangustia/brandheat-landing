@@ -92,7 +92,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       animate="animate"
       exit="exit"
     >
-      {/* 1. Top Flame Comet + "Meet brandheat." Title */}
+      {/* 1. Top Flame Comet + "Meet brandheat." Title - Enlarged */}
       <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
         <div className="section-two-comet-wrapper">
           <img
@@ -102,26 +102,26 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           />
         </div>
 
-        <h2 className="section-two-title text-3xl sm:text-4xl md:text-5xl lg:text-[48px]">
+        <h2 className="section-two-title text-3xl sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[62px]">
           <span className="section-two-title-light">Meet brand</span>
           <span className="section-two-title-bold">heat.</span>
         </h2>
       </motion.div>
 
-      {/* 2. Primary Tagline (#e1e1e1 in Inter) */}
+      {/* 2. Primary Tagline (#e1e1e1 in Inter) - Enlarged */}
       <motion.p
         variants={cascadeItemVariants}
-        className="section-two-tagline text-base sm:text-lg lg:text-[20px]"
+        className="section-two-tagline text-base sm:text-xl md:text-2xl lg:text-[23px]"
       >
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
           : 'The always-on that keeps pace with the conversation.'}
       </motion.p>
 
-      {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter, 16px) */}
+      {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter) - Enlarged */}
       <motion.div
         variants={cascadeItemVariants}
-        className="section-two-copy text-[15px] sm:text-[16px] space-y-0.5"
+        className="section-two-copy text-[15px] sm:text-[17px] lg:text-[18px] space-y-1"
       >
         <p>
           {isEs
@@ -135,16 +135,16 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         </p>
       </motion.div>
 
-      {/* 4. Three Level 2 Modular Feature Cards (#141414, rounded-[32px], border: none) */}
+      {/* 4. Three Level 2 Modular Feature Cards - Shrunk & Compact (#141414, border: none) */}
       <div className="section-two-grid" onScroll={handleGridScroll}>
         {/* Card 1: ANTICIPA */}
         <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Hot Red Surface */}
           <div className="section-two-badge section-two-badge-anticipa">
-            <AnticipaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ff453a]" />
+            <AnticipaIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#ff453a]" />
           </div>
 
-          <h3 className="section-two-card-title text-base sm:text-lg">
+          <h3 className="section-two-card-title text-sm sm:text-[15px]">
             {isEs ? 'ANTICIPA' : 'ANTICIPATE'}
           </h3>
 
@@ -159,10 +159,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Warm Orange Surface */}
           <div className="section-two-badge section-two-badge-crea">
-            <LayoutGrid className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ea4325]" strokeWidth={2} />
+            <LayoutGrid className="w-5 h-5 sm:w-6 sm:h-6 text-[#ea4325]" strokeWidth={2} />
           </div>
 
-          <h3 className="section-two-card-title text-base sm:text-lg">
+          <h3 className="section-two-card-title text-sm sm:text-[15px]">
             {isEs ? 'CREA' : 'CREATE'}
           </h3>
 
@@ -177,10 +177,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Rising Yellow Surface */}
           <div className="section-two-badge section-two-badge-escala">
-            <EscalaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#eab308]" />
+            <EscalaIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#eab308]" />
           </div>
 
-          <h3 className="section-two-card-title text-base sm:text-lg">
+          <h3 className="section-two-card-title text-sm sm:text-[15px]">
             {isEs ? 'ESCALA' : 'SCALE'}
           </h3>
 
