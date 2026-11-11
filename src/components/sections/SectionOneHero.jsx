@@ -238,7 +238,7 @@ export default function SectionOneHero({
         >
           <HeadingTag
             aria-label={fullSentenceAria}
-            className="section-one-headline text-2xl sm:text-3xl md:text-[44px] lg:text-[58px]"
+            className="section-one-headline text-[28px] sm:text-[34px] md:text-[44px] lg:text-[58px]"
           >
             {currentSentence.lines.map((lineWords, lineIdx) => (
               <div key={lineIdx} className="section-one-line">
