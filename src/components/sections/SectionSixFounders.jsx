@@ -159,16 +159,11 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                 />
               </div>
 
-              {/* Bottom Details Bar: Name & Tag on left, Arrow button on right */}
+              {/* Bottom Details Bar: Name on left, Arrow circle on right */}
               <div className="section-six-card-footer">
-                <div className="section-six-card-info">
-                  <h3 className="section-six-card-name">
-                    {founder.name}
-                  </h3>
-                  <span className="section-six-card-tag">
-                    {founder.tag}
-                  </span>
-                </div>
+                <h3 className="section-six-card-name">
+                  {founder.name}
+                </h3>
                 <div className="section-six-card-action">
                   <ArrowUpRight className="section-six-card-arrow" />
                 </div>
@@ -204,16 +199,11 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                 />
               </div>
 
-              {/* Bottom Details Bar: Name & Tag on left, Arrow button on right */}
+              {/* Bottom Details Bar: Name on left, Arrow circle on right */}
               <div className="section-six-card-footer">
-                <div className="section-six-card-info">
-                  <h3 className="section-six-card-name">
-                    {founder.name}
-                  </h3>
-                  <span className="section-six-card-tag">
-                    {founder.tag}
-                  </span>
-                </div>
+                <h3 className="section-six-card-name">
+                  {founder.name}
+                </h3>
                 <div className="section-six-card-action">
                   <ArrowUpRight className="section-six-card-arrow" />
                 </div>
