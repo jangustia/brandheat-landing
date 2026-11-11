@@ -1,7 +1,7 @@
 /* Section 2: Meet brandheat Styles */
 .section-two-container {
   width: 100%;
-  max-width: 64rem;
+  max-width: 72rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -104,16 +104,31 @@
   grid-template-columns: 1fr;
   gap: 1rem;
   width: 100%;
-  max-width: 56rem;
+  max-width: 24rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 2.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-two-grid {
+    max-width: 28rem;
+  }
 }
 
 @media (min-width: 768px) {
   .section-two-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
+    max-width: 64rem;
+    margin-top: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-two-grid {
+    max-width: 69rem;
+    gap: 1.75rem;
   }
 }
 
@@ -121,7 +136,7 @@
   position: relative;
   background-color: #141414;
   border-radius: 2rem;
-  padding: 2.25rem 1.5rem;
+  padding: 2.25rem 1.75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,8 +191,15 @@
   font-size: 0.875rem;
   color: #8d8f93;
   line-height: 1.55;
-  max-width: 13.5rem;
+  max-width: 16rem;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .section-two-card-desc {
+    font-size: 0.9375rem;
+    max-width: 17rem;
+  }
 }
 
