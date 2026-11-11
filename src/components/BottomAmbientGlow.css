@@ -106,56 +106,54 @@
 }
 
 .ambient-mouse-capsule {
-  width: 22px;
-  height: 34px;
+  width: 20px;
+  height: 32px;
   border-radius: 9999px;
-  border: 2px solid rgba(255, 255, 255, 0.75);
+  border: 1.5px solid rgba(255, 255, 255, 0.38);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 0.375rem;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+  padding-top: 0.35rem;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.06);
   transition: border-color 200ms ease, box-shadow 200ms ease;
 }
 
 .ambient-mouse-indicator:hover .ambient-mouse-capsule {
-  border-color: #ffffff;
-  box-shadow: 0 0 18px rgba(255, 102, 55, 0.55);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 16px rgba(234, 67, 37, 0.45);
 }
 
 .ambient-mouse-chevron {
-  margin-top: 0.25rem;
-  font-size: 8px;
+  margin-top: 0.2rem;
+  font-size: 7.5px;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.35);
   transition: color 200ms ease;
 }
 
 .ambient-mouse-indicator:hover .ambient-mouse-chevron {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ambient-mouse-text {
-  margin-top: 0.375rem;
+  margin-top: 0.3rem;
   font-family: 'Manrope', sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-weight: 700;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 9px;
-  -webkit-text-stroke: 0.22px rgba(255, 255, 255, 0.75);
-  transition: color 200ms ease, -webkit-text-stroke 200ms ease;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 7.5px;
+  transition: color 200ms ease;
   user-select: none;
 }
 
 @media (min-width: 640px) {
   .ambient-mouse-text {
-    font-size: 9.5px;
+    font-size: 8px;
   }
 }
 
 .ambient-mouse-indicator:hover .ambient-mouse-text {
-  color: #ffffff;
-  -webkit-text-stroke: 0.22px #ffffff;
+  color: rgba(255, 255, 255, 0.85);
 }

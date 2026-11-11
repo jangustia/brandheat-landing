@@ -594,7 +594,7 @@ export default function BottomAmbientGlow({ onScrollClick, currentLang = 'es', i
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="w-1 h-1.5 bg-white/90 rounded-full"
+              className="w-1 h-1.5 bg-white/50 rounded-full"
             />
           </div>
 
