@@ -1,0 +1,92 @@
+/* Section 4: Our Clients Styles */
+.section-four-container {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-four-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.section-four-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .section-four-grid {
+    margin-top: 1.75rem;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-four-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 2rem;
+    gap: 1.25rem;
+  }
+}
+
+.section-four-card {
+  position: relative;
+  height: 5rem;
+  background-color: #151515;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  cursor: default;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .section-four-card {
+    height: 6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-four-card {
+    height: 7rem;
+  }
+}
+
+.section-four-card:hover {
+  background-color: #1e1e1e;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.section-four-logo-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #8d8f93;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+}
+
+.section-four-card:hover .section-four-logo-text {
+  color: #e1e1e1;
+}

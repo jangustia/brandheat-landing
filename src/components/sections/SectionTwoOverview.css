@@ -1,0 +1,163 @@
+/* Section 2: Meet brandheat Styles */
+.section-two-container {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-two-comet-wrapper {
+  width: 9rem;
+  height: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.875rem;
+}
+
+@media (min-width: 640px) {
+  .section-two-comet-wrapper {
+    width: 10rem;
+    height: 2.25rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-two-comet-wrapper {
+    width: 11rem;
+    height: 2.5rem;
+  }
+}
+
+.section-two-title {
+  font-family: 'Manrope', sans-serif;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.section-two-title-light {
+  font-weight: 200;
+  color: #ffffff;
+}
+
+.section-two-title-bold {
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.section-two-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-align: center;
+  max-width: 48rem;
+  margin-top: 0.75rem;
+}
+
+.section-two-copy {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #8d8f93;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  text-align: center;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.875rem;
+}
+
+/* 3 Modular Feature Cards */
+.section-two-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  .section-two-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.section-two-card {
+  position: relative;
+  background-color: #141414;
+  border-radius: 2rem;
+  padding: 2.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: none;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  cursor: default;
+}
+
+.section-two-card:hover {
+  background-color: #1a1a1a;
+  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.6);
+}
+
+.section-two-badge {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 1.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.625rem;
+  transition: transform 0.25s ease;
+}
+
+.section-two-badge-anticipa {
+  background-color: #2b1214;
+}
+
+.section-two-badge-crea {
+  background-color: #2d1810;
+}
+
+.section-two-badge-escala {
+  background-color: #2b250d;
+}
+
+.section-two-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 0.625rem;
+}
+
+.section-two-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #8d8f93;
+  line-height: 1.55;
+  max-width: 13.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}

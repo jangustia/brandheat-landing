@@ -1,0 +1,138 @@
+/* Section 3: How It Works (From spark to screen) Styles */
+.section-three-container {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-three-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.section-three-title-light {
+  font-weight: 300;
+  color: #e1e1e1;
+}
+
+.section-three-title-bold {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.section-three-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #8d8f93;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* 5 Feature Cards Grid */
+.section-three-cards-wrapper {
+  margin-top: 1.25rem;
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+@media (min-width: 640px) {
+  .section-three-cards-wrapper {
+    margin-top: 1.5rem;
+  }
+}
+
+.section-three-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.625rem;
+}
+
+@media (min-width: 768px) {
+  .section-three-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.section-three-card {
+  position: relative;
+  background-color: #151515;
+  border-radius: 1.25rem;
+  padding: 0.875rem 1.125rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+  border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  cursor: default;
+}
+
+@media (min-width: 640px) {
+  .section-three-card {
+    border-radius: 1.5rem;
+  }
+}
+
+.section-three-card:hover {
+  background-color: #1e1e1e;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+}
+
+.section-three-icon-box {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.875rem;
+  margin-top: 0.125rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.section-three-card:hover .section-three-icon-box {
+  color: #ea4325;
+}
+
+.section-three-card-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.section-three-card-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: #8d8f93;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.section-three-card:hover .section-three-card-text {
+  color: #c5c5c5;
+}

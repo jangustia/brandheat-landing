@@ -2,11 +2,14 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, RotateCcw } from 'lucide-react';
 import BottomAmbientGlow from './BottomAmbientGlow';
-import SectionTwoOverview from './SectionTwoOverview';
-import SectionThreeHowItWorks from './SectionThreeHowItWorks';
-import SectionFourClients from './SectionFourClients';
-import SectionFiveFeelTheHeat from './SectionFiveFeelTheHeat';
-import SectionSixFounders from './SectionSixFounders';
+import {
+  SectionOneHero,
+  SectionTwoOverview,
+  SectionThreeHowItWorks,
+  SectionFourClients,
+  SectionFiveFeelTheHeat,
+  SectionSixFounders,
+} from './sections';
 import './SentenceHero.css';
 
 /**
@@ -209,29 +212,7 @@ export default function SentenceHero({
     },
   };
 
-  // Text crossfade within Stage 0 (The Hook) - fast, snappy & smooth
-  const hookTextVariants = {
-    initial: {
-      opacity: 0,
-      y: 12,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.32,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      transition: {
-        duration: 0.18,
-        ease: 'easeOut',
-      },
-    },
-  };
+
 
   return (
     <div className="sentence-hero-viewport relative w-full h-screen overflow-hidden bg-[#08090c] flex flex-col justify-between items-center px-6 sm:px-10 pt-10 pb-0 m-0 select-none">
@@ -252,7 +233,7 @@ export default function SentenceHero({
       >
         <AnimatePresence mode="wait">
           {/* ========================================================
-              STAGE 0: The Hook (3 Problem Statements automatically revealed in sequence)
+              STAGE 0: Section One (The Hook / Narrative Loop)
              ======================================================== */}
           {currentIndex === 0 && (
             <motion.div
@@ -261,119 +242,13 @@ export default function SentenceHero({
               initial="initial"
               animate="animate"
               exit="exit"
-              className="w-full text-center flex flex-col items-center justify-center px-4"
+              className="w-full"
             >
-              <AnimatePresence mode="wait">
-                {/* Sentence 1 */}
-                {hookSentenceIndex === 0 && (
-                  <motion.div
-                    key={`hook-01-${currentLang}`}
-                    variants={hookTextVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="w-full text-center"
-                  >
-                    <h1 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? '¿Cuánto tarda' : 'How long does it take'}
-                        </span>{' '}
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'tu marca' : 'your brand'}
-                        </span>
-                      </div>
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? 'en subirse a una' : 'to jump on a'}
-                        </span>{' '}
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'tendencia?' : 'trend?'}
-                        </span>
-                      </div>
-                    </h1>
-                  </motion.div>
-                )}
-
-                {/* Sentence 2 */}
-                {hookSentenceIndex === 1 && (
-                  <motion.div
-                    key={`hook-02-${currentLang}`}
-                    variants={hookTextVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="w-full text-center"
-                  >
-                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? 'Una conversación que' : 'A conversation that'}
-                        </span>{' '}
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'prendió,' : 'caught fire,'}
-                        </span>{' '}
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? 'escala en horas.' : 'escalates in hours.'}
-                        </span>
-                      </div>
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? 'Una campaña,' : 'A campaign,'}
-                        </span>{' '}
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'tarda semanas...' : 'takes weeks...'}
-                        </span>
-                      </div>
-                    </h2>
-                  </motion.div>
-                )}
-
-                {/* Sentence 3 */}
-                {hookSentenceIndex === 2 && (
-                  <motion.div
-                    key={`hook-03-${currentLang}`}
-                    variants={hookTextVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    className="w-full text-center"
-                  >
-                    <h2 className="font-['Manrope',sans-serif] text-2xl sm:text-3xl md:text-[44px] lg:text-[58px] leading-[1.24] md:leading-[1.2] tracking-[-0.03em] text-[#ffffff] text-center w-full">
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[200] text-[#E1E1E1]">
-                          {isEs ? 'Ese gap es un problema' : 'That gap is a problem'}
-                        </span>{' '}
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'cada vez más grande.' : 'getting bigger and bigger.'}
-                        </span>
-                      </div>
-                      <div className="block my-1 sm:my-1.5 lg:whitespace-nowrap text-center">
-                        <span className="font-[700] text-[#ffffff]">
-                          {isEs ? 'Y más caro.' : 'And more expensive.'}
-                        </span>
-                      </div>
-                    </h2>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Sub-progress indicators for the 3 hook sentences */}
-              <div className="flex items-center justify-center gap-2 mt-8">
-                {[0, 1, 2].map((idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setHookSentenceIndex(idx)}
-                    className={`transition-all duration-300 rounded-full h-1.5 ${
-                      hookSentenceIndex === idx
-                        ? 'w-6 bg-[#ea4325] shadow-[0_0_10px_rgba(234,67,37,0.7)]'
-                        : 'w-2 bg-white/20 hover:bg-white/40'
-                    }`}
-                    aria-label={`Jump to hook statement ${idx + 1}`}
-                  />
-                ))}
-              </div>
+              <SectionOneHero
+                currentLang={currentLang}
+                hookSentenceIndex={hookSentenceIndex}
+                setHookSentenceIndex={setHookSentenceIndex}
+              />
             </motion.div>
           )}
 

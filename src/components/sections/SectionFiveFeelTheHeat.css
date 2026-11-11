@@ -1,0 +1,197 @@
+/* Section 5: FEEL THE HEAT Early Access Form Styles */
+.section-five-container {
+  width: 100%;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.section-five-title {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.section-five-subtitle {
+  margin-top: 0.625rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #e1e1e1;
+  letter-spacing: -0.01em;
+  text-align: center;
+  max-width: 42rem;
+}
+
+@media (min-width: 640px) {
+  .section-five-subtitle {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Early Access Form */
+.section-five-form-wrapper {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .section-five-form-wrapper {
+    margin-top: 1.75rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-five-form-wrapper {
+    margin-top: 2rem;
+  }
+}
+
+.section-five-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .section-five-form {
+    flex-direction: row;
+    gap: 0.875rem;
+  }
+}
+
+.section-five-input {
+  width: 100%;
+  height: 3.25rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  border-radius: 9999px;
+  background-color: #151515;
+  border: none;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  outline: none;
+  transition: all 0.2s ease;
+  caret-color: #ea4325;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 640px) {
+  .section-five-input {
+    width: 20rem;
+    height: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-five-input {
+    width: 21.25rem;
+  }
+}
+
+.section-five-input:hover {
+  background-color: #1a1a1a;
+}
+
+.section-five-input:focus {
+  background-color: #1e1e1e;
+}
+
+.section-five-input::placeholder {
+  color: #8d8f93;
+  font-weight: 500;
+}
+
+.section-five-btn {
+  width: 100%;
+  height: 3.25rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  border-radius: 9999px;
+  background-color: #ea4325;
+  color: #ffffff;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(234, 67, 37, 0.4);
+}
+
+@media (min-width: 640px) {
+  .section-five-btn {
+    width: auto;
+    height: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-five-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 8px 25px rgba(234, 67, 37, 0.55);
+}
+
+.section-five-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  background-color: #151515;
+  color: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.section-five-back-container {
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .section-five-back-container {
+    margin-top: 2.5rem;
+  }
+}
+
+.section-five-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #8d8f93;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.section-five-back-btn:hover {
+  color: #ffffff;
+}
