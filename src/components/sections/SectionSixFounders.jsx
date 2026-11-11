@@ -128,6 +128,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           <span className="section-six-title-light">FOUNDING TEAM: </span>
           <span className="section-six-title-bold">THE IGNITERS</span>
         </h2>
+
+        {/* 2. Subtitle copy */}
+        <p className="section-six-subheadline">
+          {isEs
+            ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
+            : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}
+        </p>
       </div>
 
       {/* 3. Single Row Animated Carousel with Fade Gradient */}
