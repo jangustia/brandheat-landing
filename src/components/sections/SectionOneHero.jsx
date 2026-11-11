@@ -259,6 +259,11 @@ export default function SectionOneHero({
                 })}
               </div>
             ))}
+            {currentSentence.lines.length < 2 && (
+              <div className="section-one-line section-one-spacer" aria-hidden="true">
+                <span className="section-one-word">&nbsp;</span>
+              </div>
+            )}
           </HeadingTag>
         </motion.div>
       </AnimatePresence>
