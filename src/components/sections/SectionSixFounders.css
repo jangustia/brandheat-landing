@@ -85,69 +85,31 @@
   display: flex;
   align-items: center;
   user-select: none;
-  /* Smooth Fade Gradients on left and right edges */
-  mask-image: linear-gradient(to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.25) 3%,
-      rgba(0, 0, 0, 0.85) 8%,
-      rgba(0, 0, 0, 1) 14%,
-      rgba(0, 0, 0, 1) 86%,
-      rgba(0, 0, 0, 0.85) 92%,
-      rgba(0, 0, 0, 0.25) 97%,
-      transparent 100%);
-  -webkit-mask-image: linear-gradient(to right,
-      transparent 0%,
-      rgba(0, 0, 0, 0.25) 3%,
-      rgba(0, 0, 0, 0.85) 8%,
-      rgba(0, 0, 0, 1) 14%,
-      rgba(0, 0, 0, 1) 86%,
-      rgba(0, 0, 0, 0.85) 92%,
-      rgba(0, 0, 0, 0.25) 97%,
-      transparent 100%);
+  /* Smooth edge transparency fade - fades elements naturally without dark opaque overlays */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 24px,
+    rgba(0, 0, 0, 1) 72px,
+    rgba(0, 0, 0, 1) calc(100% - 72px),
+    rgba(0, 0, 0, 0.4) calc(100% - 24px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 24px,
+    rgba(0, 0, 0, 1) 72px,
+    rgba(0, 0, 0, 1) calc(100% - 72px),
+    rgba(0, 0, 0, 0.4) calc(100% - 24px),
+    transparent 100%
+  );
 }
 
 @media (min-width: 640px) {
   .section-six-carousel-wrap {
     padding: 1.5rem 0 1.25rem 0;
   }
-}
-
-/* Gradient edge overlays for richer fade to deep background */
-.section-six-carousel-wrap::before,
-.section-six-carousel-wrap::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 5rem;
-  z-index: 10;
-  pointer-events: none;
-}
-
-@media (min-width: 640px) {
-
-  .section-six-carousel-wrap::before,
-  .section-six-carousel-wrap::after {
-    width: 9rem;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  .section-six-carousel-wrap::before,
-  .section-six-carousel-wrap::after {
-    width: 14rem;
-  }
-}
-
-.section-six-carousel-wrap::before {
-  left: 0;
-  background: linear-gradient(to right, #070709 0%, rgba(7, 7, 9, 0) 100%);
-}
-
-.section-six-carousel-wrap::after {
-  right: 0;
-  background: linear-gradient(to left, #070709 0%, rgba(7, 7, 9, 0) 100%);
 }
 
 /* Carousel Track with Continuous Infinite Animation */
