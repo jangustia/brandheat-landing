@@ -35,10 +35,10 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
     {
       id: 2,
-      name: 'Nacho Zuccarino',
+      name: 'Ignacio Zuccarino',
       role: isEs ? 'Estrategia de Marca & IA' : 'Brand Strategy & AI',
       tag: isEs ? 'Marca & Innovación' : 'Brand & Innovation',
-      initials: 'NZ',
+      initials: 'IZ',
       image: '/founders/nacho.png',
       bio: isEs
         ? 'Multipremiado líder en marca e innovación, que desarrolló iniciativas globales para compañías como Google, Netflix y SpaceX. Ex ejecutivo de la industria tecnológica y asesor de equipos directivos, es orador TEDx y pionero en la aplicación de la inteligencia artificial a la estrategia de marca y la inteligencia cultural.'
@@ -46,10 +46,10 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
     {
       id: 3,
-      name: 'Sole D’Agostino',
+      name: 'Soledad D’Agostino',
       role: isEs ? 'Liderazgo de Producto & IA' : 'Product Leadership & AI',
       tag: isEs ? 'Producto & IA' : 'Product & AI',
-      initials: 'SD',
+      initials: 'SDA',
       image: '/founders/sole.jpg',
       bio: isEs
         ? 'Ejecutiva de producto con más de 15 años de experiencia escalando plataformas de 0 a 1 en IA y medios. Lideró 4 lanzamientos de producto en YouTube, el escalamiento de YouTube Live y el lanzamiento del Google Pixel Fold. Graduada del programa CPO del MIT y ganadora del Fire Hydrant Award; fundadora de Sidereal, donde guía a startups de alto crecimiento en su transformación con IA.'
@@ -57,7 +57,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
     {
       id: 4,
-      name: 'Trini Vega Olmos',
+      name: 'Trinidad Vega Olmos',
       role: isEs ? 'Estrategia de Comunicación' : 'Communication Strategy',
       tag: isEs ? 'Comunicación & Producción' : 'Communication & Production',
       initials: 'TVO',
@@ -68,7 +68,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
     {
       id: 5,
-      name: 'Matias Molinas',
+      name: 'Matías Molinas',
       role: isEs ? 'Ingeniería en IA & ML' : 'AI & ML Engineering',
       tag: isEs ? 'IA & Machine Learning' : 'AI & Machine Learning',
       initials: 'MM',
@@ -124,9 +124,9 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </p>
       </motion.div>
 
-      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Nacho, Sole on Row 1; Trini, Matias, Eugenio on Row 2) */}
+      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Ignacio, Soledad on Row 1; Trinidad, Matías, Eugenio on Row 2) */}
       <motion.div variants={cascadeItemVariants} className="section-six-grid-wrap">
-        {/* Row 1: Fernando, Nacho, Sole */}
+        {/* Row 1: Fernando, Ignacio, Soledad */}
         <div className="section-six-row">
           {founders.slice(0, 3).map((founder) => (
             <div
@@ -162,7 +162,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           ))}
         </div>
 
-        {/* Row 2: Trini, Matias, Eugenio */}
+        {/* Row 2: Trinidad, Matías, Eugenio */}
         <div className="section-six-row">
           {founders.slice(3, 6).map((founder) => (
             <div
