@@ -25,7 +25,7 @@ export default function SectionFourClients({ currentLang = 'es' }) {
         <span className="section-four-title-thin">(so far)</span>
       </h2>
 
-      {/* 2. Subtitle (#e1e1e1 in Inter) */}
+      {/* 2. Subtitle (#8D8F93 in Inter) */}
       <p className="section-four-subtitle text-base sm:text-lg lg:text-[20px]">
         {isEs
           ? 'Marcas que ya no esperan para ser parte de la conversación.'
