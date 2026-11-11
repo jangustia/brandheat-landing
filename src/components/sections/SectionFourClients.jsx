@@ -25,7 +25,14 @@ export default function SectionFourClients({ currentLang = 'es' }) {
         <span className="section-four-title-thin">(so far)</span>
       </h2>
 
-      {/* 2. Grid with 6 Client Logos in 2 rows (3 columns x 2 rows on desktop) */}
+      {/* 2. Subtitle (#e1e1e1 in Inter) */}
+      <p className="section-four-subtitle text-base sm:text-lg lg:text-[20px]">
+        {isEs
+          ? 'Marcas que ya no esperan para ser parte de la conversación.'
+          : 'Brands that no longer wait to join the conversation.'}
+      </p>
+
+      {/* 3. Grid with 6 Client Logos in 2 rows (3 columns x 2 rows on desktop) */}
       <div className="section-four-grid">
         {CLIENT_LOGOS.map(({ id, Component }) => (
           <motion.div
