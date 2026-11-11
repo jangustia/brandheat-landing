@@ -125,7 +125,8 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
               <button
                 type="button"
                 onClick={onClose}
-                className="w-8 h-8 rounded-full bg-[#212121] hover:bg-[#272727] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#8D8F93] hover:text-[#ffffff] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40"
+                className="w-8 h-8 rounded-full bg-[#212121] hover:bg-[#272727] border-0 outline-none flex items-center justify-center text-[#8D8F93] hover:text-[#ffffff] transition-all cursor-pointer focus:outline-none focus:ring-0 focus-visible:outline-none"
+                style={{ border: 'none', outline: 'none' }}
                 aria-label={isEs ? 'Cerrar manifiesto' : 'Close manifesto'}
               >
                 <X className="w-4 h-4" />
