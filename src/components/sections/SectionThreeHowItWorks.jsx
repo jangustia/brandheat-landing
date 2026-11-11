@@ -6,7 +6,6 @@ import './SectionThreeHowItWorks.css';
 /**
  * SectionThreeHowItWorks Component
  * - Format: Icon on the left + title and text stacked on the right
- * - Ambient Corner Glows: Electric Blue & Brand Fiery Orange
  * - Clean surface contrast WITHOUT outline / borders (border: none)
  * - Typography: Manrope (headings) & Inter (subtitles / descriptions)
  */
@@ -16,7 +15,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
   const cards = [
     {
       id: 1,
-      cardClass: 'section-three-card-1',
       title: '1. HEAT Map',
       text: isEs
         ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real. Sin brief. Sin esperas. Sin llegar tarde.'
@@ -25,7 +23,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
     },
     {
       id: 2,
-      cardClass: 'section-three-card-2',
       title: '2. Ideas',
       text: isEs
         ? 'Lo que tu marca tiene para decir. Varias puntas creativas por tema.'
@@ -34,7 +31,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
     },
     {
       id: 3,
-      cardClass: 'section-three-card-3',
       title: '3. Creative Studio',
       text: isEs
         ? 'De la idea a la pieza creativa en minutos. Video, imagen y texto listos para publicar.'
@@ -43,7 +39,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
     },
     {
       id: 4,
-      cardClass: 'section-three-card-4',
       title: '4. Campaigns',
       text: isEs
         ? 'Siente el pulso de las redes, crea, publica, prueba, y pauta. Todo en la misma plataforma.'
@@ -52,7 +47,6 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
     },
     {
       id: 5,
-      cardClass: 'section-three-card-5',
       title: '5. Analytics',
       text: isEs
         ? 'Entiende qué rindió y por qué. No es solo un reporte, sino recomendaciones para la mejora continua de tus campañas.'
@@ -81,14 +75,14 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
         </p>
       </div>
 
-      {/* 2. Grid of Feature Cards (Icons on left, ambient colors, border: none) */}
+      {/* 2. Grid of Feature Cards (Icons on left, border: none) */}
       <div className="section-three-cards-wrapper">
         {/* Row 1: Cards 1 and 2 */}
         <div className="section-three-row">
           <motion.div
             whileHover={{ y: -3 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className={`group section-three-card ${cards[0].cardClass}`}
+            className="group section-three-card"
           >
             <div className="section-three-icon-box">
               {cards[0].icon}
@@ -106,7 +100,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           <motion.div
             whileHover={{ y: -3 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className={`group section-three-card ${cards[1].cardClass}`}
+            className="group section-three-card"
           >
             <div className="section-three-icon-box">
               {cards[1].icon}
@@ -127,7 +121,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           <motion.div
             whileHover={{ y: -3 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className={`group section-three-card ${cards[2].cardClass}`}
+            className="group section-three-card"
           >
             <div className="section-three-icon-box">
               {cards[2].icon}
@@ -145,7 +139,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           <motion.div
             whileHover={{ y: -3 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className={`group section-three-card ${cards[3].cardClass}`}
+            className="group section-three-card"
           >
             <div className="section-three-icon-box">
               {cards[3].icon}
@@ -161,11 +155,11 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           </motion.div>
         </div>
 
-        {/* Row 3: Card 5 (Full Width Card with Dual Ambient Glow) */}
+        {/* Row 3: Card 5 (Full Width Card) */}
         <motion.div
           whileHover={{ y: -3 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
-          className={`group section-three-card ${cards[4].cardClass} w-full`}
+          className="group section-three-card w-full"
         >
           <div className="section-three-icon-box">
             {cards[4].icon}
