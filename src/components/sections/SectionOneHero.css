@@ -12,8 +12,8 @@
 
 .section-one-headline {
   font-family: 'Manrope', sans-serif;
-  line-height: 1.2;
-  letter-spacing: -0.03em;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   color: #ffffff;
   text-align: center;
   width: 100%;
@@ -21,8 +21,8 @@
 
 .section-one-line {
   display: block;
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
   text-align: center;
 }
 
