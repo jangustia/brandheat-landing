@@ -35,6 +35,16 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Sync document language and meta title with active language
+  useEffect(() => {
+    document.documentElement.lang = currentLang;
+    if (currentLang === 'en') {
+      document.title = 'Brand HEAT — How long does it take your brand to jump on a trend?';
+    } else {
+      document.title = 'Brand HEAT — ¿Cuánto tarda tu marca en subirse a una tendencia?';
+    }
+  }, [currentLang]);
+
   const handleToggleLang = (lang) => {
     if (lang !== currentLang) {
       setCurrentLang(lang);
