@@ -373,7 +373,7 @@ export default function SentenceHero({
             className="sentence-hero-footer"
           >
             <div className="sentence-hero-footer-left">
-              <span>brandheat 2026 | All Rights Reserved.</span>
+              <strong className="sentence-hero-footer-brand">brandheat</strong> 2026 | All Rights Reserved.
             </div>
             <div className="sentence-hero-footer-right">
               <a
