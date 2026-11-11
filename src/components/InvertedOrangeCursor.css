@@ -24,30 +24,32 @@
   will-change: transform, left, top;
 }
 
-/* ==========================================================================
-   SAFE BACKUP & CROSS-PLATFORM STRATEGY:
-   1. Native system cursor is 100% active and visible by DEFAULT.
-   2. ONLY hide native cursor when JavaScript has successfully initialized
-      the custom cursor AND verified active mouse movement (.has-custom-cursor).
-   3. If JS fails, is disabled, or lags on Windows/Mac/Linux, native cursor works.
-   4. Native text I-beam is always preserved on inputs/textareas.
-   ========================================================================== */
+/* Hide native cursor completely on devices with fine pointer (mouse / trackpad) as originally designed */
 @media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor,
-  html.has-custom-cursor body,
-  html.has-custom-cursor *:not(input):not(textarea):not([contenteditable="true"]) {
+  html:not(.use-native-cursor-backup),
+  html:not(.use-native-cursor-backup) body,
+  html:not(.use-native-cursor-backup) *,
+  html:not(.use-native-cursor-backup) *::before,
+  html:not(.use-native-cursor-backup) *::after {
     cursor: none !important;
-  }
-
-  /* Always preserve native text I-beam cursor on text inputs for typing precision */
-  html.has-custom-cursor input,
-  html.has-custom-cursor textarea,
-  html.has-custom-cursor [contenteditable="true"] {
-    cursor: text !important;
   }
 }
 
-/* Hide custom cursor completely on touchscreens / mobile devices */
+/* Backup system cursor: activated for Windows in case of problems displaying the inverse cursor or on touch */
+html.use-native-cursor-backup,
+html.use-native-cursor-backup body,
+html.use-native-cursor-backup *,
+html.use-native-cursor-backup *::before,
+html.use-native-cursor-backup *::after {
+  cursor: auto !important;
+}
+
+html.use-native-cursor-backup .inverted-orange-cursor,
+html.use-native-cursor-backup .inverted-orange-cursor-dot {
+  display: none !important;
+}
+
+/* Hide custom cursor on touchscreens / mobile devices */
 @media (hover: none) or (pointer: coarse) {
   .inverted-orange-cursor,
   .inverted-orange-cursor-dot {
@@ -55,7 +57,7 @@
   }
 }
 
-/* Windows High-Contrast Mode & Reduced Motion: Fallback to standard system cursor */
+/* Windows High-Contrast Mode & Reduced Motion Backup */
 @media (forced-colors: active), (prefers-reduced-motion: reduce) {
   .inverted-orange-cursor,
   .inverted-orange-cursor-dot {
