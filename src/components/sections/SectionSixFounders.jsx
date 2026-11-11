@@ -3,7 +3,6 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X,
-  RotateCcw,
   ArrowUpRight,
   Sparkles,
   Flame,
@@ -198,23 +197,6 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             );
           })}
         </div>
-      </div>
-
-      {/* 4. Subtle Hint beneath in Inter */}
-      <p className="section-six-hint">
-        {isEs ? 'Haz clic en un fundador para conocer su bio' : 'Click on a founder to view their bio'}
-      </p>
-
-      {/* 5. Subtle Back to start button */}
-      <div className="section-six-back-container">
-        <button
-          type="button"
-          onClick={onBackToStart}
-          className="section-six-back-btn"
-        >
-          <RotateCcw className="w-3.5 h-3.5" />
-          <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
-        </button>
       </div>
 
       {/* ========================================================
