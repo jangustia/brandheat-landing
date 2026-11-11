@@ -159,7 +159,7 @@ export default function Navbar({
               onClick={() => onToggleLang('es')}
               className={`transition-colors duration-200 px-1.5 py-0.5 rounded cursor-pointer ${
                 currentLang === 'es'
-                  ? 'text-white font-[700] drop-shadow-[0_0_8px_rgba(234,67,37,0.6)]'
+                  ? 'text-[#ea4325] font-bold drop-shadow-[0_0_8px_rgba(234,67,37,0.45)]'
                   : 'text-[#8D8F93] hover:text-[#ffffff]'
               }`}
               aria-pressed={currentLang === 'es'}
@@ -172,7 +172,7 @@ export default function Navbar({
               onClick={() => onToggleLang('en')}
               className={`transition-colors duration-200 px-1.5 py-0.5 rounded cursor-pointer ${
                 currentLang === 'en'
-                  ? 'text-white font-[700] drop-shadow-[0_0_8px_rgba(234,67,37,0.6)]'
+                  ? 'text-[#ea4325] font-bold drop-shadow-[0_0_8px_rgba(234,67,37,0.45)]'
                   : 'text-[#8D8F93] hover:text-[#ffffff]'
               }`}
               aria-pressed={currentLang === 'en'}
