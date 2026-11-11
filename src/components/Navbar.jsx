@@ -49,13 +49,13 @@ export default function Navbar({
       stage: 3,
     },
     {
-      label: 'FEEL THE HEAT',
-      href: '#feel-the-heat',
+      label: 'FOUNDER',
+      href: '#founders',
       stage: 4,
     },
     {
-      label: 'FOUNDER',
-      href: '#founders',
+      label: 'FEEL THE HEAT',
+      href: '#feel-the-heat',
       stage: 5,
     },
   ];

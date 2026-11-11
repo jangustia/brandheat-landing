@@ -301,18 +301,18 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 4: Section Five (FEEL THE HEAT - Early Access Form)
+              STAGE 4: Section Six (Founding Team - The Igniters)
              ======================================================== */}
           {currentIndex === 4 && (
             <motion.div
-              key={`stage-feel-the-heat-${currentLang}`}
+              key={`stage-founders-${currentLang}`}
               variants={stageVariants}
               initial="initial"
               animate="animate"
               exit="exit"
               className="w-full"
             >
-              <SectionFiveFeelTheHeat
+              <SectionSixFounders
                 currentLang={currentLang}
                 onBackToStart={() => {
                   setHookSentenceIndex(0);
@@ -323,18 +323,18 @@ export default function SentenceHero({
           )}
 
           {/* ========================================================
-              STAGE 5: Section Six (Founder member - 5 Interactive Founder Tiles)
+              STAGE 5: Section Five (FEEL THE HEAT - Early Access Form - LAST SECTION)
              ======================================================== */}
           {currentIndex === 5 && (
             <motion.div
-              key={`stage-founders-${currentLang}`}
+              key={`stage-feel-the-heat-${currentLang}`}
               variants={stageVariants}
               initial="initial"
               animate="animate"
               exit="exit"
               className="w-full"
             >
-              <SectionSixFounders
+              <SectionFiveFeelTheHeat
                 currentLang={currentLang}
                 onBackToStart={() => {
                   setHookSentenceIndex(0);

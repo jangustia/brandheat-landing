@@ -45,11 +45,11 @@ export default function App() {
     } else if (href === '#clients') {
       // Stage 3: Our Clients (Logo grid)
       setSentenceIndex(3);
-    } else if (href === '#feel-the-heat') {
-      // Stage 4: Feel the Heat / Early Access
-      setSentenceIndex(4);
     } else if (href === '#founders') {
-      // Stage 5: Founder member (5 founder tiles)
+      // Stage 4: Founder member (interactive founder carousel)
+      setSentenceIndex(4);
+    } else if (href === '#feel-the-heat') {
+      // Stage 5: Feel the Heat / Early Access (Last section)
       setSentenceIndex(5);
     }
   };
