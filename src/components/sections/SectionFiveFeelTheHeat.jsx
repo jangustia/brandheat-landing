@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { RotateCcw, Check } from 'lucide-react';
+import { RotateCcw, Check, Mail } from 'lucide-react';
 import './SectionFiveFeelTheHeat.css';
 
 /**
@@ -56,15 +56,18 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="section-five-form">
-            {/* Pill Email Input using card container color (#151515) for contrast */}
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder={isEs ? 'Ingresar correo electronico' : 'Enter your email'}
-              required
-              className="section-five-input"
-            />
+            {/* Pill Email Input with icon using card container color (#151515) for contrast */}
+            <div className="section-five-input-wrapper">
+              <Mail className="section-five-input-icon" strokeWidth={1.8} aria-hidden="true" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={isEs ? 'Ingresar correo electronico' : 'Enter your email'}
+                required
+                className="section-five-input"
+              />
+            </div>
 
             {/* Pill Action Button: The ONE Brand Orange #ea4325 */}
             <button type="submit" className="section-five-btn">
