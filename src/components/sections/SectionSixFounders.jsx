@@ -48,7 +48,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
     {
       id: 3,
-      name: 'Soledad D’Agostino',
+      name: 'Sole D’Agostino',
       role: isEs ? 'Liderazgo de Producto & IA' : 'Product Leadership & AI',
       tag: isEs ? 'Producto & IA' : 'Product & AI',
       initials: 'SDA',
@@ -130,9 +130,9 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </p>
       </motion.div>
 
-      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Ignacio, Soledad on Row 1; Trinidad, Matías, Eugenio on Row 2) */}
+      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Ignacio, Sole on Row 1; Trinidad, Matías, Eugenio on Row 2) */}
       <motion.div variants={cascadeItemVariants} className="section-six-grid-wrap">
-        {/* Row 1: Fernando, Ignacio, Soledad */}
+        {/* Row 1: Fernando, Ignacio, Sole */}
         <div className="section-six-row">
           {founders.slice(0, 3).map((founder) => (
             <div
