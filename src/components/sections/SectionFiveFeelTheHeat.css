@@ -33,17 +33,27 @@
 }
 
 .section-five-subtitle {
-  margin-top: 0.625rem;
+  margin-top: 0.5rem;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-size: 1rem;
   color: #e1e1e1;
   letter-spacing: -0.01em;
   text-align: center;
-  max-width: 42rem;
+  max-width: 44rem;
+  line-height: 1.45;
 }
 
 @media (min-width: 640px) {
   .section-five-subtitle {
+    font-size: 1.125rem;
+    margin-top: 0.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-five-subtitle {
+    font-size: 1.25rem;
     margin-top: 0.75rem;
   }
 }

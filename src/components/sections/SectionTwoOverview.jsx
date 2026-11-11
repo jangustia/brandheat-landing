@@ -90,8 +90,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         </h2>
       </div>
 
-      {/* 2. Primary Tagline (#ffffff in Manrope) */}
-      <p className="section-two-tagline text-lg sm:text-xl md:text-[22px] lg:text-[23px]">
+      {/* 2. Primary Tagline (#e1e1e1 in Inter) */}
+      <p className="section-two-tagline text-base sm:text-lg lg:text-[20px]">
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
           : 'The always-on that keeps pace with the conversation.'}

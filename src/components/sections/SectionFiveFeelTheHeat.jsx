@@ -32,7 +32,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       </h2>
 
       {/* 2. Subtitle: Content #E1E1E1 in Inter */}
-      <p className="section-five-subtitle text-base sm:text-lg md:text-xl lg:text-[20px]">
+      <p className="section-five-subtitle text-base sm:text-lg lg:text-[20px]">
         {isEs
           ? 'La gente ya está hablando. ¿Vas a entrar a la conversación?'
           : 'People are already talking. Are you joining the conversation?'}

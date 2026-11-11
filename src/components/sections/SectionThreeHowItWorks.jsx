@@ -70,7 +70,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
           </span>
         </h2>
 
-        <p className="section-three-sub">
+        <p className="section-three-sub text-base sm:text-lg lg:text-[20px]">
           {isEs
             ? 'Tu marca, siempre a tiempo. Siempre al punto. Always on.'
             : 'Your Brand, always on time. Always on point. Always on.'}

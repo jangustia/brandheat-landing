@@ -59,18 +59,26 @@
 
 .section-three-sub {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 0.8125rem;
-  color: #8d8f93;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #e1e1e1;
   letter-spacing: -0.01em;
   text-align: center;
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
+  line-height: 1.45;
 }
 
 @media (min-width: 640px) {
   .section-three-sub {
-    font-size: 0.9375rem;
-    margin-top: 0.5rem;
+    font-size: 1.125rem;
+    margin-top: 0.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-sub {
+    font-size: 1.25rem;
+    margin-top: 0.75rem;
   }
 }
 

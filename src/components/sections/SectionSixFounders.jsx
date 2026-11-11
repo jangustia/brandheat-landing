@@ -114,7 +114,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </h2>
 
         {/* 2. Subtitle copy */}
-        <p className="section-six-subheadline">
+        <p className="section-six-subheadline text-base sm:text-lg lg:text-[20px]">
           {isEs
             ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
             : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}
