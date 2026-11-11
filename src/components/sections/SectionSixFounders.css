@@ -78,6 +78,7 @@
 
 .section-six-subheadline {
   margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 0.875rem;
@@ -94,6 +95,7 @@
   .section-six-subheadline {
     font-size: 1rem;
     margin-top: 0.3rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -101,6 +103,7 @@
   .section-six-subheadline {
     font-size: 1.125rem; /* 18px */
     margin-top: 0.35rem;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -115,7 +118,7 @@
 .section-six-grid-wrap {
   width: 100%;
   max-width: 25.5rem; /* ~408px on mobile */
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -129,7 +132,7 @@
   .section-six-grid-wrap {
     max-width: 36rem; /* ~576px */
     gap: 0.75rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
   }
@@ -139,7 +142,7 @@
   .section-six-grid-wrap {
     max-width: 45.5rem; /* ~728px */
     gap: 1rem;
-    margin-top: 0.55rem;
+    margin-top: 0.25rem;
   }
 }
 
@@ -147,7 +150,7 @@
   .section-six-grid-wrap {
     max-width: 47rem; /* ~752px */
     gap: 1.125rem;
-    margin-top: 0.625rem;
+    margin-top: 0.25rem;
   }
 }
 
