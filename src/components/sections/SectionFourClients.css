@@ -15,11 +15,20 @@
 
 .section-four-title {
   font-family: 'Manrope', sans-serif;
-  font-weight: 700;
   letter-spacing: -0.02em;
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;
+}
+
+.section-four-title-thin {
+  font-weight: 200;
+  color: #e1e1e1;
+}
+
+.section-four-title-bold {
+  font-weight: 800;
+  color: #ffffff;
 }
 
 /* 2-row grid: 2 columns on mobile (3 rows), 3 columns on tablet/desktop (2 rows of 3 = 6 logos) */

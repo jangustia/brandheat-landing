@@ -18,9 +18,11 @@ export default function SectionFourClients({ currentLang = 'es' }) {
 
   return (
     <div className="section-four-container">
-      {/* 1. Header Title: OUR CLIENTS (so far) */}
+      {/* 1. Header Title: OUR (thin) CLIENTS (bold) (so far) (thin) */}
       <h2 className="section-four-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
-        {isEs ? 'OUR CLIENTS (so far)' : 'OUR CLIENTS (so far)'}
+        <span className="section-four-title-thin">OUR </span>
+        <span className="section-four-title-bold">CLIENTS </span>
+        <span className="section-four-title-thin">(so far)</span>
       </h2>
 
       {/* 2. Grid with 6 Client Logos in 2 rows (3 columns x 2 rows on desktop) */}
