@@ -105,8 +105,8 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] transition-colors duration-200 relative group py-1 select-none ${
-                  isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
+                className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold transition-colors duration-200 relative group py-1 select-none ${
+                  isActive ? 'text-[#ffffff]' : 'text-[#D0D0D0] hover:text-[#ffffff]'
                 }`}
               >
                 <AnimatePresence mode="wait">
@@ -141,7 +141,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold text-[#E5E5E5] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
             <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
@@ -211,8 +211,8 @@ export default function Navbar({
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
-                      isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
+                    className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
+                      isActive ? 'text-[#ffffff]' : 'text-[#D0D0D0] hover:text-[#ffffff]'
                     }`}
                   >
                     <span>{link.label}</span>
@@ -230,7 +230,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   setManifestoOpen(true);
                 }}
-                className="mt-2 text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center cursor-pointer"
+                className="mt-2 text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold py-2.5 text-[#ea4325] flex items-center cursor-pointer"
               >
                 <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
               </button>
