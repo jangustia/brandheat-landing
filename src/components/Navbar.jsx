@@ -105,7 +105,7 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`text-[11px] lg:text-xs xl:text-[13px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] transition-colors duration-200 relative group py-1 select-none ${
+                className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] transition-colors duration-200 relative group py-1 select-none ${
                   isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
                 }`}
               >
@@ -141,7 +141,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
             <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
@@ -149,7 +149,7 @@ export default function Navbar({
 
           {/* Language selector ES | EN */}
           <div
-            className="inline-flex items-center text-xs tracking-wider font-['Inter',sans-serif] font-[500] text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
+            className="inline-flex items-center text-[12px] tracking-wider font-['Inter',sans-serif] font-[500] text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
             role="group"
             aria-label="Language selection"
           >
@@ -211,7 +211,7 @@ export default function Navbar({
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
+                    className={`text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
                       isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
                     }`}
                   >
@@ -230,7 +230,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   setManifestoOpen(true);
                 }}
-                className="mt-2 text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center cursor-pointer"
+                className="mt-2 text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center cursor-pointer"
               >
                 <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
               </button>
