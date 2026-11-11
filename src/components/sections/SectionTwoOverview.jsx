@@ -108,8 +108,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           : 'The always-on that keeps pace with the conversation.'}
       </p>
 
-      {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter) */}
-      <div className="section-two-copy text-xs sm:text-sm md:text-[14px] space-y-0.5">
+      {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter, 16px) */}
+      <div className="section-two-copy text-[15px] sm:text-[16px] space-y-0.5">
         <p>
           {isEs
             ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real.'
