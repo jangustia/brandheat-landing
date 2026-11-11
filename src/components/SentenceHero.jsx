@@ -73,10 +73,10 @@ export default function SentenceHero({
   useEffect(() => {
     if (currentIndex !== 0) return;
 
-    let delay = 3800;
-    if (hookSentenceIndex === 1) delay = 3800;
-    if (hookSentenceIndex === 2) delay = 3500;
-    if (hookSentenceIndex === 3) delay = 4400;
+    let delay = 4300;
+    if (hookSentenceIndex === 1) delay = 4200;
+    if (hookSentenceIndex === 2) delay = 3800;
+    if (hookSentenceIndex === 3) delay = 4900;
 
     const timer = setTimeout(() => {
       setHookSentenceIndex((prev) => (prev + 1) % 4);

@@ -188,17 +188,17 @@ const containerVariants = {
 const wordVariants = {
   initial: {
     opacity: 0,
-    filter: 'blur(12px)',
-    y: 14,
+    filter: 'blur(14px)',
+    y: 16,
   },
   animate: (i) => ({
     opacity: 1,
     filter: 'blur(0px)',
     y: 0,
     transition: {
-      delay: i * 0.045,
-      duration: 0.42,
-      ease: [0.16, 1, 0.3, 1],
+      delay: i * 0.08,
+      duration: 0.58,
+      ease: [0.22, 1, 0.36, 1],
     },
   }),
 };
