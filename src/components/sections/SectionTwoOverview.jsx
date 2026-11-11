@@ -182,3 +182,4 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
     </div>
   );
 }
+

@@ -6,11 +6,11 @@ import './SectionSixFounders.css';
 
 /**
  * SectionSixFounders Component
- * Renders Section 6: "Founder member"
+ * Renders Section 6: "FOUNDING TEAM: THE IGNITERS"
  * Built strictly according to design.md tokens:
  * - Level 2 Parent Cards (#151515, border: none, rounded-[24px])
  * - Depth created purely through surface contrast, never with outlines or strokes
- * - Level 3 Sub-containers (#212121) for avatar placeholder boxes and subtle hover state
+ * - Level 3 Sub-containers (#212121) for avatar portrait boxes
  * - Level 4 Modal (#161618, backdrop-filter: blur(20px))
  * - Level 4 Active Option surface (#44251c) for warm orange accents and badges
  * - The ONE Brand Orange: #ea4325
@@ -22,53 +22,69 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
   const founders = [
     {
       id: 1,
-      name: 'Juan Angustia',
-      role: isEs ? 'Co-Fundador & Head of Design' : 'Co-Founder & Head of Design',
-      tag: isEs ? 'Diseño & Estrategia' : 'Design & Strategy',
-      initials: 'JA',
+      name: 'Fernando Vega Olmos',
+      role: isEs ? 'Creatividad & Estrategia Cultural' : 'Creative & Cultural Strategy',
+      tag: isEs ? 'Creatividad & Cultura' : 'Creativity & Culture',
+      initials: 'FVO',
+      image: '/founders/fernando.png',
       bio: isEs
-        ? 'Líder en diseño de producto y experiencia con trayectoria transformando marcas tecnológicas de alto impacto. Dirigiendo la visión creativa y los sistemas de interfaz en Brand HEAT.'
-        : 'Product design and experience leader with a track record transforming high-impact tech brands. Driving creative vision and interface systems at Brand HEAT.',
+        ? 'Uno de los líderes creativos más influyentes de América Latina. Fundador de agencias icónicas como VegaOlmosPonce, LOLA y Picnic, lideró proyectos globales de construcción de marca para grandes compañías, entre ellas Unilever. Ex Worldwide Chief Creative Officer de JWT y de Lowe, es reconocido mundialmente por haber marcado el pensamiento creativo moderno y la estrategia cultural de marcas.'
+        : 'One of Latin America\'s most influential creative leaders. Founder of iconic agencies like VegaOlmosPonce, LOLA, and Picnic, he led global brand-building initiatives for top enterprises including Unilever. Former Worldwide Chief Creative Officer at JWT and Lowe, globally recognized for shaping modern creative thinking and cultural brand strategy.',
     },
     {
       id: 2,
-      name: 'Elena Rostova',
-      role: isEs ? 'Co-Fundadora & CEO' : 'Co-Founder & CEO',
-      tag: isEs ? 'Negocio & Crecimiento' : 'Business & Growth',
-      initials: 'ER',
+      name: 'Nacho Zuccarino',
+      role: isEs ? 'Estrategia de Marca & IA' : 'Brand Strategy & AI',
+      tag: isEs ? 'Marca & Innovación' : 'Brand & Innovation',
+      initials: 'NZ',
+      image: '/founders/nacho.png',
       bio: isEs
-        ? 'Estratega de negocios y emprendedora serial en la industria publicitaria. Especializada en escalamiento de modelos de suscripción y alianzas estratégicas con marcas globales.'
-        : 'Business strategist and serial entrepreneur in advertising. Specialized in scaling subscription models and strategic partnerships with global brands.',
+        ? 'Multipremiado líder en marca e innovación, que desarrolló iniciativas globales para compañías como Google, Netflix y SpaceX. Ex ejecutivo de la industria tecnológica y asesor de equipos directivos, es orador TEDx y pionero en la aplicación de la inteligencia artificial a la estrategia de marca y la inteligencia cultural.'
+        : 'Multi-award-winning brand and innovation leader who spearheaded global initiatives for Google, Netflix, and SpaceX. Former tech executive and board advisor, TEDx speaker, and pioneer in applying artificial intelligence to brand strategy and cultural intelligence.',
     },
     {
       id: 3,
-      name: 'Mateo Morales',
-      role: isEs ? 'Co-Fundador & CTO' : 'Co-Founder & CTO',
-      tag: isEs ? 'IA & Arquitectura' : 'AI & Systems Architecture',
-      initials: 'MM',
+      name: 'Sole D’Agostino',
+      role: isEs ? 'Liderazgo de Producto & IA' : 'Product Leadership & AI',
+      tag: isEs ? 'Producto & IA' : 'Product & AI',
+      initials: 'SD',
+      image: '/founders/sole.jpg',
       bio: isEs
-        ? 'Arquitecto de sistemas distribuidos y modelos de machine learning en tiempo real. Creador de los algoritmos de detección temprana de tendencias que potencian HEAT Map.'
-        : 'Distributed systems architect and real-time machine learning specialist. Creator of the early trend detection algorithms powering HEAT Map.',
+        ? 'Ejecutiva de producto con más de 15 años de experiencia escalando plataformas de 0 a 1 en IA y medios. Lideró 4 lanzamientos de producto en YouTube, el escalamiento de YouTube Live y el lanzamiento del Google Pixel Fold. Graduada del programa CPO del MIT y ganadora del Fire Hydrant Award; fundadora de Sidereal, donde guía a startups de alto crecimiento en su transformación con IA.'
+        : 'Product executive with 15+ years scaling 0-to-1 platforms in AI and media. Led 4 major product launches at YouTube, the scaling of YouTube Live, and the launch of Google Pixel Fold. MIT CPO graduate, Fire Hydrant Award recipient, and founder of Sidereal, guiding high-growth startups through AI transformation.',
     },
     {
       id: 4,
-      name: 'Sofia Chen',
-      role: isEs ? 'Creatividad Multimodal' : 'Multimodal Creative Lead',
-      tag: isEs ? 'IA Creativa' : 'Generative AI',
-      initials: 'SC',
+      name: 'Trini Vega Olmos',
+      role: isEs ? 'Estrategia de Comunicación' : 'Communication Strategy',
+      tag: isEs ? 'Comunicación & Producción' : 'Communication & Production',
+      initials: 'TVO',
+      image: '/founders/trini.png',
       bio: isEs
-        ? 'Pionera en dirección de arte generativa y flujos de trabajo con inteligencia artificial. Diseñando los motores creativos automatizados que alimentan Creative Studio.'
-        : 'Pioneer in generative art direction and AI-assisted workflows. Architecting the automated creative engines behind Creative Studio.',
+        ? 'Estratega de comunicación y productora independiente, con trayectoria en publicidad, medios y producción. Lideró proyectos de lanzamiento de marcas e innovación en Argentina y a nivel internacional, combinando visión estratégica, ejecución creativa y espíritu emprendedor.'
+        : 'Communication strategist and independent producer with extensive background across advertising, media, and production. Led brand launch and innovation projects across Argentina and globally, uniting strategic vision, creative execution, and entrepreneurial drive.',
     },
     {
       id: 5,
-      name: 'David Silva',
-      role: isEs ? 'Medios & Rendimiento' : 'Media & Performance',
-      tag: isEs ? 'Growth & Paid' : 'Growth & Paid Media',
-      initials: 'DS',
+      name: 'Matias Molinas',
+      role: isEs ? 'Ingeniería en IA & ML' : 'AI & ML Engineering',
+      tag: isEs ? 'IA & Machine Learning' : 'AI & Machine Learning',
+      initials: 'MM',
+      image: '/founders/matias.png',
       bio: isEs
-        ? 'Experto en adquisición de audiencias, modelos algorítmicos y pauta automatizada. Optimizando conversión y retorno publicitario para marcas líderes en mercados globales.'
-        : 'Expert in audience acquisition, algorithmic analysis, and automated ad delivery. Optimizing conversion and ROI for leading brands across global markets.',
+        ? 'Primer Google Developer Expert para YouTube de América y uno de los dos primeros del mundo, reconocimiento que obtuvo por su contribución a una aplicación open source de recomendación de videos de YouTube. Desde hace diez años trabaja en inteligencia artificial y machine learning en startups.'
+        : 'First Google Developer Expert for YouTube in the Americas and one of the first two worldwide, earned for his contribution to an open-source YouTube video recommendation engine. Over a decade engineering artificial intelligence and machine learning architectures for startups.',
+    },
+    {
+      id: 6,
+      name: 'Eugenio Borzone',
+      role: isEs ? 'Investigación en IA & Grafos' : 'AI Research & Graph Systems',
+      tag: isEs ? 'IA & Redes Neuronales' : 'AI & Neural Networks',
+      initials: 'EB',
+      image: '/founders/euge.png',
+      bio: isEs
+        ? 'Doctorado en Inteligencia Artificial, con investigaciones publicadas en IEEE Transactions. Se especializa en redes neuronales en grafos y sistemas agenticos. Docente en la UNL, con experiencia en analítica predictiva y optimización de procesos.'
+        : 'PhD in Artificial Intelligence with published research in IEEE Transactions. Specializes in graph neural networks and agentic systems. Professor at UNL with deep expertise in predictive analytics and process optimization.',
     },
   ];
 
@@ -85,12 +101,22 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
 
   return (
     <div className="section-six-container">
-      {/* 1. Header Title: Founder member in Manrope */}
-      <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
-        {isEs ? 'Founder member' : 'Founder member'}
-      </h2>
+      {/* 1. Header Title: FOUNDING TEAM: THE IGNITERS */}
+      <div className="flex flex-col items-center">
+        <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
+          <span className="section-six-title-light">FOUNDING TEAM: </span>
+          <span className="section-six-title-bold">THE IGNITERS</span>
+        </h2>
 
-      {/* 2. Horizontal Row of 5 Founder Tiles (Level 2 Parent Cards #151515, border: none, rounded-[24px]) */}
+        {/* 2. Subtitle copy */}
+        <p className="section-six-subheadline">
+          {isEs
+            ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
+            : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}
+        </p>
+      </div>
+
+      {/* 3. Horizontal Row of 6 Founder Tiles (Level 2 Parent Cards #151515, border: none, rounded-[24px]) */}
       <div className="section-six-grid">
         {founders.map((founder) => (
           <motion.button
@@ -103,11 +129,14 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             className="group section-six-tile"
             aria-label={`View bio for ${founder.name}`}
           >
-            {/* Founder Avatar Placeholder: Level 3 Inner Container #212121, rounded-[16px] */}
+            {/* Founder Avatar with real photograph */}
             <div className="section-six-avatar">
-              <span className="section-six-avatar-initials">
-                {founder.initials}
-              </span>
+              <img
+                src={founder.image}
+                alt={founder.name}
+                className="section-six-avatar-img"
+                loading="lazy"
+              />
             </div>
 
             {/* Founder Name & Micro Role */}
@@ -121,12 +150,12 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         ))}
       </div>
 
-      {/* 3. Subtle Hint beneath in Inter */}
+      {/* 4. Subtle Hint beneath in Inter */}
       <p className="section-six-hint">
         {isEs ? 'Haz clic en un fundador para conocer su bio' : 'Click on a founder to view their bio'}
       </p>
 
-      {/* 4. Subtle Back to start button */}
+      {/* 5. Subtle Back to start button */}
       <div className="section-six-back-container">
         <button
           type="button"
@@ -175,11 +204,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                   </button>
 
                   <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6">
-                    {/* Founder Image Placeholder */}
+                    {/* Founder Image in Modal */}
                     <div className="section-six-modal-avatar">
-                      <span className="font-['Manrope',sans-serif] font-[700] text-2xl sm:text-3xl text-[#ffffff]">
-                        {selectedFounder.initials}
-                      </span>
+                      <img
+                        src={selectedFounder.image}
+                        alt={selectedFounder.name}
+                        className="section-six-modal-avatar-img"
+                      />
                     </div>
 
                     <div className="flex flex-col">
