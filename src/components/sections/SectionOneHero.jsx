@@ -101,6 +101,21 @@ export default function SectionOneHero({
                   {isEs ? 'escala en horas.' : 'escalates in hours.'}
                 </span>
               </div>
+            </h2>
+          </motion.div>
+        )}
+
+        {/* Sentence 3 */}
+        {hookSentenceIndex === 2 && (
+          <motion.div
+            key={`hook-03-${currentLang}`}
+            variants={hookTextVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="w-full text-center"
+          >
+            <h2 className="section-one-headline text-2xl sm:text-3xl md:text-[44px] lg:text-[58px]">
               <div className="section-one-line">
                 <span className="section-one-light">
                   {isEs ? 'Una campaña tarda ' : 'A campaign takes '}
@@ -113,10 +128,10 @@ export default function SectionOneHero({
           </motion.div>
         )}
 
-        {/* Sentence 3 */}
-        {hookSentenceIndex === 2 && (
+        {/* Sentence 4 */}
+        {hookSentenceIndex === 3 && (
           <motion.div
-            key={`hook-03-${currentLang}`}
+            key={`hook-04-${currentLang}`}
             variants={hookTextVariants}
             initial="initial"
             animate="animate"
@@ -148,9 +163,9 @@ export default function SectionOneHero({
         )}
       </AnimatePresence>
 
-      {/* Sub-progress indicators for the 3 hook sentences */}
+      {/* Sub-progress indicators for the 4 hook sentences */}
       <div className="section-one-indicators">
-        {[0, 1, 2].map((idx) => (
+        {[0, 1, 2, 3].map((idx) => (
           <button
             key={idx}
             type="button"

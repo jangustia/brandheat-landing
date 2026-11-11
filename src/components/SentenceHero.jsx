@@ -37,7 +37,7 @@ export default function SentenceHero({
       const hookParam = params.get('hook');
       if (hookParam !== null) {
         const parsed = parseInt(hookParam, 10);
-        if (!isNaN(parsed) && parsed >= 0 && parsed <= 2) return parsed;
+        if (!isNaN(parsed) && parsed >= 0 && parsed <= 3) return parsed;
       }
     }
     return 0;
@@ -69,16 +69,17 @@ export default function SentenceHero({
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   }, [setCurrentIndex]);
 
-  // Stage 0: Automatically loop the 3 hook sentences continuously while on Section 1
+  // Stage 0: Automatically loop the 4 hook sentences continuously while on Section 1
   useEffect(() => {
     if (currentIndex !== 0) return;
 
     let delay = 3800;
-    if (hookSentenceIndex === 1) delay = 4400;
-    if (hookSentenceIndex === 2) delay = 4400;
+    if (hookSentenceIndex === 1) delay = 3800;
+    if (hookSentenceIndex === 2) delay = 3500;
+    if (hookSentenceIndex === 3) delay = 4400;
 
     const timer = setTimeout(() => {
-      setHookSentenceIndex((prev) => (prev + 1) % 3);
+      setHookSentenceIndex((prev) => (prev + 1) % 4);
     }, delay);
 
     return () => clearTimeout(timer);
