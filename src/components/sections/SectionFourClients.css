@@ -9,8 +9,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .section-four-title {
@@ -22,73 +22,97 @@
   text-transform: uppercase;
 }
 
+/* 2-row grid: 2 columns on mobile (3 rows), 3 columns on tablet/desktop (2 rows of 3 = 6 logos) */
 .section-four-grid {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.875rem;
   width: 100%;
-  max-width: 56rem;
+  max-width: 28rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 640px) {
   .section-four-grid {
-    margin-top: 1.75rem;
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 54rem;
+    margin-top: 2rem;
+    gap: 1.125rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .section-four-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    margin-top: 2rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 58rem;
+    margin-top: 2.5rem;
     gap: 1.25rem;
   }
 }
 
 .section-four-card {
   position: relative;
-  height: 5rem;
-  background-color: #151515;
+  height: 5.5rem;
+  background-color: #141414;
   border-radius: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: none;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  cursor: default;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
   user-select: none;
+  padding: 1rem 1.5rem;
 }
 
 @media (min-width: 640px) {
   .section-four-card {
-    height: 6rem;
+    height: 6.5rem;
+    border-radius: 1.5rem;
+    padding: 1.25rem 1.75rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .section-four-card {
-    height: 7rem;
+    height: 7.25rem;
+    padding: 1.5rem 2rem;
   }
 }
 
 .section-four-card:hover {
-  background-color: #1e1e1e;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  background-color: #1c1c1c;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
 }
 
-.section-four-logo-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: #8d8f93;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease;
+.section-four-logo-svg {
+  width: auto;
+  max-width: 78%;
+  height: 1.85rem;
+  max-height: 2.25rem;
+  color: #8D8F93;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: block;
 }
 
-.section-four-card:hover .section-four-logo-text {
-  color: #e1e1e1;
+@media (min-width: 640px) {
+  .section-four-logo-svg {
+    height: 2.15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-four-logo-svg {
+    height: 2.35rem;
+  }
+}
+
+.section-four-card:hover .section-four-logo-svg {
+  color: #ffffff;
+  transform: scale(1.04);
 }
 
