@@ -44,7 +44,7 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
       {/* 2. Subtitle: Content #E1E1E1 in Inter */}
       <motion.p
         variants={cascadeItemVariants}
-        className="section-five-subtitle text-base sm:text-lg lg:text-[20px]"
+        className="section-five-subtitle text-base sm:text-[17px] lg:text-[18px]"
       >
         {isEs
           ? 'La gente ya está hablando. ¿Vas a entrar a la conversación?'

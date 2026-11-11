@@ -122,8 +122,8 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           <span className="section-six-title-bold">THE IGNITERS</span>
         </h2>
 
-        {/* 2. Subtitle copy (Consistent with other sections) */}
-        <p className="section-six-subheadline text-base sm:text-lg lg:text-[20px]">
+        {/* 2. Subtitle copy (Consistent with other sections - 18px on desktop) */}
+        <p className="section-six-subheadline text-base sm:text-[17px] lg:text-[18px]">
           {isEs
             ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
             : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}

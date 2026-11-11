@@ -35,11 +35,26 @@
   font-family: 'Inter', sans-serif;
   color: #8D8F93;
   font-weight: 400;
+  font-size: 0.875rem;
   text-align: center;
   max-width: 46rem;
-  margin-top: 0.875rem;
+  margin-top: 0.5rem;
   line-height: 1.4;
   letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .section-four-subtitle {
+    font-size: 1rem;
+    margin-top: 0.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-four-subtitle {
+    font-size: 1.125rem; /* 18px */
+    margin-top: 0.75rem;
+  }
 }
 
 /* 2-row grid: 2 columns on mobile (3 rows), 3 columns on tablet/desktop (2 rows of 3 = 6 logos) */

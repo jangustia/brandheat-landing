@@ -69,15 +69,15 @@
 
 @media (min-width: 640px) {
   .section-three-sub {
-    font-size: 1.125rem;
-    margin-top: 0.625rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-sub {
-    font-size: 1.25rem;
-    margin-top: 0.75rem;
+    font-size: 1.125rem; /* 18px */
+    margin-top: 0.625rem;
   }
 }
 

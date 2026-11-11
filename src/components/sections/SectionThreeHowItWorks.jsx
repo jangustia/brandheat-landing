@@ -87,7 +87,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
         </h2>
 
         {/* Subtitle: Always in English as requested */}
-        <p className="section-three-sub text-base sm:text-lg lg:text-[20px]">
+        <p className="section-three-sub text-base sm:text-[17px] lg:text-[18px]">
           Tu marca always on time. Always on point. Always on.
         </p>
       </motion.div>

@@ -38,7 +38,7 @@ export default function SectionFourClients({ currentLang = 'es' }) {
       {/* 2. Subtitle (#8D8F93 in Inter) */}
       <motion.p
         variants={cascadeItemVariants}
-        className="section-four-subtitle text-base sm:text-lg lg:text-[20px]"
+        className="section-four-subtitle text-base sm:text-[17px] lg:text-[18px]"
       >
         {isEs
           ? 'Marcas que ya no esperan para ser parte de la conversación.'
