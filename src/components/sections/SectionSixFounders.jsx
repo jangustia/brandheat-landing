@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
+import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionSixFounders.css';
 
 /**
@@ -105,9 +106,15 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
   });
 
   return (
-    <div className="section-six-container">
+    <motion.div
+      className="section-six-container"
+      variants={cascadeContainerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {/* 1. Header Title: FOUNDING TEAM: THE IGNITERS */}
-      <div className="flex flex-col items-center">
+      <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
         <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
           <span className="section-six-title-light">FOUNDING TEAM: </span>
           <span className="section-six-title-bold">THE IGNITERS</span>
@@ -119,10 +126,11 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
             : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}
         </p>
-      </div>
+      </motion.div>
 
       {/* 3. Single Row Animated Carousel with Fade Gradient */}
-      <div
+      <motion.div
+        variants={cascadeItemVariants}
         className="section-six-carousel-wrap"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -172,7 +180,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* ========================================================
           INTERACTIVE BIO MODAL OVERLAY: Level 4 (#161618)
@@ -272,6 +280,6 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
           </AnimatePresence>,
           document.body
         )}
-    </div>
+    </motion.div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LayoutGrid } from 'lucide-react';
+import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionTwoOverview.css';
 
 /**
@@ -84,9 +85,15 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
   };
 
   return (
-    <div className="section-two-container">
+    <motion.div
+      className="section-two-container"
+      variants={cascadeContainerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {/* 1. Top Flame Comet + "Meet brandheat." Title */}
-      <div className="flex flex-col items-center">
+      <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
         <div className="section-two-comet-wrapper">
           <img
             src="/heat.png"
@@ -99,17 +106,23 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
           <span className="section-two-title-light">Meet brand</span>
           <span className="section-two-title-bold">heat.</span>
         </h2>
-      </div>
+      </motion.div>
 
       {/* 2. Primary Tagline (#e1e1e1 in Inter) */}
-      <p className="section-two-tagline text-base sm:text-lg lg:text-[20px]">
+      <motion.p
+        variants={cascadeItemVariants}
+        className="section-two-tagline text-base sm:text-lg lg:text-[20px]"
+      >
         {isEs
           ? 'El always on que sigue el ritmo de la conversación.'
           : 'The always-on that keeps pace with the conversation.'}
-      </p>
+      </motion.p>
 
       {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter, 16px) */}
-      <div className="section-two-copy text-[15px] sm:text-[16px] space-y-0.5">
+      <motion.div
+        variants={cascadeItemVariants}
+        className="section-two-copy text-[15px] sm:text-[16px] space-y-0.5"
+      >
         <p>
           {isEs
             ? 'Una sola plataforma para detectar, crear, publicar y medir en tiempo real.'
@@ -120,12 +133,12 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
             ? 'Sin brief. Sin esperas. Sin llegar tarde.'
             : 'No brief. No waiting. No showing up late.'}
         </p>
-      </div>
+      </motion.div>
 
       {/* 4. Three Level 2 Modular Feature Cards (#141414, rounded-[32px], border: none) */}
       <div className="section-two-grid" onScroll={handleGridScroll}>
         {/* Card 1: ANTICIPA */}
-        <div className="group section-two-card">
+        <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Hot Red Surface */}
           <div className="section-two-badge section-two-badge-anticipa">
             <AnticipaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ff453a]" />
@@ -140,10 +153,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Llega antes a la conversación antes de que despegue.'
               : 'Get to the conversation before it takes off.'}
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 2: CREA */}
-        <div className="group section-two-card">
+        <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Warm Orange Surface */}
           <div className="section-two-badge section-two-badge-crea">
             <LayoutGrid className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ea4325]" strokeWidth={2} />
@@ -158,10 +171,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Piezas relevantes a conversaciones que ya son tendencia.'
               : 'Relevant content for conversations that are already trending.'}
           </p>
-        </div>
+        </motion.div>
 
         {/* Card 3: ESCALA */}
-        <div className="group section-two-card">
+        <motion.div variants={cascadeItemVariants} className="group section-two-card">
           {/* Badge Icon: Rising Yellow Surface */}
           <div className="section-two-badge section-two-badge-escala">
             <EscalaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#eab308]" />
@@ -176,11 +189,15 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Invierte solo en lo que mejor funciona.'
               : 'Invest only in what works best.'}
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile Swipe Pagination Dots */}
-      <div className="flex md:hidden items-center justify-center gap-1.5 mt-2" aria-hidden="true">
+      <motion.div
+        variants={cascadeItemVariants}
+        className="flex md:hidden items-center justify-center gap-1.5 mt-2"
+        aria-hidden="true"
+      >
         {[0, 1, 2].map((idx) => (
           <span
             key={idx}
@@ -191,8 +208,8 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
             }`}
           />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

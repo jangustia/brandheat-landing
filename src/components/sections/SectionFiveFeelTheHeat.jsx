@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { RotateCcw, Check, Mail } from 'lucide-react';
+import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionFiveFeelTheHeat.css';
 
 /**
@@ -24,22 +25,34 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
   };
 
   return (
-    <div className="section-five-container">
+    <motion.div
+      className="section-five-container"
+      variants={cascadeContainerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {/* 1. Header Title: FEEL THE HEAT */}
-      <h2 className="section-five-title text-3xl sm:text-4xl md:text-5xl lg:text-[50px]">
+      <motion.h2
+        variants={cascadeItemVariants}
+        className="section-five-title text-3xl sm:text-4xl md:text-5xl lg:text-[50px]"
+      >
         <span className="section-five-title-light">FEEL THE </span>
         <span className="section-five-title-bold">HEAT</span>
-      </h2>
+      </motion.h2>
 
       {/* 2. Subtitle: Content #E1E1E1 in Inter */}
-      <p className="section-five-subtitle text-base sm:text-lg lg:text-[20px]">
+      <motion.p
+        variants={cascadeItemVariants}
+        className="section-five-subtitle text-base sm:text-lg lg:text-[20px]"
+      >
         {isEs
           ? 'La gente ya está hablando. ¿Vas a entrar a la conversación?'
           : 'People are already talking. Are you joining the conversation?'}
-      </p>
+      </motion.p>
 
       {/* 3. Interactive Early Access Form */}
-      <div className="section-five-form-wrapper">
+      <motion.div variants={cascadeItemVariants} className="section-five-form-wrapper">
         {isSubmitted ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -75,10 +88,10 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
             </button>
           </form>
         )}
-      </div>
+      </motion.div>
 
       {/* 4. Subtle Back to start button */}
-      <div className="section-five-back-container">
+      <motion.div variants={cascadeItemVariants} className="section-five-back-container">
         <button
           type="button"
           onClick={onBackToStart}
@@ -87,8 +100,8 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
           <RotateCcw className="w-3.5 h-3.5" />
           <span>{isEs ? 'Volver al inicio' : 'Back to start'}</span>
         </button>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 

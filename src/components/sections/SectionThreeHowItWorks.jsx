@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Flame, Lightbulb, SwatchBook, Rocket, BarChart3 } from 'lucide-react';
+import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionThreeHowItWorks.css';
 
 /**
@@ -67,9 +68,15 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
   ];
 
   return (
-    <div className="section-three-container">
+    <motion.div
+      className="section-three-container"
+      variants={cascadeContainerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {/* 1. Header: Headline & Standardized Subheadline */}
-      <div className="flex flex-col items-center">
+      <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
         <h2 className="section-three-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
           <span className="section-three-title-light">
             {isEs ? 'Cómo funciona: ' : 'How It Works: '}
@@ -84,13 +91,13 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
             ? 'Tu marca, siempre a tiempo. Siempre al punto. Always on.'
             : 'Your brand, always on time. Always on point. Always on.'}
         </p>
-      </div>
+      </motion.div>
 
       {/* 2. Grid of Feature Cards (Icons on left, border: none) */}
       <div className="section-three-cards-wrapper" onScroll={handleScroll}>
         {/* Row 1: Cards 1 and 2 */}
         <div className="section-three-row">
-          <div className="group section-three-card">
+          <motion.div variants={cascadeItemVariants} className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[0].icon}
             </div>
@@ -102,9 +109,9 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[0].text}
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="group section-three-card">
+          <motion.div variants={cascadeItemVariants} className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[1].icon}
             </div>
@@ -116,12 +123,12 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[1].text}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Row 2: Cards 3 and 4 */}
         <div className="section-three-row">
-          <div className="group section-three-card">
+          <motion.div variants={cascadeItemVariants} className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[2].icon}
             </div>
@@ -133,9 +140,9 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[2].text}
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="group section-three-card">
+          <motion.div variants={cascadeItemVariants} className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[3].icon}
             </div>
@@ -147,11 +154,11 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[3].text}
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Row 3: Card 5 (Full Width Card) */}
-        <div className="group section-three-card w-full">
+        <motion.div variants={cascadeItemVariants} className="group section-three-card w-full">
           <div className="section-three-icon-box">
             {cards[4].icon}
           </div>
@@ -163,11 +170,15 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
               {cards[4].text}
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Mobile Swipe Pagination Dots (5 cards) */}
-      <div className="flex md:hidden items-center justify-center gap-1.5 mt-2" aria-hidden="true">
+      <motion.div
+        variants={cascadeItemVariants}
+        className="flex md:hidden items-center justify-center gap-1.5 mt-2"
+        aria-hidden="true"
+      >
         {[0, 1, 2, 3, 4].map((idx) => (
           <span
             key={idx}
@@ -178,7 +189,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
             }`}
           />
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

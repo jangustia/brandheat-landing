@@ -159,7 +159,7 @@
   box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.45);
   cursor: default;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.25s ease, background-color 0.3s ease;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
   flex: 0 0 78vw;
   max-width: 295px;
   scroll-snap-align: center;

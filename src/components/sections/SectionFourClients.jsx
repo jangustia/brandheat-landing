@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CLIENT_LOGOS } from './client-logos/ClientLogos';
+import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionFourClients.css';
 
 /**
@@ -17,26 +18,39 @@ export default function SectionFourClients({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
 
   return (
-    <div className="section-four-container">
+    <motion.div
+      className="section-four-container"
+      variants={cascadeContainerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       {/* 1. Header Title: OUR (thin) CLIENTS (bold) (so far) (thin) */}
-      <h2 className="section-four-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
+      <motion.h2
+        variants={cascadeItemVariants}
+        className="section-four-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]"
+      >
         <span className="section-four-title-thin">OUR </span>
         <span className="section-four-title-bold">CLIENTS </span>
         <span className="section-four-title-thin">(so far)</span>
-      </h2>
+      </motion.h2>
 
       {/* 2. Subtitle (#8D8F93 in Inter) */}
-      <p className="section-four-subtitle text-base sm:text-lg lg:text-[20px]">
+      <motion.p
+        variants={cascadeItemVariants}
+        className="section-four-subtitle text-base sm:text-lg lg:text-[20px]"
+      >
         {isEs
           ? 'Marcas que ya no esperan para ser parte de la conversación.'
           : 'Brands that no longer wait to join the conversation.'}
-      </p>
+      </motion.p>
 
       {/* 3. Grid with 6 Client Logos in 2 rows (3 columns x 2 rows on desktop) */}
       <div className="section-four-grid">
         {CLIENT_LOGOS.map(({ id, Component }) => (
           <motion.div
             key={id}
+            variants={cascadeItemVariants}
             whileHover={{ y: -3 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
             className="group section-four-card"
@@ -45,7 +59,7 @@ export default function SectionFourClients({ currentLang = 'es' }) {
           </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

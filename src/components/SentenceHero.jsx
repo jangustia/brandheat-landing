@@ -200,23 +200,21 @@ export default function SentenceHero({
     }
   }, [currentLang]);
 
-  // Fast, smooth single-stage transition with clean opacity and subtle lift (eliminating double-animations)
+  // Smooth stage container fade transition; inner elements handle the cascading entrance
   const stageVariants = {
     initial: {
       opacity: 0,
-      y: isLangSwitch ? 0 : 10,
     },
     animate: {
       opacity: 1,
-      y: 0,
       transition: {
-        duration: isLangSwitch ? 0.24 : 0.3,
-        ease: [0.16, 1, 0.3, 1],
+        duration: isLangSwitch ? 0.2 : 0.25,
+        ease: 'easeOut',
       },
     },
     exit: {
       opacity: 0,
-      y: isLangSwitch ? 0 : -8,
+      y: isLangSwitch ? 0 : -10,
       transition: {
         duration: 0.18,
         ease: 'easeOut',
