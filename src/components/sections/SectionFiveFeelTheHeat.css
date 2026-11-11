@@ -125,6 +125,7 @@
   pointer-events: none;
   transition: color 0.2s ease;
   flex-shrink: 0;
+  z-index: 10;
 }
 
 .section-five-input-wrapper:hover .section-five-input-icon {
