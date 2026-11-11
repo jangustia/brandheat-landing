@@ -15,12 +15,21 @@
 
 .section-five-title {
   font-family: 'Manrope', sans-serif;
-  font-weight: 800;
   letter-spacing: -0.02em;
   color: #ffffff;
   text-align: center;
   text-transform: uppercase;
   line-height: 1.15;
+}
+
+.section-five-title-light {
+  font-weight: 200;
+  color: #e1e1e1;
+}
+
+.section-five-title-bold {
+  font-weight: 800;
+  color: #ffffff;
 }
 
 .section-five-subtitle {

@@ -27,7 +27,8 @@ export default function SectionFiveFeelTheHeat({ currentLang = 'es', onBackToSta
     <div className="section-five-container">
       {/* 1. Header Title: FEEL THE HEAT */}
       <h2 className="section-five-title text-3xl sm:text-4xl md:text-5xl lg:text-[50px]">
-        FEEL THE HEAT
+        <span className="section-five-title-light">FEEL THE </span>
+        <span className="section-five-title-bold">HEAT</span>
       </h2>
 
       {/* 2. Subtitle: Content #E1E1E1 in Inter */}
