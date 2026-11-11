@@ -26,3 +26,4 @@ export default function AngustiaLogo({ className = 'h-3 sm:h-3.5 w-auto text-whi
     </svg>
   );
 }
+
