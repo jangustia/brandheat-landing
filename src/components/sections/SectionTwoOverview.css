@@ -48,14 +48,25 @@
   text-align: center;
 }
 
+.section-two-title-wrapper {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.32em;
+}
+
 .section-two-title-light {
   font-weight: 200;
   color: #ffffff;
 }
 
-.section-two-title-bold {
-  font-weight: 800;
-  color: #ffffff;
+.section-two-logotype {
+  height: 0.78em;
+  width: auto;
+  display: inline-block;
+  vertical-align: -0.06em;
+  pointer-events: none;
+  user-select: none;
 }
 
 .section-two-tagline {
