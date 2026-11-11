@@ -115,11 +115,11 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
       animate="animate"
       exit="exit"
     >
-      {/* 1. Header Title: Founding Team: The Igniters (Consistent with other sections) */}
+      {/* 1. Header Title: FOUNDING TEAM: THE IGNITERS (Consistent with other sections) */}
       <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
         <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
-          <span className="section-six-title-light">Founding Team: </span>
-          <span className="section-six-title-bold">The Igniters</span>
+          <span className="section-six-title-light">FOUNDING TEAM: </span>
+          <span className="section-six-title-bold">THE IGNITERS</span>
         </h2>
 
         {/* 2. Subtitle copy (Consistent with other sections - 18px on desktop) */}
