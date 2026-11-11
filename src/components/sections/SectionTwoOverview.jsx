@@ -125,11 +125,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       {/* 4. Three Level 2 Modular Feature Cards (#141414, rounded-[32px], border: none) */}
       <div className="section-two-grid" onScroll={handleGridScroll}>
         {/* Card 1: ANTICIPA */}
-        <motion.div
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="group section-two-card"
-        >
+        <div className="group section-two-card">
           {/* Badge Icon: Hot Red Surface */}
           <div className="section-two-badge section-two-badge-anticipa">
             <AnticipaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ff453a]" />
@@ -144,14 +140,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Llega antes a la conversación antes de que despegue.'
               : 'Get to the conversation before it takes off.'}
           </p>
-        </motion.div>
+        </div>
 
         {/* Card 2: CREA */}
-        <motion.div
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="group section-two-card"
-        >
+        <div className="group section-two-card">
           {/* Badge Icon: Warm Orange Surface */}
           <div className="section-two-badge section-two-badge-crea">
             <LayoutGrid className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#ea4325]" strokeWidth={2} />
@@ -166,14 +158,10 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Piezas relevantes a conversaciones que ya son tendencia.'
               : 'Relevant content for conversations that are already trending.'}
           </p>
-        </motion.div>
+        </div>
 
         {/* Card 3: ESCALA */}
-        <motion.div
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="group section-two-card"
-        >
+        <div className="group section-two-card">
           {/* Badge Icon: Rising Yellow Surface */}
           <div className="section-two-badge section-two-badge-escala">
             <EscalaIcon className="w-7 h-7 sm:w-7.5 sm:h-7.5 text-[#eab308]" />
@@ -188,7 +176,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               ? 'Invierte solo en lo que mejor funciona.'
               : 'Invest only in what works best.'}
           </p>
-        </motion.div>
+        </div>
       </div>
 
       {/* Mobile Swipe Pagination Dots */}

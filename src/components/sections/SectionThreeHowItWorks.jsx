@@ -90,11 +90,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
       <div className="section-three-cards-wrapper" onScroll={handleScroll}>
         {/* Row 1: Cards 1 and 2 */}
         <div className="section-three-row">
-          <motion.div
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="group section-three-card"
-          >
+          <div className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[0].icon}
             </div>
@@ -106,13 +102,9 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[0].text}
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="group section-three-card"
-          >
+          <div className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[1].icon}
             </div>
@@ -124,16 +116,12 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[1].text}
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Row 2: Cards 3 and 4 */}
         <div className="section-three-row">
-          <motion.div
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="group section-three-card"
-          >
+          <div className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[2].icon}
             </div>
@@ -145,13 +133,9 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[2].text}
               </p>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            whileHover={{ y: -3 }}
-            transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="group section-three-card"
-          >
+          <div className="group section-three-card">
             <div className="section-three-icon-box">
               {cards[3].icon}
             </div>
@@ -163,15 +147,11 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
                 {cards[3].text}
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Row 3: Card 5 (Full Width Card) */}
-        <motion.div
-          whileHover={{ y: -3 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
-          className="group section-three-card w-full"
-        >
+        <div className="group section-three-card w-full">
           <div className="section-three-icon-box">
             {cards[4].icon}
           </div>
@@ -183,7 +163,7 @@ export default function SectionThreeHowItWorks({ currentLang = 'es' }) {
               {cards[4].text}
             </p>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Mobile Swipe Pagination Dots (5 cards) */}
