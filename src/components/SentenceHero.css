@@ -131,7 +131,7 @@
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 0.75rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   pointer-events: auto;
   user-select: text;
   box-sizing: border-box;
@@ -155,7 +155,7 @@
 
 .sentence-hero-footer-left {
   letter-spacing: 0.02em;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
   white-space: nowrap;
 }
@@ -165,28 +165,29 @@
   align-items: center;
   white-space: nowrap;
   font-weight: 800;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .sentence-hero-footer-link {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.7);
   font-weight: 800;
   text-decoration: none;
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sentence-hero-footer-link:hover {
-  opacity: 0.85;
+  color: #ffffff;
+  opacity: 1;
 }
 
 .sentence-hero-footer-angustia-logo {
   height: 0.75rem;
   width: auto;
-  color: #ffffff;
+  color: currentColor;
   display: inline-block;
   vertical-align: middle;
   transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
@@ -206,6 +207,7 @@
 }
 
 .sentence-hero-footer-link:hover .sentence-hero-footer-angustia-logo {
+  color: #ffffff;
   transform: scale(1.03);
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
