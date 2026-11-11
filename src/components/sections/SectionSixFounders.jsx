@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 import { cascadeContainerVariants, cascadeItemVariants } from './cascadeVariants';
 import './SectionSixFounders.css';
 
@@ -159,11 +159,19 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                 />
               </div>
 
-              {/* Bottom Details Bar: Only show the name */}
+              {/* Bottom Details Bar: Name & Tag on left, Arrow button on right */}
               <div className="section-six-card-footer">
-                <h3 className="section-six-card-name">
-                  {founder.name}
-                </h3>
+                <div className="section-six-card-info">
+                  <h3 className="section-six-card-name">
+                    {founder.name}
+                  </h3>
+                  <span className="section-six-card-tag">
+                    {founder.tag}
+                  </span>
+                </div>
+                <div className="section-six-card-action">
+                  <ArrowUpRight className="section-six-card-arrow" />
+                </div>
               </div>
             </div>
           ))}
@@ -196,11 +204,19 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                 />
               </div>
 
-              {/* Bottom Details Bar: Only show the name */}
+              {/* Bottom Details Bar: Name & Tag on left, Arrow button on right */}
               <div className="section-six-card-footer">
-                <h3 className="section-six-card-name">
-                  {founder.name}
-                </h3>
+                <div className="section-six-card-info">
+                  <h3 className="section-six-card-name">
+                    {founder.name}
+                  </h3>
+                  <span className="section-six-card-tag">
+                    {founder.tag}
+                  </span>
+                </div>
+                <div className="section-six-card-action">
+                  <ArrowUpRight className="section-six-card-arrow" />
+                </div>
               </div>
             </div>
           ))}
