@@ -75,7 +75,7 @@
 .section-four-card {
   position: relative;
   height: 6.25rem;
-  background-color: rgba(20, 20, 22, 0.55);
+  background-color: rgba(21, 21, 21, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1.5rem;
@@ -84,7 +84,7 @@
   justify-content: center;
   border: none !important;
   outline: none !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.45);
   transition: background-color 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   user-select: none;
@@ -108,8 +108,8 @@
 }
 
 .section-four-card:hover {
-  background-color: rgba(32, 32, 36, 0.75);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  background-color: rgba(32, 32, 36, 0.9);
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75);
 }
 
 .section-four-logo-svg {

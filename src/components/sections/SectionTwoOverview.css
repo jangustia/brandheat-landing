@@ -155,7 +155,9 @@
 
 .section-two-card {
   position: relative;
-  background-color: #141414;
+  background-color: rgba(21, 21, 21, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 1.5rem;
   padding: 1.25rem 1.125rem;
   display: flex;
@@ -163,9 +165,10 @@
   align-items: center;
   text-align: center;
   justify-content: center;
-  border: none;
+  border: none !important;
+  outline: none !important;
   transition: background-color 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.45);
   cursor: default;
   flex: 0 0 76vw;
   max-width: 265px;
@@ -182,8 +185,10 @@
 }
 
 .section-two-card:hover {
-  background-color: #1a1a1a;
-  box-shadow: 0 12px 44px rgba(0, 0, 0, 0.6);
+  background-color: rgba(32, 32, 36, 0.9);
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75);
 }
 
 .section-two-badge {
