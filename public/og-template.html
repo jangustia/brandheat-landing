@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      background-color: #060608;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Ambient background glows matching Brand HEAT landing */
+    .glow-bottom {
+      position: absolute;
+      bottom: -160px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 440px;
+      background: radial-gradient(ellipse at center, rgba(234, 67, 37, 0.42) 0%, rgba(255, 90, 30, 0.18) 45%, rgba(6, 6, 8, 0) 75%);
+      pointer-events: none;
+      filter: blur(45px);
+    }
+
+    .glow-top-right {
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(6, 6, 8, 0) 70%);
+      pointer-events: none;
+      filter: blur(55px);
+    }
+
+    /* Ambient soft center halo behind the logo */
+    .glow-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 300px;
+      background: radial-gradient(ellipse at center, rgba(234, 67, 37, 0.14) 0%, rgba(234, 67, 37, 0.04) 50%, rgba(6, 6, 8, 0) 75%);
+      pointer-events: none;
+      filter: blur(40px);
+    }
+
+    /* Fine dot pattern texture */
+    .dot-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse at center, black 50%, transparent 85%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 85%);
+    }
+
+    /* Centered logo presentation */
+    .logo-container {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-img {
+      width: 680px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
+    }
+  </style>
+</head>
+<body>
+  <div class="dot-pattern"></div>
+  <div class="glow-top-right"></div>
+  <div class="glow-bottom"></div>
+  <div class="glow-center"></div>
+
+  <div class="logo-container">
+    <img src="/brandheat-logo.png" alt="Brand HEAT" class="logo-img" />
+  </div>
+</body>
+</html>
