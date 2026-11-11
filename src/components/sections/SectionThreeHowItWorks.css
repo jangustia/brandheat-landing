@@ -274,7 +274,7 @@
 .section-three-card-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 800;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 1.0625rem; /* 17px mobile */
   line-height: 1.25;
   color: #ffffff;
   letter-spacing: -0.015em;
@@ -284,8 +284,15 @@
 
 @media (min-width: 640px) {
   .section-three-card-title {
-    font-size: 1rem; /* 16px */
+    font-size: 1.15625rem; /* ~18.5px tablet */
     margin-bottom: 0.3125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-card-title {
+    font-size: 1.25rem; /* 20px desktop */
+    margin-bottom: 0.375rem;
   }
 }
 
