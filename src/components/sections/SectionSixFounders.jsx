@@ -130,44 +130,87 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </p>
       </motion.div>
 
-      {/* 3. Static Grid of 6 Founders (Responsive 6 in 1 row on constrained height, 2 rows of 3 on ample height) */}
+      {/* 3. Two-Row Static Grid (6 visible founders: Fernando, Ignacio, Sole on Row 1; Trinidad, Matías, Eugenio on Row 2) */}
       <motion.div variants={cascadeItemVariants} className="section-six-grid-wrap">
-        {founders.map((founder) => (
-          <div
-            key={founder.id}
-            onClick={() => setSelectedFounder(founder)}
-            className="group section-six-card"
-            role="button"
-            tabIndex={0}
-            aria-label={`View bio for ${founder.name}`}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setSelectedFounder(founder);
-              }
-            }}
-          >
-            {/* Square Photo Box (1:1 ratio) */}
-            <div className="section-six-card-image-wrap">
-              <img
-                src={founder.image}
-                alt={founder.name}
-                style={{ objectPosition: founder.objectPosition || 'center 10%' }}
-                className="section-six-card-img"
-                loading="lazy"
-              />
-            </div>
+        {/* Row 1: Fernando, Ignacio, Sole */}
+        <div className="section-six-row">
+          {founders.slice(0, 3).map((founder) => (
+            <div
+              key={founder.id}
+              onClick={() => setSelectedFounder(founder)}
+              className="group section-six-card"
+              role="button"
+              tabIndex={0}
+              aria-label={`View bio for ${founder.name}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setSelectedFounder(founder);
+                }
+              }}
+            >
+              {/* Square Photo Box (1:1 ratio) */}
+              <div className="section-six-card-image-wrap">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  style={{ objectPosition: founder.objectPosition || 'center 10%' }}
+                  className="section-six-card-img"
+                  loading="lazy"
+                />
+              </div>
 
-            {/* Bottom Details Bar: Name on left, Arrow circle on right */}
-            <div className="section-six-card-footer">
-              <h3 className="section-six-card-name">
-                {founder.name}
-              </h3>
-              <div className="section-six-card-action">
-                <ArrowUpRight className="section-six-card-arrow" />
+              {/* Bottom Details Bar: Name on left, Arrow circle on right */}
+              <div className="section-six-card-footer">
+                <h3 className="section-six-card-name">
+                  {founder.name}
+                </h3>
+                <div className="section-six-card-action">
+                  <ArrowUpRight className="section-six-card-arrow" />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
+        {/* Row 2: Trinidad, Matías, Eugenio */}
+        <div className="section-six-row">
+          {founders.slice(3, 6).map((founder) => (
+            <div
+              key={founder.id}
+              onClick={() => setSelectedFounder(founder)}
+              className="group section-six-card"
+              role="button"
+              tabIndex={0}
+              aria-label={`View bio for ${founder.name}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setSelectedFounder(founder);
+                }
+              }}
+            >
+              {/* Square Photo Box (1:1 ratio) */}
+              <div className="section-six-card-image-wrap">
+                <img
+                  src={founder.image}
+                  alt={founder.name}
+                  style={{ objectPosition: founder.objectPosition || 'center 10%' }}
+                  className="section-six-card-img"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Bottom Details Bar: Name on left, Arrow circle on right */}
+              <div className="section-six-card-footer">
+                <h3 className="section-six-card-name">
+                  {founder.name}
+                </h3>
+                <div className="section-six-card-action">
+                  <ArrowUpRight className="section-six-card-arrow" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </motion.div>
 
       {/* ========================================================

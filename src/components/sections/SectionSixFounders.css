@@ -22,29 +22,6 @@
   justify-content: center;
   text-align: center;
   overflow: visible;
-  transition: transform 0.3s ease;
-}
-
-/* Responsive viewport-height scaling only on mobile/tablet where 2 rows of 3 are kept */
-@media (max-width: 1023px) and (max-height: 840px) {
-  .section-six-container {
-    transform: scale(0.92);
-    transform-origin: center center;
-  }
-}
-
-@media (max-width: 1023px) and (max-height: 720px) {
-  .section-six-container {
-    transform: scale(0.84);
-    transform-origin: center center;
-  }
-}
-
-@media (max-width: 1023px) and (max-height: 640px) {
-  .section-six-container {
-    transform: scale(0.76);
-    transform-origin: center center;
-  }
 }
 
 .section-six-title {
@@ -100,16 +77,12 @@
 }
 
 /* ========================================================
-   FOUNDERS GRID (6 VISIBLE FOUNDERS)
-   Order:
-   1. Fernando Vega Olmos, 2. Ignacio Zuccarino, 3. Sole D'Agostino,
-   4. Trinidad Vega Olmos, 5. Matías Molinas, 6. Eugenio Borzone
-
-   - Responsive:
-     * Ample height / default: 2 rows of 3 cards (3 per row)
-     * Constrained height (<= 920px on desktop): ALL 6 CARDS IN 1 SINGLE ROW
-       (row 2 moves to row 1 in the same order), creating ample vertical
-       space to shift content comfortably downward away from navbar.
+   2-ROW STATIC GRID (6 VISIBLE FOUNDERS)
+   Row 1: Fernando Vega Olmos, Ignacio Zuccarino, Sole D'Agostino
+   Row 2: Trinidad Vega Olmos, Matías Molinas, Eugenio Borzone
+   Square (1:1 ratio) face-centered framing.
+   Generously sized founder cards with single-line names,
+   clean card spacing, and ample bottom scroll indicator clearance.
    ======================================================== */
 .section-six-grid-wrap {
   width: 100%;
@@ -117,8 +90,8 @@
   margin-top: 0.25rem;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 0.625rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -134,110 +107,44 @@
   }
 }
 
-/* Desktop with Ample Height (height > 920px): 2 rows of 3 cards */
-@media (min-width: 1024px) and (min-height: 921px) {
+@media (min-width: 1024px) {
   .section-six-grid-wrap {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 45.5rem; /* ~728px */
     gap: 1rem;
     margin-top: 0.25rem;
   }
 }
 
-@media (min-width: 1280px) and (min-height: 921px) {
+@media (min-width: 1280px) {
   .section-six-grid-wrap {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 47rem; /* ~752px */
     gap: 1.125rem;
     margin-top: 0.25rem;
   }
 }
 
-/* ========================================================
-   Desktop with Constrained Height (height <= 920px):
-   ALL 6 CARDS IN 1 SINGLE ROW
-   The second row moves to the first row in the exact same order.
-   Leaves generous vertical breathing room to move content down
-   away from the navbar and comfortably clear the mouse indicator.
-   ======================================================== */
-@media (min-width: 1024px) and (max-height: 920px) {
-  .section-six-container {
-    transform: none !important;
-    margin-top: 1.5rem;
-  }
+.section-six-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.625rem;
+  width: 100%;
+}
 
-  .section-six-grid-wrap {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    max-width: 72rem; /* ~1152px */
+@media (min-width: 640px) {
+  .section-six-row {
     gap: 0.75rem;
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .section-six-card {
-    padding: 0.35rem 0.35rem 0.45rem 0.35rem;
-    border-radius: 0.875rem;
-  }
-
-  .section-six-card-footer {
-    margin-top: 0.35rem;
-    padding: 0.1rem 0.15rem 0.15rem 0.15rem;
-    gap: 0.3rem;
-  }
-
-  .section-six-card-name {
-    font-size: 0.75rem; /* ~12px - ensures 1-line fit without truncation */
-    line-height: 1.2;
-    letter-spacing: -0.015em;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-
-  .section-six-card-action {
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .section-six-card-arrow {
-    width: 0.5rem;
-    height: 0.5rem;
   }
 }
 
-@media (min-width: 1280px) and (max-height: 920px) {
-  .section-six-grid-wrap {
-    max-width: 76rem; /* ~1216px */
-    gap: 0.875rem;
-  }
-
-  .section-six-card {
-    padding: 0.4rem 0.4rem 0.5rem 0.4rem;
-  }
-
-  .section-six-card-name {
-    font-size: 0.78125rem; /* ~12.5px */
-  }
-
-  .section-six-card-action {
-    width: 1.125rem;
-    height: 1.125rem;
-  }
-
-  .section-six-card-arrow {
-    width: 0.5625rem;
-    height: 0.5625rem;
-  }
-}
-
-@media (min-width: 1440px) and (max-height: 920px) {
-  .section-six-grid-wrap {
-    max-width: 80rem; /* ~1280px */
+@media (min-width: 1024px) {
+  .section-six-row {
     gap: 1rem;
   }
+}
 
-  .section-six-card-name {
-    font-size: 0.8125rem; /* ~13px */
+@media (min-width: 1280px) {
+  .section-six-row {
+    gap: 1.125rem;
   }
 }
 
@@ -388,53 +295,15 @@
   }
 }
 
-/* Tall screen font-sizes (when 2 rows of 3 are displayed) */
-@media (min-width: 1024px) and (min-height: 921px) {
+@media (min-width: 1024px) {
   .section-six-card-name {
     font-size: 0.875rem; /* ~14px */
   }
 }
 
-@media (min-width: 1280px) and (min-height: 921px) {
+@media (min-width: 1280px) {
   .section-six-card-name {
     font-size: 0.90625rem; /* ~14.5px */
-  }
-}
-
-/* Constrained height font-sizes (when 1 row of 6 is displayed) */
-@media (min-width: 1024px) and (max-height: 920px) {
-  .section-six-card-name {
-    font-size: 0.75rem !important; /* ~12px */
-    letter-spacing: -0.015em;
-  }
-  .section-six-card-action {
-    width: 1rem !important;
-    height: 1rem !important;
-  }
-  .section-six-card-arrow {
-    width: 0.5rem !important;
-    height: 0.5rem !important;
-  }
-}
-
-@media (min-width: 1280px) and (max-height: 920px) {
-  .section-six-card-name {
-    font-size: 0.78125rem !important; /* ~12.5px */
-    letter-spacing: -0.01em;
-  }
-  .section-six-card-action {
-    width: 1.0625rem !important;
-    height: 1.0625rem !important;
-  }
-  .section-six-card-arrow {
-    width: 0.53125rem !important;
-    height: 0.53125rem !important;
-  }
-}
-
-@media (min-width: 1440px) and (max-height: 920px) {
-  .section-six-card-name {
-    font-size: 0.8125rem !important; /* ~13px */
   }
 }
 
@@ -501,8 +370,100 @@
   transform: rotate(45deg);
 }
 
-.section-six-card:hover .section-six-card-arrow {
-  transform: rotate(45deg);
+/* ========================================================
+   VIEWPORT-HEIGHT RESPONSIVE ADAPTATION
+   Dynamically scales grid dimensions, card padding, and typography
+   when vertical height is constrained (e.g., standard laptops,
+   browser chrome, split windows), ensuring the title and subtitle
+   fit comfortably below the top navbar without clipping or truncation.
+   ======================================================== */
+@media (max-height: 920px) and (min-width: 640px) {
+  .section-six-title {
+    font-size: 2.25rem !important; /* ~36px */
+  }
+  .section-six-subheadline {
+    font-size: 1rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .section-six-grid-wrap {
+    max-width: 38.5rem !important; /* ~616px */
+    gap: 0.75rem !important;
+  }
+  .section-six-row {
+    gap: 0.75rem !important;
+  }
+  .section-six-card {
+    padding: 0.375rem 0.375rem 0.45rem 0.375rem !important;
+  }
+  .section-six-card-name {
+    font-size: 0.78125rem !important; /* ~12.5px */
+    letter-spacing: -0.015em !important;
+  }
+}
+
+@media (max-height: 810px) and (min-width: 640px) {
+  .section-six-title {
+    font-size: 2rem !important; /* ~32px */
+  }
+  .section-six-subheadline {
+    font-size: 0.9375rem !important; /* ~15px */
+    margin-bottom: 0.5rem !important;
+  }
+  .section-six-grid-wrap {
+    max-width: 34.5rem !important; /* ~552px */
+    gap: 0.625rem !important;
+  }
+  .section-six-row {
+    gap: 0.625rem !important;
+  }
+  .section-six-card {
+    padding: 0.35rem 0.35rem 0.425rem 0.35rem !important;
+  }
+  .section-six-card-footer {
+    gap: 0.25rem !important;
+    padding: 0.05rem 0.1rem !important;
+  }
+  .section-six-card-name {
+    font-size: 0.71875rem !important; /* ~11.5px */
+    letter-spacing: -0.02em !important;
+  }
+  .section-six-card-action {
+    width: 1.0625rem !important;
+    height: 1.0625rem !important;
+  }
+}
+
+@media (max-height: 720px) and (min-width: 640px) {
+  .section-six-title {
+    font-size: 1.625rem !important; /* ~26px */
+  }
+  .section-six-subheadline {
+    font-size: 0.8125rem !important; /* ~13px */
+    line-height: 1.3 !important;
+    margin-bottom: 0.35rem !important;
+  }
+  .section-six-grid-wrap {
+    max-width: 31.5rem !important; /* ~504px */
+    gap: 0.5rem !important;
+  }
+  .section-six-row {
+    gap: 0.5rem !important;
+  }
+  .section-six-card {
+    padding: 0.3rem 0.3rem 0.375rem 0.3rem !important;
+  }
+  .section-six-card-footer {
+    gap: 0.2rem !important;
+    padding: 0.05rem 0.05rem !important;
+  }
+  .section-six-card-name {
+    font-size: 0.65625rem !important; /* ~10.5px */
+    letter-spacing: -0.025em !important;
+  }
+  .section-six-card-action {
+    width: 0.9375rem !important;
+    height: 0.9375rem !important;
+  }
 }
 
 /* ========================================================

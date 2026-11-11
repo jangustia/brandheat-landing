@@ -240,8 +240,6 @@ export default function SentenceHero({
             ? '-translate-y-4 sm:-translate-y-6 lg:-translate-y-8'
             : currentIndex === 1
             ? '-translate-y-3 sm:-translate-y-5 lg:-translate-y-6'
-            : currentIndex === 3
-            ? 'translate-y-2 sm:translate-y-3 lg:translate-y-4'
             : 'translate-y-0 sm:translate-y-1'
         }`}
       >
