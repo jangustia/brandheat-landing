@@ -121,7 +121,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       {/* 3. Secondary Explanatory Copy (#8D8F93 in Inter) - Enlarged */}
       <motion.div
         variants={cascadeItemVariants}
-        className="section-two-copy text-[15px] sm:text-[17px] lg:text-[18px] space-y-1"
+        className="section-two-copy text-[15px] sm:text-[17px] lg:text-[18px] space-y-0.5"
       >
         <p>
           {isEs
