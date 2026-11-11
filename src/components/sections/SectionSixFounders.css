@@ -23,6 +23,22 @@
   overflow: visible;
 }
 
+.section-six-header {
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 640px) {
+  .section-six-header {
+    margin-bottom: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-six-header {
+    margin-bottom: 2.75rem;
+  }
+}
+
 .section-six-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;

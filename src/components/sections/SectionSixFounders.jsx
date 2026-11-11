@@ -107,7 +107,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
   return (
     <div className="section-six-container">
       {/* 1. Header Title: FOUNDING TEAM: THE IGNITERS */}
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center section-six-header mb-6 sm:mb-8 lg:mb-10">
         <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
           <span className="section-six-title-light">FOUNDING TEAM: </span>
           <span className="section-six-title-bold">THE IGNITERS</span>
