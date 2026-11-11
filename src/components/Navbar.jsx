@@ -136,7 +136,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold text-[#E5E5E5] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-[#151515] hover:bg-[#1f1f1f] border-0 outline-none text-[12px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.05em] navbar-menu-bold text-[#E5E5E5] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
             <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
@@ -144,7 +144,7 @@ export default function Navbar({
 
           {/* Language selector ES | EN */}
           <div
-            className="inline-flex items-center text-[12px] tracking-wider font-['Inter',sans-serif] font-[500] text-white/80 bg-white/[0.04] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
+            className="inline-flex items-center text-[12px] tracking-wider font-['Inter',sans-serif] font-[500] text-white/80 bg-[#151515] rounded-full px-3 py-1.5 backdrop-blur-sm shadow-sm"
             role="group"
             aria-label="Language selection"
           >
