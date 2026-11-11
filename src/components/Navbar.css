@@ -47,7 +47,7 @@
 .navbar-lang-pill {
   display: inline-flex;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 12px;
   letter-spacing: 0.05em;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
@@ -58,4 +58,3 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-

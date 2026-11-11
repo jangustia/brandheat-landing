@@ -49,7 +49,7 @@ export default function Navbar({
       stage: 3,
     },
     {
-      label: 'FOUNDER',
+      label: 'FOUNDERS',
       href: '#founders',
       stage: 4,
     },
