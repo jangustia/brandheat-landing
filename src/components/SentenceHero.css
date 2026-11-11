@@ -114,3 +114,79 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+/* Footer exclusively for the last stage */
+.sentence-hero-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #8d8f93;
+  pointer-events: auto;
+  user-select: text;
+  box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+  .sentence-hero-footer {
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1.5rem 2.5rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sentence-hero-footer {
+    padding: 1.75rem 3.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.sentence-hero-footer-left {
+  letter-spacing: 0.02em;
+  color: #8d8f93;
+  white-space: nowrap;
+}
+
+.sentence-hero-footer-right {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sentence-hero-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #8d8f93;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.sentence-hero-footer-link:hover {
+  color: #ffffff;
+}
+
+.sentence-hero-footer-author {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.sentence-hero-footer-link:hover .sentence-hero-footer-author {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+

@@ -362,6 +362,34 @@ export default function SentenceHero({
           />
         ))}
       </div>
+
+      {/* 4. Footer - ONLY appears in the last section (Stage 5) */}
+      <AnimatePresence>
+        {currentIndex === totalSentences - 1 && (
+          <motion.footer
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 12 }}
+            transition={{ duration: 0.35, ease: 'easeOut' }}
+            className="sentence-hero-footer"
+          >
+            <div className="sentence-hero-footer-left">
+              <span>brandheat 2026 | All Rights Reserved.</span>
+            </div>
+            <div className="sentence-hero-footer-right">
+              <a
+                href="https://www.juanangustia.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sentence-hero-footer-link"
+              >
+                <span>Created by</span>
+                <span className="sentence-hero-footer-author">ANGUSTIA</span>
+              </a>
+            </div>
+          </motion.footer>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
