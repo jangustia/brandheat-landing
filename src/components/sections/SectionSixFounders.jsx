@@ -226,7 +226,7 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
                     <div className="section-six-modal-info-col">
                       {/* Mobile Top Row: Image on the LEFT, Header on the RIGHT */}
                       <div className="flex items-center gap-3.5 sm:hidden mb-2">
-                        <div className="w-20 h-24 rounded-xl overflow-hidden bg-[#212121] shrink-0 border border-white/10 shadow-md">
+                        <div className="w-20 h-24 rounded-xl overflow-hidden bg-[#212121] shrink-0 shadow-md">
                           <img
                             src={selectedFounder.image}
                             alt={selectedFounder.name}

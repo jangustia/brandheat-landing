@@ -473,7 +473,8 @@
   max-width: 44rem;
   max-height: 90vh;
   background-color: #161618;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: none !important;
+  outline: none !important;
   border-radius: 1.5rem;
   padding: 1.25rem;
   text-align: left;
@@ -498,13 +499,13 @@
   height: 2rem;
   border-radius: 9999px;
   background-color: #212121;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: none !important;
+  outline: none !important;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #8d8f93;
   cursor: pointer;
-  outline: none;
   transition: all 0.2s ease;
   z-index: 10;
 }
@@ -512,6 +513,15 @@
 .section-six-modal-close:hover {
   background-color: #272727;
   color: #ffffff;
+  border: none !important;
+  outline: none !important;
+}
+
+.section-six-modal-close:focus,
+.section-six-modal-close:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Modal Content Flex Layout */
