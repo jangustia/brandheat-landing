@@ -95,7 +95,7 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
           aria-modal="true"
           aria-labelledby="manifesto-title"
         >
-          {/* Modal Shell (Level 4: #161618) */}
+          {/* Modal Shell (#151515, border: none) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -106,10 +106,11 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
             onTouchStart={(e) => e.stopPropagation()}
             onTouchMove={(e) => e.stopPropagation()}
             onTouchEnd={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl max-h-[82vh] flex flex-col bg-[#161618] border border-[rgba(255,255,255,0.08)] rounded-[24px] sm:rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.9)] cursor-default overflow-hidden my-auto"
+            className="relative w-full max-w-2xl max-h-[82vh] flex flex-col bg-[#151515] border-0 outline-none rounded-[24px] sm:rounded-[28px] shadow-[0_24px_80px_rgba(0,0,0,0.9)] cursor-default overflow-hidden my-auto"
+            style={{ border: 'none', outline: 'none' }}
           >
             {/* Modal Header */}
-            <div className="flex-shrink-0 flex items-center justify-between px-6 sm:px-8 py-5 border-b border-[rgba(255,255,255,0.06)] bg-[#161618]/95 backdrop-blur-md z-10">
+            <div className="flex-shrink-0 flex items-center justify-between px-6 sm:px-8 py-5 bg-[#151515] z-10">
               <div className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#44251c] text-[#ea4325] border border-[rgba(234,67,37,0.35)] text-[11px] font-['Manrope',sans-serif] font-[700] uppercase tracking-wider">
                   <Flame className="w-3 h-3 text-[#ea4325]" />

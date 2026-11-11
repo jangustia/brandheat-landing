@@ -126,10 +126,10 @@
   }
 }
 
-/* Card Base - Left Icon + Content, Dark Translucent Container, NO OUTLINE */
+/* Card Base - Left Icon + Content, Dark Translucent Container with higher opacity, NO OUTLINE */
 .section-three-card {
   position: relative;
-  background-color: rgba(20, 20, 22, 0.55);
+  background-color: rgba(21, 21, 21, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1.25rem;
@@ -161,7 +161,7 @@
 }
 
 .section-three-card:hover {
-  background-color: rgba(32, 32, 36, 0.75);
+  background-color: rgba(32, 32, 36, 0.9);
   border: none !important;
   outline: none !important;
   box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75);
