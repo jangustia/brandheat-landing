@@ -17,10 +17,9 @@
   opacity: 0.25;
 }
 
-/* Custom dark scrollbar for modals & dialogs */
+/* Custom dark scrollbar for modals & dialogs - only visible during active scrolling */
 .custom-dialog-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.03);
+  scrollbar-width: none; /* Firefox: hidden when idle */
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
 }
@@ -30,19 +29,33 @@
 }
 
 .custom-dialog-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.03);
+  background: transparent;
   border-radius: 9999px;
   margin: 6px 0;
+  transition: background-color 0.3s ease;
 }
 
 .custom-dialog-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.22);
+  background: transparent;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
 }
 
-.custom-dialog-scrollbar::-webkit-scrollbar-thumb:hover {
+/* Show scrollbar ONLY when actively scrolling */
+.custom-dialog-scrollbar.is-scrolling {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.custom-dialog-scrollbar.is-scrolling::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.custom-dialog-scrollbar.is-scrolling::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.custom-dialog-scrollbar.is-scrolling::-webkit-scrollbar-thumb:hover {
   background: #ea4325;
 }
 

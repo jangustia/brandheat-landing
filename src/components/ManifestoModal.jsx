@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Flame } from 'lucide-react';
@@ -12,13 +12,40 @@ import { X, Flame } from 'lucide-react';
  * - Warm dark badge: #44251c with #ea4325 text
  * - Dual-language support (ES / EN) matching the user specification
  * - Keyboard Escape listener & click-outside to close
+ * - Scrollbar only visible when the user actively scrolls (auto-hides when idle)
  */
 export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) {
   const isEs = currentLang === 'es';
   const [mounted, setMounted] = useState(false);
+  const contentRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  // Show scrollbar only while actively scrolling, then auto-hide after 1s of inactivity
+  const handleScroll = () => {
+    if (!contentRef.current) return;
+    contentRef.current.classList.add('is-scrolling');
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    scrollTimeoutRef.current = setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.classList.remove('is-scrolling');
+      }
+    }, 1000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
   }, []);
 
   // Close on Escape key press
@@ -105,7 +132,13 @@ export default function ManifestoModal({ isOpen, onClose, currentLang = 'es' }) 
             </div>
 
             {/* Modal Scrollable Content: flex-1 min-h-0 allows flexbox child to scroll within max-height */}
-            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 sm:px-8 md:px-10 py-6 sm:py-8 custom-dialog-scrollbar space-y-6 text-left font-['Inter',sans-serif]">
+            <div
+              ref={contentRef}
+              onScroll={handleScroll}
+              onWheel={handleScroll}
+              onTouchMove={handleScroll}
+              className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-6 sm:px-8 md:px-10 py-6 sm:py-8 custom-dialog-scrollbar space-y-6 text-left font-['Inter',sans-serif]"
+            >
               {isEs ? (
                 /* ========================================================
                    SPANISH MANIFESTO
