@@ -105,7 +105,7 @@ export default function Navbar({
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
-                className={`text-[11px] lg:text-xs xl:text-[13px] font-['Manrope',sans-serif] font-[700] uppercase tracking-[0.06em] transition-colors duration-200 relative group py-1 select-none ${
+                className={`text-[11px] lg:text-xs xl:text-[13px] font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] transition-colors duration-200 relative group py-1 select-none ${
                   isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
                 }`}
               >
@@ -141,7 +141,7 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[700] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
             <Flame className="w-3.5 h-3.5 text-[#ea4325]" />
@@ -212,7 +212,7 @@ export default function Navbar({
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`text-sm font-['Manrope',sans-serif] font-[700] uppercase tracking-[0.06em] py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
+                    className={`text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 border-b border-white/[0.04] transition-colors flex items-center justify-between ${
                       isActive ? 'text-[#ffffff]' : 'text-[#C5C5C5] hover:text-[#ffffff]'
                     }`}
                   >
@@ -231,7 +231,7 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   setManifestoOpen(true);
                 }}
-                className="mt-2 text-sm font-['Manrope',sans-serif] font-[700] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center gap-2 cursor-pointer"
+                className="mt-2 text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center gap-2 cursor-pointer"
               >
                 <Flame className="w-4 h-4 text-[#ea4325]" />
                 <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
