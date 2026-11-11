@@ -77,18 +77,18 @@ export default function Navbar({
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md bg-[#08090c]/70">
-      <div className="w-full px-6 sm:px-10 m-0 h-20 sm:h-24 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-8 lg:px-10 m-0 h-16 sm:h-24 flex items-center justify-between">
         {/* Brandheat Logo */}
         <a
           href="#"
           onClick={handleLogoClick}
-          className="group flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 rounded-lg p-1"
+          className="group flex items-center gap-2 sm:gap-3 transition-transform duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 rounded-lg p-1"
           aria-label="Brand HEAT Home"
         >
           <img
             src="/brandheat-logo.png"
             alt="Brand HEAT"
-            className="h-7 sm:h-8 w-auto object-contain brightness-100 transition-opacity duration-300 group-hover:opacity-90"
+            className="h-6 sm:h-8 w-auto object-contain brightness-100 transition-opacity duration-300 group-hover:opacity-90"
             style={{ maxHeight: '36px' }}
           />
         </a>
@@ -136,16 +136,16 @@ export default function Navbar({
         </nav>
 
         {/* Right side: Manifesto Button, Language switcher & mobile menu trigger */}
-        <div className="flex items-center gap-3 sm:gap-4 md:gap-4.5">
+        <div className="flex items-center gap-2 sm:gap-4 md:gap-4.5">
           {/* Manifiesto Button: Next to the language component on the left */}
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
             <Flame className="w-3.5 h-3.5 text-[#ea4325]" />
-            <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
           </button>
 
           {/* Language selector ES | EN */}

@@ -59,12 +59,12 @@
 .section-three-sub {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: #8D8F93;
   letter-spacing: -0.01em;
   text-align: center;
-  margin-top: 0.5rem;
-  line-height: 1.45;
+  margin-top: 0.35rem;
+  line-height: 1.35;
 }
 
 @media (min-width: 640px) {
@@ -81,21 +81,51 @@
   }
 }
 
-/* 5 Feature Cards Wrapper */
+/* 5 Feature Cards: Horizontal snap carousel on mobile, grid layout on desktop */
 .section-three-cards-wrapper {
-  margin-top: 1.25rem;
-  width: 100%;
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
+  margin-top: 1rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   gap: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
 }
 
-@media (min-width: 640px) {
+.section-three-cards-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.section-three-row {
+  display: contents;
+}
+
+@media (min-width: 768px) {
   .section-three-cards-wrapper {
     margin-top: 1.5rem;
+    width: 100%;
+    max-width: 67rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    overflow-x: visible;
+    gap: 0.875rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .section-three-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.875rem;
   }
 }
@@ -103,24 +133,10 @@
 @media (min-width: 1024px) {
   .section-three-cards-wrapper {
     margin-top: 1.75rem;
+    max-width: 75.5rem;
     gap: 1rem;
   }
-}
 
-.section-three-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-@media (min-width: 768px) {
-  .section-three-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.875rem;
-  }
-}
-
-@media (min-width: 1024px) {
   .section-three-row {
     gap: 1rem;
   }
@@ -133,7 +149,7 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1.25rem;
-  padding: 1.25rem 1.375rem;
+  padding: 1.125rem 1.125rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -144,10 +160,15 @@
   cursor: default;
   overflow: hidden;
   transition: box-shadow 0.3s ease, transform 0.25s ease, background-color 0.3s ease;
+  flex: 0 0 78vw;
+  max-width: 295px;
+  scroll-snap-align: center;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .section-three-card {
+    flex: 1 1 0%;
+    max-width: none;
     border-radius: 1.375rem;
     padding: 1.375rem 1.625rem;
   }
@@ -170,12 +191,12 @@
 /* Left Icon Box - Enlarged Prominence & Centered */
 .section-three-icon-box {
   flex-shrink: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1.125rem;
+  margin-right: 0.875rem;
   margin-top: 0;
   align-self: center;
   color: #ffffff;

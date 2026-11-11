@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LayoutGrid } from 'lucide-react';
 import './SectionTwoOverview.css';
@@ -71,6 +71,17 @@ function EscalaIcon({ className = 'w-7 h-7 sm:w-8 sm:h-8 text-[#eab308]' }) {
  */
 export default function SectionTwoOverview({ currentLang = 'es' }) {
   const isEs = currentLang === 'es';
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  const handleGridScroll = (e) => {
+    const el = e.currentTarget;
+    if (!el) return;
+    const cardWidth = el.scrollWidth / 3;
+    if (cardWidth > 0) {
+      const idx = Math.round(el.scrollLeft / cardWidth);
+      setActiveCardIndex(Math.min(2, Math.max(0, idx)));
+    }
+  };
 
   return (
     <div className="section-two-container">
@@ -112,7 +123,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
       </div>
 
       {/* 4. Three Level 2 Modular Feature Cards (#141414, rounded-[32px], border: none) */}
-      <div className="section-two-grid">
+      <div className="section-two-grid" onScroll={handleGridScroll}>
         {/* Card 1: ANTICIPA */}
         <motion.div
           whileHover={{ y: -3 }}
@@ -178,6 +189,20 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
               : 'Invest only in what works best.'}
           </p>
         </motion.div>
+      </div>
+
+      {/* Mobile Swipe Pagination Dots */}
+      <div className="flex md:hidden items-center justify-center gap-1.5 mt-2" aria-hidden="true">
+        {[0, 1, 2].map((idx) => (
+          <span
+            key={idx}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              activeCardIndex === idx
+                ? 'w-5 bg-[#ea4325]'
+                : 'w-1.5 bg-white/20'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
