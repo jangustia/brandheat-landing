@@ -103,7 +103,7 @@ export default function SectionTwoOverview({ currentLang = 'es' }) {
         </div>
 
         <h2 className="section-two-title text-3xl sm:text-5xl md:text-6xl lg:text-[56px] xl:text-[62px]">
-          <span className="section-two-title-light">Meet brand</span>
+          <span className="section-two-title-light">MEET brand</span>
           <span className="section-two-title-bold">heat.</span>
         </h2>
       </motion.div>
