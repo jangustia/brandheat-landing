@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Flame } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import ManifestoModal from './ManifestoModal';
 import './Navbar.css';
 
@@ -141,11 +141,10 @@ export default function Navbar({
           <button
             type="button"
             onClick={() => setManifestoOpen(true)}
-            className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-[rgba(234,67,37,0.4)] text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm hover:shadow-[0_0_12px_rgba(234,67,37,0.25)] focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
+            className="inline-flex items-center px-3 sm:px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border-0 outline-none text-[11px] sm:text-xs font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] text-[#E1E1E1] hover:text-[#ffffff] transition-all duration-200 cursor-pointer shadow-sm focus:outline-none focus:ring-2 focus:ring-[#ea4325]/40 select-none"
             aria-label={currentLang === 'es' ? 'Abrir manifiesto' : 'Open manifesto'}
           >
-            <Flame className="w-3.5 h-3.5 text-[#ea4325]" />
-            <span className="hidden sm:inline">{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
+            <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
           </button>
 
           {/* Language selector ES | EN */}
@@ -231,9 +230,8 @@ export default function Navbar({
                   setMobileMenuOpen(false);
                   setManifestoOpen(true);
                 }}
-                className="mt-2 text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center gap-2 cursor-pointer"
+                className="mt-2 text-sm font-['Manrope',sans-serif] font-[800] uppercase tracking-[0.06em] py-2.5 text-[#ea4325] flex items-center cursor-pointer"
               >
-                <Flame className="w-4 h-4 text-[#ea4325]" />
                 <span>{currentLang === 'es' ? 'MANIFIESTO' : 'MANIFESTO'}</span>
               </button>
             </nav>
