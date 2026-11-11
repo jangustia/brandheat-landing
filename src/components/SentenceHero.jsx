@@ -236,8 +236,10 @@ export default function SentenceHero({
       {/* 2. Main Center Stage */}
       <main
         className={`relative z-20 my-auto w-full max-w-7xl mx-auto flex flex-col items-center justify-center text-center transition-transform duration-500 ${
-          currentIndex === 0 || currentIndex === 3
+          currentIndex === 0
             ? '-translate-y-4 sm:-translate-y-6 lg:-translate-y-8'
+            : currentIndex === 3
+            ? '-translate-y-2 sm:-translate-y-3.5 lg:-translate-y-4'
             : 'translate-y-0 sm:translate-y-1'
         }`}
       >
