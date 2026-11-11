@@ -18,10 +18,10 @@ import './SectionSixFounders.css';
  * SectionSixFounders Component
  * Renders Section 6: "FOUNDING TEAM: THE IGNITERS"
  * Built strictly according to design.md tokens and user specifications:
- * - Level 2 Parent Cards (#151515, border: none, rounded-[20px])
- * - Depth created purely through surface contrast, never with outlines or strokes
- * - Vertical card layout with prominent photo container & zoom hover effect
- * - Name and category tag below image with circular action arrow button (↗)
+ * - Single row animated infinite carousel with fade gradients on browser edges
+ * - Vertical card layout based on the portrait image ratio (3:4)
+ * - Zoom hover effect on image container
+ * - Smooth pause on hover for interactive selection
  * - Level 4 Modal (#161618, backdrop-filter: blur(24px)) with photo on the LEFT and bio on the RIGHT
  * - Level 4 Active Option surface (#44251c) for warm orange accents and badges
  * - The ONE Brand Orange: #ea4325
@@ -29,6 +29,7 @@ import './SectionSixFounders.css';
  */
 export default function SectionSixFounders({ currentLang = 'es', onBackToStart }) {
   const isEs = currentLang === 'es';
+  const [isPaused, setIsPaused] = useState(false);
 
   const founders = [
     {
@@ -105,6 +106,9 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     },
   ];
 
+  // 3 repetitions for seamless infinite looping in both directions
+  const carouselFounders = [...founders, ...founders, ...founders];
+
   const [selectedFounder, setSelectedFounder] = useState(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -133,52 +137,67 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
         </p>
       </div>
 
-      {/* 3. Grid of 6 Vertical Founder Cards */}
-      <div className="section-six-grid">
-        {founders.map((founder) => {
-          const IconComponent = founder.icon;
-          return (
-            <motion.button
-              key={founder.id}
-              type="button"
-              whileHover={{ y: -4 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.25, ease: 'easeOut' }}
-              onClick={() => setSelectedFounder(founder)}
-              className="group section-six-card"
-              aria-label={`View bio for ${founder.name}`}
-            >
-              {/* Photo Box with Zoom Effect */}
-              <div className="section-six-card-image-wrap">
-                <img
-                  src={founder.image}
-                  alt={founder.name}
-                  className="section-six-card-img"
-                  loading="lazy"
-                />
-                {/* Floating Category Badge at top-left */}
-                <div className="section-six-card-badge">
-                  <IconComponent className="w-3.5 h-3.5 text-[#ea4325]" />
+      {/* 3. Single Row Animated Carousel with Fade Gradient */}
+      <div
+        className="section-six-carousel-wrap"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+        <div
+          className={`section-six-carousel-track ${
+            isPaused || selectedFounder ? 'section-six-carousel-paused' : ''
+          }`}
+        >
+          {carouselFounders.map((founder, index) => {
+            const IconComponent = founder.icon;
+            return (
+              <div
+                key={`${founder.id}-${index}`}
+                onClick={() => setSelectedFounder(founder)}
+                className="group section-six-card"
+                role="button"
+                tabIndex={0}
+                aria-label={`View bio for ${founder.name}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setSelectedFounder(founder);
+                  }
+                }}
+              >
+                {/* Vertical Photo Box (3:4 ratio) with Zoom Effect */}
+                <div className="section-six-card-image-wrap">
+                  <img
+                    src={founder.image}
+                    alt={founder.name}
+                    className="section-six-card-img"
+                    loading="lazy"
+                  />
+                  {/* Floating Category Badge at top-left */}
+                  <div className="section-six-card-badge">
+                    <IconComponent className="w-4 h-4 text-[#ea4325]" />
+                  </div>
                 </div>
-              </div>
 
-              {/* Bottom Details Bar: Name on left, Arrow button on right */}
-              <div className="section-six-card-footer">
-                <div className="section-six-card-info">
-                  <h3 className="section-six-card-name">
-                    {founder.name}
-                  </h3>
-                  <p className="section-six-card-tag">
-                    {founder.tag}
-                  </p>
-                </div>
-                <div className="section-six-card-action">
-                  <ArrowUpRight className="section-six-card-arrow" />
+                {/* Bottom Details Bar: Name on left, Arrow button on right */}
+                <div className="section-six-card-footer">
+                  <div className="section-six-card-info">
+                    <h3 className="section-six-card-name">
+                      {founder.name}
+                    </h3>
+                    <p className="section-six-card-tag">
+                      {founder.tag}
+                    </p>
+                  </div>
+                  <div className="section-six-card-action">
+                    <ArrowUpRight className="section-six-card-arrow" />
+                  </div>
                 </div>
               </div>
-            </motion.button>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* 4. Subtle Hint beneath in Inter */}
