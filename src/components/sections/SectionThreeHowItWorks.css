@@ -164,30 +164,39 @@
   box-shadow: 0 20px 48px -10px rgba(0, 0, 0, 0.75);
 }
 
-/* Left Icon Box */
+/* Left Icon Box - Enlarged Prominence */
 .section-three-icon-box {
   flex-shrink: 0;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1rem;
+  margin-right: 1.125rem;
   margin-top: 0.125rem;
   color: #ffffff;
-  transition: color 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 @media (min-width: 640px) {
   .section-three-icon-box {
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-right: 1.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-right: 1.375rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-icon-box {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 1.5rem;
   }
 }
 
 .section-three-card:hover .section-three-icon-box {
   color: #ea4325;
+  transform: scale(1.06);
 }
 
 /* Card Content Column */
