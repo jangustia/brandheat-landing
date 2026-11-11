@@ -1,7 +1,15 @@
-/* Section 3: How It Works (From spark to screen) Styles */
+/* ==========================================================================
+   Section 3: How It Works (From spark to screen) Styles
+   Styled after the luxury ambient container reference (Image 2):
+   - Large centered typography (Manrope 700 / 800)
+   - Atmospheric corner radial glows (Electric Blue & Brand Fiery Orange)
+   - Generous container padding, radius, and wide section layout
+   - Wide, legible centered copy (Inter 400)
+   ========================================================================== */
+
 .section-three-container {
   width: 100%;
-  max-width: 64rem;
+  max-width: 76rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -9,8 +17,24 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (max-width: 639px) {
+  .section-three-container {
+    padding-top: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-three-container {
+    max-width: 80rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 .section-three-title {
@@ -36,105 +60,207 @@
 .section-three-sub {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #8d8f93;
   letter-spacing: -0.01em;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
 }
 
-/* 5 Feature Cards Grid */
+@media (min-width: 640px) {
+  .section-three-sub {
+    font-size: 0.9375rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* 5 Feature Cards Wrapper */
 .section-three-cards-wrapper {
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   width: 100%;
-  max-width: 56rem;
+  max-width: 74rem;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.5rem;
 }
 
 @media (min-width: 640px) {
   .section-three-cards-wrapper {
+    margin-top: 1.25rem;
+    gap: 0.875rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-cards-wrapper {
     margin-top: 1.5rem;
+    gap: 0.875rem;
   }
 }
 
 .section-three-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.625rem;
+  gap: 0.5rem;
 }
 
 @media (min-width: 768px) {
   .section-three-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
   }
 }
 
+/* Card Base - Large, Centered, Luxury Dark Container with Ambient Glows */
 .section-three-card {
   position: relative;
-  background-color: #151515;
-  border-radius: 1.25rem;
-  padding: 0.875rem 1.125rem;
+  background-color: #111215;
+  border-radius: 1.125rem;
+  padding: 0.875rem 1rem;
   display: flex;
-  align-items: flex-start;
-  text-align: left;
-  border: none;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.55);
   cursor: default;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 @media (min-width: 640px) {
   .section-three-card {
     border-radius: 1.5rem;
+    padding: 1.625rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-card {
+    border-radius: 1.625rem;
+    padding: 1.875rem 2.25rem;
   }
 }
 
 .section-three-card:hover {
-  background-color: #1e1e1e;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.7);
 }
 
-.section-three-icon-box {
-  flex-shrink: 0;
-  width: 2.25rem;
-  height: 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.875rem;
-  margin-top: 0.125rem;
-  color: #ffffff;
-  transition: color 0.3s ease;
+/* Ambient Corner Radial Gradients (matching Image 2 Reference) */
+
+/* Card 1: Top-left Electric Blue Glow (Meta Ads style) */
+.section-three-card-1 {
+  background:
+    radial-gradient(ellipse 65% 90% at 0% 0%, rgba(26, 115, 232, 0.44) 0%, rgba(26, 115, 232, 0.16) 42%, transparent 75%),
+    #111215;
 }
 
-.section-three-card:hover .section-three-icon-box {
-  color: #ea4325;
+/* Card 2: Top-right Fiery Orange Glow (Google Ads style) */
+.section-three-card-2 {
+  background:
+    radial-gradient(ellipse 65% 90% at 100% 0%, rgba(234, 67, 37, 0.44) 0%, rgba(234, 67, 37, 0.16) 42%, transparent 75%),
+    #111215;
 }
 
+/* Card 3: Top-left Fiery Orange Glow */
+.section-three-card-3 {
+  background:
+    radial-gradient(ellipse 65% 90% at 0% 0%, rgba(234, 67, 37, 0.40) 0%, rgba(234, 67, 37, 0.14) 42%, transparent 75%),
+    #111215;
+}
+
+/* Card 4: Top-right Electric Blue Glow */
+.section-three-card-4 {
+  background:
+    radial-gradient(ellipse 65% 90% at 100% 0%, rgba(26, 115, 232, 0.40) 0%, rgba(26, 115, 232, 0.14) 42%, transparent 75%),
+    #111215;
+}
+
+/* Card 5: Full Width Card with Dual Ambient Glow (TikTok Ads style: Bottom-left Orange + Top-right Blue) */
+.section-three-card-5 {
+  background:
+    radial-gradient(ellipse 35% 95% at 0% 100%, rgba(234, 67, 37, 0.44) 0%, rgba(234, 67, 37, 0.15) 45%, transparent 75%),
+    radial-gradient(ellipse 35% 95% at 100% 0%, rgba(26, 115, 232, 0.44) 0%, rgba(26, 115, 232, 0.15) 45%, transparent 75%),
+    #111215;
+}
+
+/* Card Typography */
 .section-three-card-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
+  line-height: 1.2;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .section-three-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-card-title {
+    font-size: 1.625rem;
+    margin-bottom: 0.625rem;
+  }
 }
 
 .section-three-card-text {
   font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 0.8125rem;
-  color: #8d8f93;
-  line-height: 1.5;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #9ea0a6;
+  line-height: 1.45;
   letter-spacing: -0.01em;
-  transition: color 0.2s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: color 0.25s ease;
+}
+
+@media (min-width: 640px) {
+  .section-three-card-text {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    max-width: 38rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-card-text {
+    font-size: 1rem;
+    max-width: 40rem;
+  }
 }
 
 .section-three-card:hover .section-three-card-text {
-  color: #c5c5c5;
+  color: #d1d2d7;
 }
 
+/* Card 5 wide text spans comfortably across more width */
+.section-three-card-text-wide {
+  max-width: 48rem;
+}
+
+@media (min-width: 768px) {
+  .section-three-card-text-wide {
+    max-width: 54rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-three-card-text-wide {
+    max-width: 62rem;
+  }
+}
