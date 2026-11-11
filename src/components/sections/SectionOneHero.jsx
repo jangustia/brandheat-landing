@@ -259,29 +259,9 @@ export default function SectionOneHero({
                 })}
               </div>
             ))}
-            {currentSentence.lines.length < 2 && (
-              <div className="section-one-line section-one-spacer" aria-hidden="true">
-                <span className="section-one-word">&nbsp;</span>
-              </div>
-            )}
           </HeadingTag>
         </motion.div>
       </AnimatePresence>
-
-      {/* Sub-progress indicators for the 4 hook sentences */}
-      <div className="section-one-indicators">
-        {[0, 1, 2, 3].map((idx) => (
-          <button
-            key={idx}
-            type="button"
-            onClick={() => setHookSentenceIndex && setHookSentenceIndex(idx)}
-            className={`section-one-pill ${
-              hookSentenceIndex === idx ? 'active' : ''
-            }`}
-            aria-label={`Jump to hook statement ${idx + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }

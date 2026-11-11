@@ -42,12 +42,6 @@
   margin-right: 0;
 }
 
-.section-one-spacer {
-  visibility: hidden;
-  pointer-events: none;
-  user-select: none;
-}
-
 .section-one-light {
   font-weight: 200;
   color: #e1e1e1;
@@ -58,13 +52,9 @@
   color: #ffffff;
 }
 
-/* 4 Hook Sub-progress Indicator Pills */
+/* 4 Hook Sub-progress Indicator Pills (Hidden per user request) */
 .section-one-indicators {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
+  display: none;
 }
 
 .section-one-pill {
