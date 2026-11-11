@@ -126,10 +126,12 @@
   }
 }
 
-/* Card Base - Left Icon + Content, Dark Container with Ambient Glow, NO OUTLINE */
+/* Card Base - Left Icon + Content, Dark Translucent Container with Ambient Glow, NO OUTLINE */
 .section-three-card {
   position: relative;
-  background-color: #121316;
+  background-color: rgba(18, 19, 22, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 1.25rem;
   padding: 1.25rem 1.375rem;
   display: flex;
@@ -141,7 +143,7 @@
   box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.55);
   cursor: default;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  transition: box-shadow 0.3s ease, transform 0.25s ease, background 0.3s ease;
 }
 
 @media (min-width: 640px) {
@@ -209,34 +211,34 @@
   min-width: 0;
 }
 
-/* Ambient Corner Radial Gradients (Colors on cards, NO border) */
+/* Ambient Corner Radial Gradients (Colors on cards, NO border, Translucent) */
 
 /* Card 1: Top-left Electric Blue Glow */
 .section-three-card-1 {
   background:
     radial-gradient(ellipse 65% 90% at 0% 0%, rgba(26, 115, 232, 0.38) 0%, rgba(26, 115, 232, 0.12) 42%, transparent 75%),
-    #121316;
+    rgba(18, 19, 22, 0.62);
 }
 
 /* Card 2: Top-right Fiery Orange Glow */
 .section-three-card-2 {
   background:
     radial-gradient(ellipse 65% 90% at 100% 0%, rgba(234, 67, 37, 0.38) 0%, rgba(234, 67, 37, 0.12) 42%, transparent 75%),
-    #121316;
+    rgba(18, 19, 22, 0.62);
 }
 
 /* Card 3: Top-left Fiery Orange Glow */
 .section-three-card-3 {
   background:
     radial-gradient(ellipse 65% 90% at 0% 0%, rgba(234, 67, 37, 0.35) 0%, rgba(234, 67, 37, 0.10) 42%, transparent 75%),
-    #121316;
+    rgba(18, 19, 22, 0.62);
 }
 
 /* Card 4: Top-right Electric Blue Glow */
 .section-three-card-4 {
   background:
     radial-gradient(ellipse 65% 90% at 100% 0%, rgba(26, 115, 232, 0.35) 0%, rgba(26, 115, 232, 0.10) 42%, transparent 75%),
-    #121316;
+    rgba(18, 19, 22, 0.62);
 }
 
 /* Card 5: Full Width Card with Dual Ambient Glow (Bottom-left Orange + Top-right Blue) */
@@ -244,14 +246,14 @@
   background:
     radial-gradient(ellipse 35% 95% at 0% 100%, rgba(234, 67, 37, 0.38) 0%, rgba(234, 67, 37, 0.12) 45%, transparent 75%),
     radial-gradient(ellipse 35% 95% at 100% 0%, rgba(26, 115, 232, 0.38) 0%, rgba(26, 115, 232, 0.12) 45%, transparent 75%),
-    #121316;
+    rgba(18, 19, 22, 0.62);
 }
 
 /* Card Typography */
 .section-three-card-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.25;
   color: #ffffff;
   letter-spacing: -0.015em;
@@ -261,14 +263,14 @@
 
 @media (min-width: 640px) {
   .section-three-card-title {
-    font-size: 1.1875rem;
+    font-size: 1.25rem;
     margin-bottom: 0.4375rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-card-title {
-    font-size: 1.25rem;
+    font-size: 1.3125rem;
     margin-bottom: 0.5rem;
   }
 }
@@ -276,9 +278,9 @@
 .section-three-card-text {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 0.875rem;
-  color: #a0a2a8;
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  color: #c0c2c8;
+  line-height: 1.52;
   letter-spacing: -0.01em;
   text-align: left;
   width: 100%;
@@ -287,19 +289,19 @@
 
 @media (min-width: 640px) {
   .section-three-card-text {
-    font-size: 0.96875rem;
+    font-size: 1.0625rem;
   }
 }
 
 @media (min-width: 1024px) {
   .section-three-card-text {
-    font-size: 1.0625rem;
+    font-size: 1.1875rem;
     line-height: 1.5;
   }
 }
 
 .section-three-card:hover .section-three-card-text {
-  color: #d1d2d7;
+  color: #e2e3e7;
 }
 
 /* Card 5 wide text spans comfortably */
