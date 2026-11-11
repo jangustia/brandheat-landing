@@ -111,13 +111,13 @@ export default function SectionSixFounders({ currentLang = 'es', onBackToStart }
     >
       {/* 1. Header Title: FOUNDING TEAM: THE IGNITERS */}
       <motion.div variants={cascadeItemVariants} className="flex flex-col items-center">
-        <h2 className="section-six-title text-2xl sm:text-3xl md:text-4xl lg:text-[40px]">
+        <h2 className="section-six-title text-xl sm:text-2xl md:text-3xl lg:text-[30px]">
           <span className="section-six-title-light">FOUNDING TEAM: </span>
           <span className="section-six-title-bold">THE IGNITERS</span>
         </h2>
 
-        {/* 2. Subtitle copy */}
-        <p className="section-six-subheadline text-base sm:text-lg lg:text-[20px]">
+        {/* 2. Subtitle copy - Compact, high-contrast, perfectly framed */}
+        <p className="section-six-subheadline text-xs sm:text-[13px] md:text-sm">
           {isEs
             ? 'Un equipo que ha construido marcas, escalado tecnología y operado en la intersección entre creatividad y cultura, a nivel global.'
             : 'A team that has built brands, scaled technology, and operated at the intersection of creativity and culture globally.'}
