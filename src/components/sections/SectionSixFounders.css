@@ -85,23 +85,27 @@
   display: flex;
   align-items: center;
   user-select: none;
-  /* Smooth edge transparency fade - fades elements naturally without dark opaque overlays */
+  /* Smooth edge transparency fade on the carousel track */
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 0.4) 24px,
-    rgba(0, 0, 0, 1) 72px,
-    rgba(0, 0, 0, 1) calc(100% - 72px),
-    rgba(0, 0, 0, 0.4) calc(100% - 24px),
+    rgba(0, 0, 0, 0.15) 20px,
+    rgba(0, 0, 0, 0.65) 60px,
+    black 110px,
+    black calc(100% - 110px),
+    rgba(0, 0, 0, 0.65) calc(100% - 60px),
+    rgba(0, 0, 0, 0.15) calc(100% - 20px),
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0, 0, 0, 0.4) 24px,
-    rgba(0, 0, 0, 1) 72px,
-    rgba(0, 0, 0, 1) calc(100% - 72px),
-    rgba(0, 0, 0, 0.4) calc(100% - 24px),
+    rgba(0, 0, 0, 0.15) 20px,
+    rgba(0, 0, 0, 0.65) 60px,
+    black 110px,
+    black calc(100% - 110px),
+    rgba(0, 0, 0, 0.65) calc(100% - 60px),
+    rgba(0, 0, 0, 0.15) calc(100% - 20px),
     transparent 100%
   );
 }
@@ -110,6 +114,69 @@
   .section-six-carousel-wrap {
     padding: 1.5rem 0 1.25rem 0;
   }
+}
+
+/* Atmospheric edge side gradients - soft on the bottom to blend with the decorative background */
+.section-six-carousel-wrap::before,
+.section-six-carousel-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6rem;
+  z-index: 5;
+  pointer-events: none;
+  /* Vertical fade mask: full opacity at top/middle, dissolving to transparent at the bottom */
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 40%,
+    rgba(0, 0, 0, 0.45) 68%,
+    transparent 96%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 40%,
+    rgba(0, 0, 0, 0.45) 68%,
+    transparent 96%
+  );
+}
+
+@media (min-width: 640px) {
+  .section-six-carousel-wrap::before,
+  .section-six-carousel-wrap::after {
+    width: 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-six-carousel-wrap::before,
+  .section-six-carousel-wrap::after {
+    width: 10.5rem;
+  }
+}
+
+.section-six-carousel-wrap::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #08090c 0%,
+    rgba(8, 9, 12, 0.8) 35%,
+    rgba(8, 9, 12, 0.25) 75%,
+    transparent 100%
+  );
+}
+
+.section-six-carousel-wrap::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #08090c 0%,
+    rgba(8, 9, 12, 0.8) 35%,
+    rgba(8, 9, 12, 0.25) 75%,
+    transparent 100%
+  );
 }
 
 /* Carousel Track with Continuous Infinite Animation */
